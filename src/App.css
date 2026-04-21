@@ -1141,27 +1141,115 @@ footer {
   box-shadow: 0 5px 15px rgba(0, 242, 254, 0.3);
 }
 
-@media (max-width: 900px) {
-  .knowledge-graph {
+/* --- MOBILE RESPONSIVENESS & WECHAT OPTIMIZATION --- */
+
+@media (max-width: 768px) {
+  /* Navbar */
+  .navbar {
+    padding: 15px 20px;
+    background: rgba(3, 0, 20, 0.95) !important;
+    backdrop-filter: blur(20px);
+  }
+  
+  .nav-links {
+    display: none; /* Mobile menu can be added later, for now we simplify */
+  }
+
+  /* Hero Section */
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 100px 20px 40px;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem; /* Scaled down for phones */
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 30px;
+  }
+
+  .hero-actions {
+    align-items: center;
+    width: 100%;
+  }
+
+  .btn-primary {
+    width: 100%;
+    max-width: 300px;
+    padding: 16px 30px;
+    font-size: 1rem;
+  }
+
+  .hero-visual {
+    height: 400px; /* Smaller height on mobile */
+    order: -1; /* Image first on mobile if preferred */
+  }
+
+  /* Projects Grid */
+  .projects {
     padding: 60px 20px;
   }
-  .graph-container-wrapper {
-    height: 500px;
+
+  .section-header h2 {
+    font-size: 2.5rem;
   }
-  .navbar {
-    padding: 20px;
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
-  .navbar.scrolled {
-    padding: 16px 20px;
+
+  .project-card {
+    padding: 30px 20px;
   }
-  .nav-links {
-    gap: 15px;
-    font-size: 0.8rem;
+
+  /* Identity & Video */
+  .identity-stats {
+    flex-direction: column;
+    gap: 24px;
   }
-  .nav-links a {
-    display: none; /* Hide most links on mobile for simplicity */
+
+  .video-spotlight {
+    padding: 1.5rem;
+    margin: 2rem 0;
   }
-  .nav-links a[href="#graph"] {
-    display: block;
+
+  .video-header h3 {
+    font-size: 1.2rem;
+  }
+
+  /* Bento Grid */
+  .social-roles {
+    grid-template-columns: 1fr;
+  }
+
+  .cert-tags {
+    justify-content: center;
+  }
+
+  /* Modal Fixes for touch */
+  .detail-modal {
+    padding: 2rem 1.5rem;
+    width: 95%;
+  }
+
+  .modal-header h2 {
+    font-size: 2rem;
+  }
+}
+
+/* Specific Fix for very small phones (iPhone SE/older Androids) */
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .stat-number {
+    font-size: 2.5rem;
   }
 }
