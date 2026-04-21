@@ -419,15 +419,16 @@ function App() {
                 <h3>📽️ {t.about.aiVideoTitle}</h3>
                 <p>{t.about.aiVideoDesc}</p>
               </div>
-              <div className="video-container">
-                <video 
-                  controls 
-                  className="ai-video-player"
-                  poster="/alvin_headshot.jpg"
-                >
-                  <source src="https://vibe-coding-portfolio.vercel.app/videos/Alvin_v1_compressed.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
+              <div className="video-container" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '12px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
+                <iframe 
+                  src="//player.bilibili.com/player.html?bvid=BV1D7421h7Lw&page=1&high_quality=1&danmaku=0" 
+                  style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+                  allowFullScreen
+                  scrolling="no"
+                  frameBorder="0"
+                  sandbox="allow-top-navigation allow-same-origin allow-forms allow-scripts"
+                  title="Safety Nexus AI Video"
+                ></iframe>
               </div>
             </div>
           </div>
