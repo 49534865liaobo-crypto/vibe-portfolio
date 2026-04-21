@@ -425,7 +425,7 @@ function App() {
                   className="ai-video-player"
                   poster="/alvin_headshot.jpg"
                 >
-                  <source src="/videos/Alvin_v1_compressed.mp4" type="video/mp4" />
+                  <source src="https://vibe-coding-portfolio.vercel.app/videos/Alvin_v1_compressed.mp4" type="video/mp4" />
                   Your browser does not support the video tag.
                 </video>
               </div>
