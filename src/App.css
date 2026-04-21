@@ -1232,7 +1232,33 @@ footer {
 
   .cert-tags {
     justify-content: center;
+    gap: 0.5rem;
   }
+  
+  .cert-tag {
+    padding: 0.5rem 1rem;
+    font-size: 0.8rem;
+  }
+
+  .role-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .role-icon {
+    font-size: 2.5rem;
+  }
+
+  .edu-list li {
+    gap: 0.8rem;
+  }
+  
+  .edu-data strong {
+    font-size: 1rem;
+  }
+
 
   /* Modal Fixes for touch */
   .detail-modal {
@@ -1251,7 +1277,16 @@ footer {
     font-size: 2.5rem;
   }
   
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  
   .stat-number {
     font-size: 2.5rem;
   }
+
+  .timeline-content h4 {
+    font-size: 1.2rem;
+  }
 }
+
