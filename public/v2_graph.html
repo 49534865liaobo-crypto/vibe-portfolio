@@ -277,10 +277,17 @@
                 // Use data from window.obsidianData (loaded via script tag)
                 // Fallback to fetch for backward compatibility or server environments
                 if (window.obsidianData) {
+                    console.log('Detected window.obsidianData');
                     graphData = window.obsidianData;
                 } else {
+                    console.log('obsidianData not found, fetching graph_data.json...');
                     const response = await fetch('graph_data.json');
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                     graphData = await response.json();
+                }
+
+                if (!graphData || !graphData.nodes) {
+                    throw new Error('Graph data is empty or invalid format');
                 }
 
                 // Process data: identify groups
@@ -314,10 +321,15 @@
                     document.getElementById('loading').style.opacity = '0';
                     setTimeout(() => document.getElementById('loading').remove(), 500);
                 }, 800);
-
             } catch (err) {
-                console.error(err);
-                document.getElementById('loading').innerHTML = `<div style="color:red">Failed to load graph data. Ensure graph_data.json exists.</div>`;
+                console.error('Graph Loading Error:', err);
+                document.getElementById('loading').innerHTML = `
+                    <div style="color:#ff4d4d; text-align: center; padding: 20px; background: rgba(0,0,0,0.8); border: 1px solid #333; border-radius: 8px;">
+                        <div style="font-size: 18px; font-weight: bold; margin-bottom: 10px;">Failed to load graph data</div>
+                        <div style="font-size: 14px; opacity: 0.8; margin-bottom: 15px;">${err.message}</div>
+                        <div style="font-size: 12px; color: #888;">Ensure /graph_data.json and /graph_data.js exist in the public directory and are valid.</div>
+                        <button onclick="window.location.reload()" style="margin-top: 15px; padding: 8px 16px; background: #7d66d9; border: none; border-radius: 4px; color: white; cursor: pointer;">Retry</button>
+                    </div>`;
             }
         }
 
