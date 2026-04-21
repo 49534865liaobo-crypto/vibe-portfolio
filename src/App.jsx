@@ -166,6 +166,7 @@ function App() {
         <div className="logo">SAFETY <span>NEXUS</span></div>
         <div className="nav-links">
           <a href="#projects">{t.nav.ecosystem}</a>
+          <a href="#graph">{t.nav.knowledgeGraph}</a>
           <a href="#experience">{t.nav.globalJourney}</a>
           <a href="#about">{t.nav.professional}</a>
           <a 
@@ -259,6 +260,27 @@ function App() {
             </div>
           ))}
         </div>
+      </section>
+      
+      {/* Knowledge Graph Section */}
+      <section id="graph" className="knowledge-graph">
+         <div className="section-header">
+            <h2>{t.graph.sectionTitle.split(' ').slice(0, -1).join(' ')} <span>{t.graph.sectionTitle.split(' ').slice(-1)}</span></h2>
+            <p>{t.graph.sectionSub}</p>
+         </div>
+         <div className="graph-container-wrapper glass-panel">
+            <iframe 
+              src="/v2_graph.html" 
+              title="Knowledge Graph"
+              className="graph-iframe"
+              loading="lazy"
+            ></iframe>
+            <div className="graph-overlay-hint">
+               <a href="/v2_graph.html" target="_blank" rel="noopener noreferrer" className="btn-sm">
+                 {t.graph.fullscreenBtn} ↗
+               </a>
+            </div>
+         </div>
       </section>
 
       {/* Experience Timeline */}

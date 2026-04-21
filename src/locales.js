@@ -3,6 +3,7 @@ export const locales = {
     nav: {
       ecosystem: "Safety Nexus",
       globalJourney: "Global Journey",
+      knowledgeGraph: "Mind Graph",
       professional: "The Professional",
       connect: "Connect ↗",
       langToggle: "中"
@@ -345,6 +346,7 @@ export const locales = {
     nav: {
       ecosystem: "安全生态",
       globalJourney: "全球足迹",
+      knowledgeGraph: "知识图谱",
       professional: "超级履历",
       connect: "联系我 ↗",
       langToggle: "EN"

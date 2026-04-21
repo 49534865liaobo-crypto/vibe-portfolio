@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Obsidian Knowledge Graph - Safety Nexus</title>
+    <script src="https://unpkg.com/force-graph"></script>
+    <script src="graph_data.js"></script>
+    <style>
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #e0e0e0;
+            --accent-color: #7d66d9;
+            --panel-bg: rgba(25, 25, 25, 0.85);
+            --border-color: #333;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow: hidden;
+        }
+
+        #graph {
+            width: 100vw;
+            height: 100vh;
+        }
+
+        /* Modern UI Panels */
+        .overlay {
+            position: absolute;
+            z-index: 100;
+            pointer-events: none;
+        }
+
+        #ui-left {
+            top: 20px;
+            left: 20px;
+            width: 320px;
+        }
+
+        #ui-right {
+            top: 20px;
+            right: 20px;
+            width: 280px;
+        }
+
+        .glass-panel {
+            background: var(--panel-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+            pointer-events: auto;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin: 0 0 15px 0;
+            color: var(--accent-color);
+            display: flex;
+            align-items: center;
+        }
+
+        h1::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            margin-right: 10px;
+            box-shadow: 0 0 10px var(--accent-color);
+        }
+
+        .search-box {
+            width: 100%;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 6px;
+            font-size: 13px;
+            box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .search-box:focus {
+            border-color: var(--accent-color);
+        }
+
+        .legend {
+            font-size: 12px;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .legend-item:hover {
+            opacity: 0.8;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 12px;
+        }
+
+        .stats {
+            margin-top: 20px;
+            font-size: 11px;
+            color: #888;
+            border-top: 1px solid #222;
+            padding-top: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .control-group {
+            margin-bottom: 15px;
+        }
+
+        .control-label {
+            display: block;
+            font-size: 11px;
+            color: #aaa;
+            margin-bottom: 5px;
+        }
+
+        input[type="range"] {
+            width: 100%;
+            accent-color: var(--accent-color);
+        }
+
+        #node-info {
+            display: none;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 12px 24px;
+            background: var(--accent-color);
+            color: white;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            white-space: nowrap;
+        }
+
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: var(--bg-color);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.5s;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid #222;
+            border-top-color: var(--accent-color);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <div id="loading" class="loading-screen">
+        <div class="spinner"></div>
+        <div style="letter-spacing: 2px; font-size: 12px; color: #666;">ANALYZING NEURAL NETWORK...</div>
+    </div>
+
+    <div id="ui-left" class="overlay">
+        <div class="glass-panel">
+            <h1>Graph Explorer</h1>
+            <input type="text" id="search" class="search-box" placeholder="Find a note or project...">
+            <div id="search-results"></div>
+        </div>
+
+        <div class="glass-panel">
+            <h1>Legend</h1>
+            <div class="legend" id="legend-list">
+                <!-- Will be populated dynamicallly -->
+            </div>
+            <div class="stats">
+                <span id="stat-nodes">0 Nodes</span>
+                <span id="stat-links">0 Connections</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="ui-right" class="overlay">
+        <div class="glass-panel">
+            <h1>Display Settings</h1>
+            <div class="control-group">
+                <span class="control-label">Node Size</span>
+                <input type="range" id="node-size" min="1" max="10" value="4">
+            </div>
+            <div class="control-group">
+                <span class="control-label">Link Strength</span>
+                <input type="range" id="link-dist" min="20" max="300" value="100">
+            </div>
+            <div class="control-group">
+                <span class="control-label">Gravity</span>
+                <input type="range" id="gravity" min="-1000" max="-10" value="-200">
+            </div>
+            <div class="control-group">
+                <label style="display: flex; align-items: center; font-size: 12px; cursor: pointer;">
+                    <input type="checkbox" id="show-labels" checked style="margin-right: 10px;"> Show Labels
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div id="node-info"></div>
+    <div id="graph"></div>
+
+    <script>
+        const colorMap = {
+            '00-Index': '#a371f7',   // Purple
+            '10-Daily': '#e91e63',   // Pink
+            '20-Concepts': '#5b9bd5', // Blue
+            '30-Resources': '#70ad47', // Green
+            '40-Projects': '#ed7d31',  // Orange/Red
+            '90-Meta': '#7f7f7f',      // Gray
+            'Unresolved': '#442222',   // Dim Red
+            'Default': '#555555'
+        };
+
+        const groupLabels = {
+            '00-Index': 'Maps of Content (MOC)',
+            '10-Daily': 'Daily Journals',
+            '20-Concepts': 'Knowledge Areas',
+            '30-Resources': 'Reference Books & Docs',
+            '40-Projects': 'Active Projects',
+            '90-Meta': 'System & Templates',
+            'Unresolved': 'Uncreated Notes'
+        };
+
+        let graphData = null;
+        let Graph = null;
+        const highlightNodes = new Set();
+        const highlightLinks = new Set();
+        let hoverNode = null;
+
+        async function init() {
+            try {
+                // Use data from window.obsidianData (loaded via script tag)
+                // Fallback to fetch for backward compatibility or server environments
+                if (window.obsidianData) {
+                    graphData = window.obsidianData;
+                } else {
+                    const response = await fetch('graph_data.json');
+                    graphData = await response.json();
+                }
+
+                // Process data: identify groups
+                const groups = new Set();
+                graphData.nodes.forEach(node => {
+                    const groupKey = Object.keys(colorMap).find(k => node.group && node.group.includes(k)) || 'Default';
+                    node.groupKey = node.group === 'Unresolved' ? 'Unresolved' : groupKey;
+                    node.val = (node.id.includes('MOC') || node.id.includes('Home')) ? 12 : 4; 
+                    groups.add(node.groupKey);
+                });
+
+                // Update Stats
+                document.getElementById('stat-nodes').innerText = `${graphData.nodes.length} Nodes`;
+                document.getElementById('stat-links').innerText = `${graphData.links.length} Links`;
+
+                // Build Legend
+                const legendEl = document.getElementById('legend-list');
+                [...groups].sort().forEach(g => {
+                    if (g === 'Default') return;
+                    const item = document.createElement('div');
+                    item.className = 'legend-item';
+                    item.innerHTML = `<div class="dot" style="background:${colorMap[g]}; box-shadow: 0 0 8px ${colorMap[g]}66"></div> ${groupLabels[g] || g}`;
+                    legendEl.appendChild(item);
+                });
+
+                // Initialize Graph
+                renderGraph();
+
+                // Remove loading
+                setTimeout(() => {
+                    document.getElementById('loading').style.opacity = '0';
+                    setTimeout(() => document.getElementById('loading').remove(), 500);
+                }, 800);
+
+            } catch (err) {
+                console.error(err);
+                document.getElementById('loading').innerHTML = `<div style="color:red">Failed to load graph data. Ensure graph_data.json exists.</div>`;
+            }
+        }
+
+        function renderGraph() {
+            const elem = document.getElementById('graph');
+            Graph = ForceGraph()(elem)
+                .graphData(graphData)
+                .backgroundColor('#0d0d0d')
+                .nodeId('id')
+                .nodeVal(node => node.val)
+                .nodeLabel(node => `<div style="padding: 4px 8px; background: rgba(0,0,0,0.8); border-radius: 4px; border: 1px solid #444;">${node.id}</div>`)
+                .nodeColor(node => {
+                    if (highlightNodes.size > 0 && !highlightNodes.has(node)) return '#222';
+                    return colorMap[node.groupKey] || colorMap.Default;
+                })
+                .linkColor(link => {
+                    if (highlightLinks.size > 0 && !highlightLinks.has(link)) return '#111';
+                    return '#333';
+                })
+                .linkWidth(link => highlightLinks.has(link) ? 2 : 1)
+                .linkDirectionalParticles(link => highlightLinks.has(link) ? 4 : 0)
+                .linkDirectionalParticleSpeed(0.01)
+                .onNodeHover(node => {
+                    if (node === hoverNode) return;
+                    
+                    highlightNodes.clear();
+                    highlightLinks.clear();
+                    
+                    if (node) {
+                        highlightNodes.add(node);
+                        graphData.links.forEach(link => {
+                            if (link.source.id === node.id || link.target.id === node.id) {
+                                highlightLinks.add(link);
+                                highlightNodes.add(link.source);
+                                highlightNodes.add(link.target);
+                            }
+                        });
+                        document.getElementById('node-info').innerText = node.id;
+                        document.getElementById('node-info').style.display = 'block';
+                    } else {
+                        document.getElementById('node-info').style.display = 'none';
+                    }
+
+                    hoverNode = node || null;
+                    updateHighlight();
+                })
+                .onNodeClick(node => {
+                    Graph.centerAt(node.x, node.y, 1000);
+                    Graph.zoom(4, 1000);
+                })
+                .nodeCanvasObject((node, ctx, globalScale) => {
+                    const isHighlighted = highlightNodes.size === 0 || highlightNodes.has(node);
+                    const color = colorMap[node.groupKey] || colorMap.Default;
+                    const r = (node.val * 0.8) / Math.pow(globalScale, 0.2);
+
+                    // Circle
+                    ctx.beginPath();
+                    ctx.arc(node.x, node.y, r, 0, 2 * Math.PI, false);
+                    ctx.fillStyle = isHighlighted ? color : '#222';
+                    ctx.fill();
+
+                    // Glow if active
+                    if (isHighlighted && node.val > 6) {
+                        ctx.shadowBlur = 15;
+                        ctx.shadowColor = color;
+                        ctx.fill();
+                        ctx.shadowBlur = 0;
+                    }
+
+                    // Label
+                    const showLabels = document.getElementById('show-labels').checked;
+                    if (showLabels && (globalScale > 2 || node.val > 8 || highlightNodes.has(node))) {
+                        const label = node.id;
+                        const fontSize = 12 / globalScale;
+                        ctx.font = `${fontSize}px Inter`;
+                        ctx.textAlign = 'center';
+                        ctx.textBaseline = 'top';
+                        ctx.fillStyle = isHighlighted ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.1)';
+                        ctx.fillText(label, node.x, node.y + r + 2);
+                    }
+                });
+
+            // Adjust physics
+            const linkForce = Graph.d3Force('link');
+            linkForce.distance(100);
+            Graph.d3Force('charge').strength(-200);
+
+            window.addEventListener('resize', () => {
+                Graph.width(window.innerWidth);
+                Graph.height(window.innerHeight);
+            });
+        }
+
+        function updateHighlight() {
+            Graph
+                .nodeColor(Graph.nodeColor())
+                .linkColor(Graph.linkColor())
+                .linkWidth(Graph.linkWidth());
+        }
+
+        // Search Implementation
+        document.getElementById('search').addEventListener('input', (e) => {
+            const query = e.target.value.toLowerCase();
+            if (!query) return;
+
+            const node = graphData.nodes.find(n => n.id.toLowerCase().includes(query));
+            if (node) {
+                Graph.centerAt(node.x, node.y, 1000);
+                Graph.zoom(3, 1000);
+                // Highlight neighbor
+                highlightNodes.clear();
+                highlightLinks.clear();
+                highlightNodes.add(node);
+                graphData.links.forEach(link => {
+                    if (link.source.id === node.id || link.target.id === node.id) {
+                        highlightLinks.add(link);
+                        highlightNodes.add(link.source);
+                        highlightNodes.add(link.target);
+                    }
+                });
+                updateHighlight();
+            }
+        });
+
+        // Controls
+        document.getElementById('node-size').addEventListener('input', e => {
+             graphData.nodes.forEach(n => n.val = n.id.includes('MOC') ? e.target.value * 2.5 : e.target.value);
+             Graph.nodeVal(n => n.val);
+        });
+
+        document.getElementById('link-dist').addEventListener('input', e => {
+            Graph.d3Force('link').distance(Number(e.target.value));
+            Graph.numDimensions(2); // trigger reheat
+        });
+
+        document.getElementById('gravity').addEventListener('input', e => {
+            Graph.d3Force('charge').strength(Number(e.target.value));
+            Graph.numDimensions(2); // trigger reheat
+        });
+
+        init();
+    </script>
+</body>
+</html>
