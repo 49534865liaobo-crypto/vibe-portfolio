@@ -174,6 +174,12 @@ export const locales = {
         }
       ]
     },
+    graph: {
+      sectionTitle: "Knowledge mind graph",
+      sectionSub: "Interactive neural network of atomic notes, professional standards, and project architecture.",
+      loadingText: "INITIALIZING NEURAL NETWORK...",
+      fullscreenBtn: "Open Fullscreen"
+    },
     journey: {
       sectionTitle: "Global Journey",
       sectionSub: "Cross-border leadership in nuclear, rail, and tech domains.",
@@ -516,6 +522,12 @@ export const locales = {
           backgroundVariant: "purple"
         }
       ]
+    },
+    graph: {
+      sectionTitle: "安全大脑 知识图谱",
+      sectionSub: "交互式神经元网络：涵盖原子笔记、行业标准及项目架构的深度关联。",
+      loadingText: "系统初始化中 - 神经元网络加载...",
+      fullscreenBtn: "全屏探索"
     },
     journey: {
       sectionTitle: "全球 轨迹",
