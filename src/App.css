@@ -1025,3 +1025,66 @@ footer {
   50% { transform: scale(1.2); opacity: 0.7; }
   100% { transform: scale(1); opacity: 0.4; }
 }
+
+.role-item.clickable {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.role-item.clickable:hover {
+  background: rgba(0, 242, 254, 0.08) !important;
+  border-left-color: var(--accent-blue);
+  transform: translateX(8px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.role-view-more {
+  margin-top: 12px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--accent-cyan);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.6;
+  transition: all 0.3s ease;
+}
+
+.role-item.clickable:hover .role-view-more {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+.role-modal-body {
+  max-height: 55vh;
+  overflow-y: auto;
+  padding-right: 15px;
+  margin-top: 2rem;
+}
+
+.role-modal-body .project-long-content {
+  background: rgba(255, 255, 255, 0.02);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom scrollbar for modal body */
+.role-modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.role-modal-body::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.role-modal-body::-webkit-scrollbar-thumb {
+  background: var(--accent-cyan);
+  border-radius: 10px;
+}

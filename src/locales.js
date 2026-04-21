@@ -287,8 +287,40 @@ export const locales = {
       socialTitle: "Social & Professional Leadership",
       socialRoles: [
         { title: "Vice President", org: "China Beijing-HK-Macau General Chamber of Commerce", desc: "Building elite networks, establishing strategic partnerships, and fostering digital economy initiatives." },
-        { title: "Honorary Treasurer (Nuclear)", org: "Hong Kong Institution of Engineers (HKIE)", desc: "Promoting engineered safety excellence, knowledge exchange, and elevating the professional status of engineers." },
-        { title: "Committee Member", org: "HKQMA New Quality Productive Forces", desc: "Collaborating with top tech executives to advance Hong Kong's tech ecosystem." },
+        { 
+          title: "Honorary Treasurer (Nuclear)", 
+          org: "Hong Kong Institution of Engineers (HKIE)", 
+          desc: "Promoting engineered safety excellence, knowledge exchange, and elevating the professional status of engineers.",
+          longContent: `
+            <div style="text-align: left; line-height: 1.6; color: #cbd5e1; font-size: 0.95rem;">
+              <h4 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">Recent Leadership Highlights (2025-2026)</h4>
+              <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 0.8rem;">
+                <li><strong>Technical Visit Leadership:</strong> Facilitated high-level technical visits to the Daya Bay Nuclear Power Base, enhancing cross-border safety knowledge exchange.</li>
+                <li><strong>Advanced Tech Seminars:</strong> Co-hosted technical seminars on Small Modular Reactors (SMRs) and Fusion Energy, bridging technology and public policy.</li>
+                <li><strong>Emergency Preparedness:</strong> Led workshops on Nuclear Emergency Response coordination, benchmarking against international IAEA and HRO standards.</li>
+                <li><strong>Professional Mentorship:</strong> Actively mentored emerging engineers through the HKIE mentorship framework, fostering the next generation of safety leaders.</li>
+                <li><strong>Public Advocacy:</strong> Elevated the division's presence at the InnoCarnival, demystifying nuclear engineering for the general public.</li>
+              </ul>
+            </div>
+          `
+        },
+        { 
+          title: "Committee Member", 
+          org: "HKQTMA New Quality Productive Forces", 
+          desc: "Collaborating with top tech executives to advance Hong Kong's tech ecosystem.",
+          longContent: `
+            <div style="text-align: left; line-height: 1.6; color: #cbd5e1; font-size: 0.95rem;">
+              <h4 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">Hong Kong Association of Qualified Professionals (HKQTMA) Activities</h4>
+              <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 0.8rem;">
+                <li><strong>International Talent Festival:</strong> Key organizer for the 2025 Hong Kong International Talent Festival, establishing regional talent hubs.</li>
+                <li><strong>New Quality Productive Forces:</strong> Contributed strategic insights to the 5th International Talent Peak Forum on integrating AI with traditional industrial sectors.</li>
+                <li><strong>Leadership & Governance:</strong> Elected to the 4th Board of Directors, driving the association's modernization and digital engagement strategy.</li>
+                <li><strong>Global Talent Exchange:</strong> Directed core sessions at the 2026 Talent Exchange Conference, aligning with the HKSAR Government's Global Talent Summit Week.</li>
+                <li><strong>Innovation Synergy:</strong> Facilitated the Ph.D. Project Exhibition, bridging academic breakthroughs with corporate venture capital in Hong Kong.</li>
+              </ul>
+            </div>
+          `
+        },
         { title: "Fellow / IRM Member", org: "IOSH UK", desc: "Leading global safety innovation and risk standards." }
       ],
       certTitle: "Professional Certifications",
@@ -598,8 +630,40 @@ export const locales = {
       socialTitle: "社会职务与领袖身份",
       socialRoles: [
         { title: "副会长", org: "中国京港澳总商会 (香港分会)", desc: "构建高端政企人脉网络，打造数字经济产业生态，成功孵化多项国际数字人才活动与高层战略合作。" },
-        { title: "核子分部荣誉司库", org: "香港工程师学会 (HKIE)", desc: "促进顶级工程学知识与前沿安全思想的交流，致力于提高工程师在社会与公共治理中的地位。" },
-        { title: "新质生产力委员会委员", org: "香港优才及专才协会", desc: "与美团、快手等科技巨头高管并肩，深度参与香港本地新质生产力建设，推动科创生态发展。" },
+        { 
+          title: "核子分部荣誉司库", 
+          org: "香港工程师学会 (HKIE)", 
+          desc: "促进顶级工程学知识与前沿安全思想的交流，致力于提高工程师在社会与公共治理中的地位。",
+          longContent: `
+            <div style="text-align: left; line-height: 1.6; color: #cbd5e1; font-size: 0.95rem;">
+              <h4 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">近期工作亮点 (2025-2026)</h4>
+              <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 0.8rem;">
+                <li><strong>領導入現場考察：</strong> 組織並促成了大亞灣核電基地的深度技術考察，強化深港兩地安全標準的實踐交流。</li>
+                <li><strong>前沿技術論壇：</strong> 聯合主辦關於小型模組化反應堆（SMRs）及核融合技術的專業研討會，架起技術與政策的溝通橋樑。</li>
+                <li><strong>應急響應能力：</strong> 主導核應急響應協調工作坊，對標國際原子能機構（IAEA）與高可靠性組織（HRO）框架。</li>
+                <li><strong>專業导师計劃：</strong> 擔任學會導師，為香港能源領域的下一代工程師提供職涯規劃與安全文化指導。</li>
+                <li><strong>公眾科普宣傳：</strong> 代表分部參與「創科博覽」，向社會大眾科普核能工程的安全性與未來發展方向。</li>
+              </ul>
+            </div>
+          `
+        },
+        { 
+          title: "新质生产力委员会委员", 
+          org: "香港优才及专才协会", 
+          desc: "与美团、快手等科技巨头高管并肩，深度参与香港本地新质生产力建设，推动科创生态发展。",
+          longContent: `
+            <div style="text-align: left; line-height: 1.6; color: #cbd5e1; font-size: 0.95rem;">
+              <h4 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">香港優才及專才協會 - 近期核心工作</h4>
+              <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 0.8rem;">
+                <li><strong>國際人才節：</strong> 作為 2025 香港國際人才節的核心發起人之一，成功搭建區域性的人才聚集平台。</li>
+                <li><strong>新質生產力戰略：</strong> 在第五屆香港國際人才高峰論壇上發表專題演講，探討 AI 技術與傳統產業的深度整合。</li>
+                <li><strong>組織領導力：</strong> 當選第四屆理監事會成員，負責協會的數字化轉型及會員增長戰略。</li>
+                <li><strong>全球人才交流：</strong> 統籌 2026 香港國際人才交流大會（特區政府「全球人才高峰會」卫星活動），落實海外招才。</li>
+                <li><strong>產學研協同：</strong> 主導博士人才項目展，精準對接本港科創企業與高校尖端研究成果，促進成果轉化。</li>
+              </ul>
+            </div>
+          `
+        },
         { title: "资深会员 / IRM 成员", org: "英国 IOSH", desc: "在全球范围内引领高标准的工程安全实践与风险管理体系演进。" }
       ],
       certTitle: "专业认证",

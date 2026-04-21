@@ -46,6 +46,39 @@ const ProjectModal = ({ project, onClose, t }) => {
   );
 };
 
+const RoleModal = ({ role, onClose, t }) => {
+  if (!role) return null;
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal-content glass-panel" onClick={e => e.stopPropagation()}>
+        <button className="close-btn" onClick={onClose}>×</button>
+        
+        <div className="modal-header">
+          <h2>{role.title}</h2>
+          <p className="modal-desc">{role.org}</p>
+        </div>
+
+        <div className="modal-body role-modal-body">
+          {role.longContent ? (
+            <div className="project-long-content" dangerouslySetInnerHTML={{ __html: role.longContent }} />
+          ) : (
+            <div className="glass-card detail-card">
+              <p>{role.desc}</p>
+            </div>
+          )}
+        </div>
+        
+        <div className="modal-footer">
+          <button className="btn-lg action-btn" onClick={onClose}>
+            {t.journey.closeWindow}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 function App() {
   const [lang, setLang] = useState(localStorage.getItem('portfolio_lang') || 'en');
   const t = locales[lang];
@@ -72,6 +105,7 @@ function App() {
 
   const [selectedProject, setSelectedProject] = useState(null);
   const [selectedExperience, setSelectedExperience] = useState(null);
+  const [selectedRole, setSelectedRole] = useState(null);
   const mapRef = useRef(null);
 
   const [scrolled, setScrolled] = useState(false);
@@ -381,30 +415,23 @@ function App() {
             <div className="bento-box bento-social glass-card">
               <h3>🤝 {t.about.socialTitle}</h3>
               <div className="social-roles">
-                <div className="role-item">
-                  <div className="role-icon">🏛️</div>
-                  <div className="role-info">
-                    <h4>{t.about.socialRoles[0].title}</h4>
-                    <p>{t.about.socialRoles[0].org}</p>
-                    <span>{t.about.socialRoles[0].desc}</span>
+                {t.about.socialRoles.map((role, idx) => (
+                  <div 
+                    className={`role-item ${role.longContent ? 'clickable' : ''}`} 
+                    key={idx}
+                    onClick={() => role.longContent && setSelectedRole(role)}
+                  >
+                    <div className="role-icon">
+                      {idx === 0 ? '🏛️' : idx === 1 ? '⚙️' : idx === 2 ? '🚀' : '🛡️'}
+                    </div>
+                    <div className="role-info">
+                      <h4>{role.title}</h4>
+                      <p>{role.org}</p>
+                      <span>{role.desc}</span>
+                      {role.longContent && <div className="role-view-more">{lang === 'en' ? 'View Details ➔' : '查看详情 ➔'}</div>}
+                    </div>
                   </div>
-                </div>
-                <div className="role-item">
-                  <div className="role-icon">⚙️</div>
-                  <div className="role-info">
-                    <h4>{t.about.socialRoles[1].title}</h4>
-                    <p>{t.about.socialRoles[1].org}</p>
-                    <span>{t.about.socialRoles[1].desc}</span>
-                  </div>
-                </div>
-                <div className="role-item">
-                  <div className="role-icon">🚀</div>
-                  <div className="role-info">
-                    <h4>{t.about.socialRoles[2].title}</h4>
-                    <p>{t.about.socialRoles[2].org}</p>
-                    <span>{t.about.socialRoles[2].desc}</span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 
@@ -456,6 +483,9 @@ function App() {
           </div>
         </div>
       </section>
+
+      {/* Role Modal */}
+      <RoleModal role={selectedRole} onClose={() => setSelectedRole(null)} t={t} />
 
       <footer>
         <p>© 2026 <a href="https://www.linkedin.com/in/ir-bo-alvin-liao-2b237b95/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit', textDecoration: 'underline' }}>Alvin Liao</a> | {t.footerLabel}</p>
