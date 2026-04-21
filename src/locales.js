@@ -321,7 +321,6 @@ export const locales = {
             </div>
           `
         },
-        { title: "Fellow / IRM Member", org: "IOSH UK", desc: "Leading global safety innovation and risk standards." }
       ],
       certTitle: "Professional Certifications",
       certList: [
@@ -664,7 +663,6 @@ export const locales = {
             </div>
           `
         },
-        { title: "资深会员 / IRM 成员", org: "英国 IOSH", desc: "在全球范围内引领高标准的工程安全实践与风险管理体系演进。" }
       ],
       certTitle: "专业认证",
       certList: [
