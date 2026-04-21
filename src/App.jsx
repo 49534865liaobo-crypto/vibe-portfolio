@@ -421,7 +421,7 @@ function App() {
               </div>
               <div className="video-container" style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '12px', boxShadow: '0 20px 50px rgba(0,0,0,0.3)' }}>
                 <iframe 
-                  src="//player.bilibili.com/player.html?bvid=BV1D7421h7Lw&page=1&high_quality=1&danmaku=0" 
+                  src="//player.bilibili.com/player.html?bvid=BV1aidmBbEaH&page=1&high_quality=1&danmaku=0" 
                   style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
                   allowFullScreen
                   scrolling="no"
