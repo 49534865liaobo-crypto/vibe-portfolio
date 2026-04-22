@@ -1,4 +1,37 @@
 {
+    "quota_monitor": {
+        "credits": 24123,
+        "last_sync": "2026-04-22 21:03",
+        "groups": [
+            {
+                "name": "Group 1",
+                "usage_percent": 100.00,
+                "reset_in": "5h 0m",
+                "reset_time": "04/23/2026 02:03",
+                "status": "Healthy",
+                "enabled": true,
+                "models": ["Gemini 3.1 Pro (High)", "Gemini 3.1 Pro (Low)"]
+            },
+            {
+                "name": "Gemini 3 Flash",
+                "usage_percent": 80.00,
+                "reset_in": "3h 47m",
+                "reset_time": "04/23/2026 00:50",
+                "status": "Healthy",
+                "enabled": true,
+                "models": ["Gemini 3 Flash"]
+            },
+            {
+                "name": "Group 3",
+                "usage_percent": 100.00,
+                "reset_in": "5h 0m",
+                "reset_time": "04/23/2026 02:03",
+                "status": "Healthy",
+                "enabled": true,
+                "models": ["Claude Sonnet 4.6 (Thinking)", "Claude Opus 4.6 (Thinking)", "GPT-OSS 120B (Medium)"]
+            }
+        ]
+    },
     "silicon_flow": {
         "api_calls_count": 1248,
         "quota_limit": 5000,

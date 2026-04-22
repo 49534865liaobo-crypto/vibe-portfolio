@@ -17,6 +17,11 @@ async function refreshOffice() {
         updateBlueprintUI(cockpit.blueprint);
         updateSofaTasks(tasks);
         
+        // Update Quota Monitor
+        if (cockpit.quota_monitor) {
+            updateQuotaMonitor(cockpit.quota_monitor);
+        }
+        
         // Inject Live News Feed
         if (cockpit.news_feed) {
             injectLiveNews(cockpit.news_feed);
@@ -80,6 +85,59 @@ function updateBlueprintUI(blueprint) {
         item.className = `bp-item ${m.status}`;
         item.innerText = m.title;
         container.appendChild(item);
+    });
+}
+
+function updateQuotaMonitor(quotaData) {
+    const container = document.getElementById('quota-groups');
+    if (!container) return;
+    container.innerHTML = '';
+    
+    const creditsRow = document.createElement('div');
+    creditsRow.className = 'quota-credits-row';
+    creditsRow.innerHTML = '<span>Credits:</span><span class="credits-value">' + quotaData.credits.toLocaleString() + '</span>';
+    container.appendChild(creditsRow);
+    
+    quotaData.groups.forEach(function(group) {
+        const card = document.createElement('div');
+        card.className = 'quota-group-card';
+        
+        const pct = group.usage_percent;
+        let ringColor = '#4ade80';
+        if (pct >= 100) ringColor = '#ef4444';
+        else if (pct >= 80) ringColor = '#f59e0b';
+        
+        const radius = 22;
+        const circumference = 2 * Math.PI * radius;
+        const offset = circumference - (pct / 100) * circumference;
+        
+        const statusClass = group.status === 'Healthy' ? 'status-healthy' : 'status-warn';
+        
+        let modelTags = '';
+        group.models.forEach(function(m) {
+            modelTags += '<span class="model-tag">' + m + '</span>';
+        });
+        
+        card.innerHTML = '<div class="qg-header">' +
+            '<span class="qg-name">' + group.name + '</span>' +
+            '<span class="qg-toggle ' + (group.enabled ? 'on' : 'off') + '">' + (group.enabled ? 'ON' : 'OFF') + '</span>' +
+            '</div>' +
+            '<div class="qg-ring-row">' +
+            '<svg class="qg-ring" width="54" height="54" viewBox="0 0 54 54">' +
+            '<circle cx="27" cy="27" r="' + radius + '" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="4"/>' +
+            '<circle cx="27" cy="27" r="' + radius + '" fill="none" stroke="' + ringColor + '" stroke-width="4"' +
+            ' stroke-dasharray="' + circumference + '" stroke-dashoffset="' + offset + '"' +
+            ' stroke-linecap="round" transform="rotate(-90 27 27)"' +
+            ' style="transition: stroke-dashoffset 1s ease;"/>' +
+            '</svg>' +
+            '<span class="qg-pct" style="color: ' + ringColor + '">' + pct.toFixed(0) + '%</span>' +
+            '</div>' +
+            '<div class="qg-details">' +
+            '<div class="qg-detail-row"><span>Reset In</span><span>' + group.reset_in + '</span></div>' +
+            '<div class="qg-detail-row"><span>Status</span><span class="' + statusClass + '">' + group.status + '</span></div>' +
+            '</div>' +
+            '<div class="qg-models">' + modelTags + '</div>';
+        container.appendChild(card);
     });
 }
 
