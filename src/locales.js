@@ -303,7 +303,35 @@ export const locales = {
       ],
       socialTitle: "Social & Professional Leadership",
       socialRoles: [
-        { title: "Vice President", org: "China Beijing-HK-Macau General Chamber of Commerce", desc: "Building elite networks, establishing strategic partnerships, and fostering digital economy initiatives." },
+        { 
+          title: "Vice President", 
+          org: "China Beijing-HK-Macau General Chamber of Commerce", 
+          desc: "Building elite networks, establishing strategic partnerships, and fostering digital economy initiatives.",
+          longContent: `
+            <div style="text-align: left; line-height: 1.6; color: #cbd5e1; font-size: 0.95rem;">
+              <h4 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">Mission & Strategic Vision</h4>
+              <p style="margin-bottom: 1rem;"><strong>Core Mission:</strong> Connecting Beijing, Hong Kong, and Macau, radiating across China, and promoting high-quality integration of economy, culture, and technology industries.</p>
+              
+              <div style="background: rgba(0,242,254,0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid rgba(0,242,254,0.1);">
+                <h5 style="color: var(--accent-cyan); margin-bottom: 0.5rem;">🚀 Strategic Blueprint: 「Digitalization + Global Outbound + Cultural Tourism」</h5>
+                <p>We focus on leading Chinese enterprises, technology, and culture towards global markets while leveraging the unique advantages of the Greater Bay Area.</p>
+              </div>
+
+              <h4 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">Network & Impact (2026 Data)</h4>
+              <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.5rem;">
+                <li><strong>Member Base:</strong> 101+ enterprise members (55% Technology, 20% Cultural Tourism, 10% Culture).</li>
+                <li><strong>Regional Synergy:</strong> Bridging resource gaps between Mainland China and HK/Macau through specialized committees.</li>
+                <li><strong>Industry Collaboration:</strong> Partnering with top-tier firms (Tencent, Alibaba, ByteDance, etc.) to drive innovation.</li>
+              </ul>
+
+              <div style="margin-top: 1.5rem; text-align: center;">
+                <a href="/docs/chamber_intro.pdf" target="_blank" class="btn-sm" style="display: inline-block; padding: 10px 20px; border: 1px solid var(--accent-cyan); border-radius: 4px; color: var(--accent-cyan); text-decoration: none;">
+                  📄 View Full Profile (PDF)
+                </a>
+              </div>
+            </div>
+          `
+        },
         { 
           title: "Honorary Treasurer (Nuclear)", 
           org: "Hong Kong Institution of Engineers (HKIE)", 
@@ -662,7 +690,35 @@ export const locales = {
       ],
       socialTitle: "社会职务与领袖身份",
       socialRoles: [
-        { title: "副会长", org: "中国京港澳总商会 (香港分会)", desc: "构建高端政企人脉网络，打造数字经济产业生态，成功孵化多项国际数字人才活动与高层战略合作。" },
+        { 
+          title: "副会长", 
+          org: "中国京港澳总商会 (香港分会)", 
+          desc: "构建高端政企人脉网络，打造数字经济产业生态，成功孵化多项国际数字人才活动与高层战略合作。",
+          longContent: `
+            <div style="text-align: left; line-height: 1.6; color: #cbd5e1; font-size: 0.95rem;">
+              <h4 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">商会使命与战略愿景</h4>
+              <p style="margin-bottom: 1rem;"><strong>核心使命：</strong>连通京港澳，辐射全中国，推动经济、文化、科技产业高质量融合发展。</p>
+              
+              <div style="background: rgba(255,0,193,0.05); padding: 1rem; border-radius: 8px; margin-bottom: 1.5rem; border: 1px solid rgba(255,0,193,0.1);">
+                <h5 style="color: var(--accent-pink); margin-bottom: 0.5rem;">🚀 核心战略：「数字化 + 出海 + 文旅」</h5>
+                <p>商会致力于对接国家顶层资源平台，打破区域与行业认知差距，引领中国企业、科技与文化品牌走向全球。</p>
+              </div>
+
+              <h4 style="color: #fff; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem; margin-bottom: 1rem;">生态影响力 (2026年数据)</h4>
+              <ul style="padding-left: 20px; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 1.5rem;">
+                <li><strong>会员规模：</strong>截至2026年2月，共有101个会员单位（科技占比55%，文旅占比20%）。</li>
+                <li><strong>跨域协同：</strong>在北京、香港、澳门设有重要支点，辐射全国20多个省市。</li>
+                <li><strong>产业矩阵：</strong>涵盖腾讯、阿里、华为、字节、用友、京东等顶尖企业合作伙伴。</li>
+              </ul>
+
+              <div style="margin-top: 1.5rem; text-align: center;">
+                <a href="/docs/chamber_intro.pdf" target="_blank" class="btn-sm" style="display: inline-block; padding: 10px 20px; border: 1px solid var(--accent-pink); border-radius: 4px; color: var(--accent-pink); text-decoration: none;">
+                  📄 查看完整商会介绍 (PDF)
+                </a>
+              </div>
+            </div>
+          `
+        },
         { 
           title: "核子分部荣誉司库", 
           org: "香港工程师学会 (HKIE)", 
