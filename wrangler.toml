@@ -1,0 +1,11 @@
+# Cloudflare Pages Configuration for Safety Nexus Portfolio
+name = "safety-nexus-portfolio"
+compatibility_date = "2024-04-01"
+
+[pages_build_config]
+build_command = "npm run build"
+destination_dir = "dist"
+
+# Optional: Add environment variables if needed
+[vars]
+NODE_VERSION = "20"

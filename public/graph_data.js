@@ -53,7 +53,7 @@ window.obsidianData = {
       "group": "/20-Concepts"
     },
     {
-      "id": "Area - Mainland Business (China)",
+      "id": "Area - Chinese Mainland Business (China)",
       "group": "/20-Concepts"
     },
     {
@@ -455,19 +455,19 @@ window.obsidianData = {
       "target": "Concept - AI Workflow Thinking"
     },
     {
-      "source": "Area - Mainland Business (China)",
+      "source": "Area - Chinese Mainland Business (China)",
       "target": "Resource - Railway Engineering Standards"
     },
     {
-      "source": "Area - Mainland Business (China)",
+      "source": "Area - Chinese Mainland Business (China)",
       "target": "Bio - Alvin Liao"
     },
     {
-      "source": "Area - Mainland Business (China)",
+      "source": "Area - Chinese Mainland Business (China)",
       "target": "Area - Corporate Safety Management (MTR)"
     },
     {
-      "source": "Area - Mainland Business (China)",
+      "source": "Area - Chinese Mainland Business (China)",
       "target": "Area - Digital Economy & New Productive Forces"
     },
     {

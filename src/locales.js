@@ -171,6 +171,16 @@ export const locales = {
           architecture: "D3.js + PostgreSQL + PowerBI",
           link: "https://api.whatsapp.com/send/?phone=85296868991&text=menu&type=phone_number&app_absent=0",
           backgroundVariant: "purple"
+        },
+        {
+          title: "Antigravity Pixel Office",
+          tag: "AI Agent Command",
+          stats: "Real-time Sync",
+          desc: "A living, interactive pixel-art dashboard for orchestrating the Antigravity AI agent's workflow and ecosystem status.",
+          role: "AI Agent Architect",
+          architecture: "HTML + CSS + JS + JSON Polling",
+          link: "/office/index.html",
+          backgroundVariant: "emerald"
         }
       ]
     },
@@ -186,7 +196,7 @@ export const locales = {
       footprintTitle: "Global Footprint",
       footprintSub: "Strategic experience across 4 continents.",
       asia: "Asia Pacific",
-      asiaList: "Mainland China, Hong Kong SAR, Taiwan Region, Japan, South Korea, Singapore, Malaysia, Australia, New Zealand, Kazakhstan, Bangladesh.",
+      asiaList: "Chinese Mainland, Hong Kong SAR, Chinese Taiwan, Japan, South Korea, Singapore, Malaysia, Australia, New Zealand, Kazakhstan, Bangladesh.",
       europe: "Europe",
       europeList: "United Kingdom, France, Germany, Ireland, Italy, Switzerland, Belgium, Netherlands, Denmark, Sweden, Russia, Ukraine.",
       americas: "The Americas",
@@ -200,12 +210,12 @@ export const locales = {
           year: "2023.08 - Present",
           title: "Chief Corporate Safety Manager",
           org: "MTR Corporation Limited",
-          desc: "Driving corporate-wide safety strategy, AI-led safety transformation, safety culture promotion, and ensuring regulatory compliance across expansive rail operations in Hong Kong and Mainland hubs.",
+          desc: "Driving corporate-wide safety strategy, AI-led safety transformation, safety culture promotion, and ensuring regulatory compliance across expansive rail operations in Hong Kong and Chinese Mainland hubs.",
           details: [
             "Safety Platform Construction: Established corporate-level professional platforms for occupational health safety management and safety knowledge management; assured safety for new metro engineering, real estate, and commercial projects in Hong Kong.",
             "Safety Culture Promotion: Led corporate-wide safety promotion and non-rail risk scanning and benchmarking.",
             "Innovation Strategy: Drove group-level safety innovation, integrating AI and digital tools to enhance operational efficiency with tech vendors.",
-            "Stakeholder & Regional Management: Managed safety committees for Mainland/Macau operations, actively collaborating with executive layers and regulators for mega-infrastructure compliance."
+            "Stakeholder & Regional Management: Managed safety committees for Chinese Mainland/Macau operations, actively collaborating with executive layers and regulators for mega-infrastructure compliance."
           ]
         },
         {
@@ -252,7 +262,7 @@ export const locales = {
       leadTextSuffix: ", I currently serve as the Chief Corporate Safety Manager at MTR Corporation.",
       stat1: "Years Cross-Sector Mastery",
       stat2: "Intercontinental Markets",
-      stat3: "Safety Assets Protected",
+      stat3: "Renewable Assets Managed",
       subTextPrefix: "Driven by a deep understanding of compliance and safety strategy, I have successfully navigated global market entries and collaborated with teams from ",
       subTextBold: "Google, Meta, Uber, and ByteDance",
       subTextSuffix: " to redefine what's possible in high-stakes environments.",
@@ -520,6 +530,16 @@ export const locales = {
           architecture: "D3.js + PostgreSQL + PowerBI",
           link: "https://api.whatsapp.com/send/?phone=85296868991&text=menu&type=phone_number&app_absent=0",
           backgroundVariant: "purple"
+        },
+        {
+          title: "Antigravity 像素办公室",
+          tag: "AI 智能体指挥部",
+          stats: "实时同步",
+          desc: "一个充满活力的交互式像素风看板，用于编排 Antigravity AI 智能体的工作流和生态系统状态。",
+          role: "AI 智能体架构师",
+          architecture: "HTML + CSS + JS + JSON 轮询",
+          link: "/office/index.html",
+          backgroundVariant: "emerald"
         }
       ]
     },
@@ -601,7 +621,7 @@ export const locales = {
       leadTextSuffix: " 的战略型管理者，现任香港铁路有限公司总企业安全经理。",
       stat1: "年跨界统帅经验",
       stat2: "海外攻坚市场",
-      stat3: "安全资产管理",
+      stat3: "新能源资产管理",
       subTextPrefix: "凭借对合规与安全战略的深刻理解，多次成功撬动全球级市场准入，并与 ",
       subTextBold: "Google、Meta、Uber及字节跳动",
       subTextSuffix: " 的团队共同定义高风险环境下的技术边界。",

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antigravity | OS Pixel Office</title>
+    <link rel="stylesheet" href="styles.css?v=1.2.6">
+</head>
+<body>
+
+    <!-- Welcome Dialog -->
+    <div id="welcome-modal" class="modal-overlay">
+        <div class="modal-content glass-panel">
+            <div class="modal-header">
+                <div class="identity-icon">AG</div>
+                <h2>SYSTEM INITIALIZED</h2>
+            </div>
+            <div class="modal-body">
+                <p class="highlight">I am <strong>Antigravity</strong>, your Advanced Agentic AI Assistant.</p>
+                <p>Designed by the Google DeepMind team, I am an autonomous agent capable of coding, planning, and managing complex ecosystems.</p>
+                <p>Currently, I am overseeing the <strong>Safety Nexus</strong> project, orchestrating real-time safety dashboards and AI-driven insights for metro infrastructure.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="enter-btn" class="action-btn">ENTER SYSTEM ➔</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="office-viewport">
+        <!-- Background Layer -->
+        <div class="background-overlay"></div>
+        <div class="scanlines"></div>
+        
+        <!-- Floating Particles (Dust/Data) -->
+        <div id="particles" class="particles"></div>
+
+        <!-- AI Digital Clone (Dynamic Character) -->
+        <div id="ai-clone" class="ai-clone">
+            <div class="clone-sprite">
+                <div class="clone-eyes"></div>
+                <!-- Action Overlays -->
+                <div class="action-hands">
+                    <div class="hand left"></div>
+                    <div class="hand right"></div>
+                </div>
+                <div class="action-mug">☕</div>
+            </div>
+            <div class="status-bubble">Syncing...</div>
+        </div>
+
+        <!-- AI Digital Clone (Dynamic Character) -->
+
+        <!-- Dashboard HUD (Left Side) -->
+        <div class="hud-left">
+            <div class="glass-panel info-card" id="cockpit-stats">
+                <h3>🛰️ COCKPIT DATA</h3>
+                <div class="stat-row">
+                    <span>SiliconFlow:</span>
+                    <span id="sf-usage">0 / 0</span>
+                </div>
+                <div class="progress-bar"><div id="sf-progress" style="width: 0%"></div></div>
+                <div class="stat-row">
+                    <span>Balance:</span>
+                    <span id="sf-balance">$0.00</span>
+                </div>
+                <div class="stat-row">
+                    <span>Quota:</span>
+                    <span id="sf-refresh">Monthly</span>
+                </div>
+            </div>
+
+            <div class="glass-panel info-card" id="blueprint">
+                <h3>🗺️ BLUEPRINT</h3>
+                <div id="blueprint-content"></div>
+            </div>
+        </div>
+
+        <!-- Task Status Panel (Near Sofa) -->
+        <div class="sofa-hud">
+            <div class="glass-panel info-card" id="task-status">
+                <h3>🛋️ MISSION LOG</h3>
+                <div class="task-list-section">
+                    <h4 class="ongoing">ONGOING</h4>
+                    <ul id="ongoing-tasks"></ul>
+                </div>
+                <div class="task-list-section">
+                    <h4 class="planned">PLANNED</h4>
+                    <ul id="planned-tasks"></ul>
+                </div>
+                <div class="task-list-section">
+                    <h4 class="completed">COMPLETED</h4>
+                    <ul id="completed-tasks"></ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Terminal (Bottom) -->
+        <div class="terminal">
+            <div class="terminal-header">MISSION_CONTROL_TERMINAL v1.2.6</div>
+            <div id="log-content"></div>
+        </div>
+    </div>
+
+    <script src="office.js?v=1.2.6"></script>
+</body>
+</html>

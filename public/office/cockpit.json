@@ -1,0 +1,54 @@
+{
+    "silicon_flow": {
+        "api_calls_count": 1248,
+        "quota_limit": 5000,
+        "balance_remaining": 12.85,
+        "last_update": "2026-04-22 17:15",
+        "update_frequency": "5 minutes"
+    },
+    "agent_status": {
+        "mode": "working",
+        "current_task_id": 6,
+        "energy_level": 88
+    },
+    "blueprint": {
+        "active_projects": [
+            "MTR Safety Bot (Production)",
+            "Wang Fuk Inquiry Dashboard (Refining)",
+            "GB Standards AI (Optimizing)",
+            "Antigravity Pixel Office (Developing)"
+        ],
+        "milestones": [
+            {"title": "Bilingual Integration", "status": "done"},
+            {"title": "Interactive Workspace", "status": "done"},
+            {"title": "Live Terminal News Feed", "status": "ongoing"},
+            {"title": "Automated Weekly Reporting", "status": "planned"}
+        ]
+    },
+    "news_feed": [
+        {
+            "category": "OSH_DAILY",
+            "content": "FSD pledges to review firefighting equipment reliability in extreme heat and optimize entry control protocols."
+        },
+        {
+            "category": "WANG_FUK_INQUIRY",
+            "content": "Hearings reveal 85 fire system shutdown notices were issued at Wang Fuk Court without compensatory safety measures."
+        },
+        {
+            "category": "METRO_DAILY",
+            "content": "Tsing Yi Station: OCC systems being upgraded for millisecond-level data sync with emergency command platforms."
+        },
+        {
+            "category": "SQE_INSIGHT",
+            "content": "Safety experts propose IoT tracking to replace paper-based entry logs in high-risk construction zones."
+        },
+        {
+            "category": "WANG_FUK_INQUIRY",
+            "content": "Commission highlights blurred safety accountability terms between subcontractors and main contractors during renovations."
+        },
+        {
+            "category": "OSH_DAILY",
+            "content": "Labor Department to conduct 'Water Tank Sealing' audits to strictly prohibit non-firefighting water usage on sites."
+        }
+    ]
+}
