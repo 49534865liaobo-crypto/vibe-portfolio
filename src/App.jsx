@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import './App.css'
 import { locales } from './locales.js'
+import SafetyNexusEngine from './components/SafetyNexusEngine.jsx'
 
 const ProjectModal = ({ project, onClose, t }) => {
   if (!project) return null;
@@ -224,42 +225,7 @@ function App() {
           <h2>{t.projects.sectionTitle.split(' ')[0]} <span>{t.projects.sectionTitle.split(' ').slice(1).join(' ')}</span></h2>
           <p>{t.projects.sectionSub}</p>
         </div>
-        <div className="grid">
-          {t.projects.registry.map((project, idx) => (
-            <div 
-              className={`project-card glass-panel variant-${project.backgroundVariant}`} 
-              key={idx}
-              onClick={() => setSelectedProject(project)}
-            >
-              <div className="card-top">
-                <span className="tag">{project.tag}</span>
-                <span className="stats">{project.stats}</span>
-              </div>
-              <div className="card-body">
-                <h3>{project.title}</h3>
-                <p>{project.desc}</p>
-              </div>
-              <div className="card-footer">
-                <a 
-                  href={project.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="view-btn"
-                  onClick={(e) => {
-                    if (project.link === '#') {
-                      e.preventDefault();
-                    } else {
-                      e.stopPropagation();
-                    }
-                  }}
-                  style={{ textDecoration: 'none', color: 'inherit' }}
-                >
-                  {t.projects.launchBtn} ➔
-                </a>
-              </div>
-            </div>
-          ))}
-        </div>
+          <SafetyNexusEngine />
       </section>
       
       {/* Knowledge Graph Section */}
