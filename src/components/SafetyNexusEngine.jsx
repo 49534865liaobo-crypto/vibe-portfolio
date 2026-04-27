@@ -1,20 +1,12 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { PROJECTS } from '../data/projects';
-import { ArrowLeft, ExternalLink, Play, Info, Sparkles, Image as ImageIcon, ChevronRight } from 'lucide-react';
+import { ArrowLeft, ExternalLink, Play, Info, Sparkles } from 'lucide-react';
 
-// --- Flipbook Components ---
-
-const FlipbookOverlay = ({ active, onToggle }) => (
-  <div className={`flipbook-toggle ${active ? 'active' : ''}`} onClick={onToggle}>
-    <div className="toggle-track">
-      <div className="toggle-thumb">
-        {active ? <Sparkles size={12} /> : <ImageIcon size={12} />}
-      </div>
-    </div>
-    <span>FLIPBOOK MODE</span>
-  </div>
-);
+const HONG_KONG_ANCHOR = {
+  x: 50,
+  y: 51,
+};
 
 function HomeScene({ onSelect, flipbookMode, onBack }) {
   const radius = 320;
@@ -28,7 +20,7 @@ function HomeScene({ onSelect, flipbookMode, onBack }) {
       key="home"
     >
       <div className="scene-bg-container">
-        <div className="scene-bg" style={{ backgroundImage: 'url(/bg_world.png)' }} />
+        <div className="scene-bg home-world-bg" style={{ backgroundImage: 'url(/bg_world.png)' }} />
         <div className="scene-vignette" />
       </div>
 
@@ -42,7 +34,7 @@ function HomeScene({ onSelect, flipbookMode, onBack }) {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.8, type: 'spring' }}
-          style={{ position: 'absolute', top: '50%', left: '50%', x: '-50%', y: '-50%', zIndex: 100 }}
+          style={{ position: 'absolute', top: `${HONG_KONG_ANCHOR.y}%`, left: `${HONG_KONG_ANCHOR.x}%`, x: '-50%', y: '-50%', zIndex: 100 }}
         >
           <img src="/bot_qr.png" alt="QR" className="hub-qr" />
           <div className="hub-title">SafeT Chai Bot</div>
@@ -54,12 +46,12 @@ function HomeScene({ onSelect, flipbookMode, onBack }) {
           <svg style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', zIndex: 5, pointerEvents: 'none' }}>
             {PROJECTS.filter(p => !p.isHub).map(p => {
               const rad = (p.angle * Math.PI) / 180;
-              const x2 = 50 + (radius / window.innerWidth) * 100 * Math.cos(rad);
-              const y2 = 50 + (radius / window.innerHeight) * 100 * Math.sin(rad);
+              const x2 = HONG_KONG_ANCHOR.x + (radius / window.innerWidth) * 100 * Math.cos(rad);
+              const y2 = HONG_KONG_ANCHOR.y + (radius / window.innerHeight) * 100 * Math.sin(rad);
               return (
                 <motion.line
                   key={`line-${p.id}`}
-                  x1="50%" y1="50%"
+                  x1={`${HONG_KONG_ANCHOR.x}%`} y1={`${HONG_KONG_ANCHOR.y}%`}
                   x2={`${x2}%`} y2={`${y2}%`}
                   stroke="rgba(34, 211, 238, 0.2)"
                   strokeWidth="1.5"
@@ -84,8 +76,8 @@ function HomeScene({ onSelect, flipbookMode, onBack }) {
               key={p.id}
               style={{
                 position: 'absolute',
-                top: '50%',
-                left: '50%',
+                top: `${HONG_KONG_ANCHOR.y}%`,
+                left: `${HONG_KONG_ANCHOR.x}%`,
                 x: `calc(-50% + ${xPos}px)`,
                 y: `calc(-50% + ${yPos}px)`,
                 backgroundImage: p.bg ? `url(${p.bg})` : 'none',
@@ -239,7 +231,7 @@ function DetailScene({ project, onBack, flipbookMode }) {
 export default function SafetyNexusEngine() {
   const [view, setView] = useState('home'); // 'home', 'detail'
   const [currentProject, setCurrentProject] = useState(null);
-  const [flipbookMode, setFlipbookMode] = useState(false);
+  const flipbookMode = false;
 
   const handleSelect = (p) => {
     setCurrentProject(p);
@@ -253,8 +245,6 @@ export default function SafetyNexusEngine() {
 
   return (
     <div className={`app-wrapper ${flipbookMode ? 'theme-flipbook' : ''}`} style={{ position: 'relative', height: '800px', width: '100%', borderRadius: '32px', overflow: 'hidden' }}>
-      <FlipbookOverlay active={flipbookMode} onToggle={() => setFlipbookMode(!flipbookMode)} />
-      
       <AnimatePresence mode="wait">
         {view === 'home' && (
           <HomeScene 
