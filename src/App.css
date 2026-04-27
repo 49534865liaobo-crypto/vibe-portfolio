@@ -1350,7 +1350,7 @@ body {
 .home-world-bg {
   inset: -8%;
   background-size: 150% auto;
-  background-position: 81% 35%;
+  background-position: 30% 35%;
   filter: brightness(0.52) saturate(0.82) contrast(1.08);
 }
 
