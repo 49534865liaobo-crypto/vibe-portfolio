@@ -1877,3 +1877,353 @@ body {
   font-size: 0.9rem;
   border: 1px dashed var(--card-border);
 }
+
+/* ==========================================
+   SAFETY NEXUS ENGINE — MOBILE STYLES
+   ========================================== */
+
+.scene-mobile {
+  position: relative;
+  height: auto;
+  min-height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.mobile-scroll-content {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 2rem 1.25rem 3rem;
+  min-height: 100%;
+}
+
+.hub-node-mobile {
+  position: relative !important;
+  width: 120px;
+  height: 120px;
+  padding: 14px;
+  top: auto !important;
+  left: auto !important;
+  transform: none !important;
+}
+
+.hub-node-mobile .hub-qr {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 6px;
+}
+
+.hub-node-mobile .hub-title {
+  font-size: 0.75rem;
+}
+
+.hub-node-mobile .hub-subtitle {
+  font-size: 0.55rem;
+}
+
+.spoke-grid-mobile {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 420px;
+}
+
+.spoke-card-mobile {
+  position: relative;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.spoke-card-mobile:active {
+  transform: scale(0.96);
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--accent-cyan);
+}
+
+.spoke-card-mobile .card-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 0.6rem;
+  margin-bottom: 0.5rem;
+}
+
+.spoke-card-mobile .card-title {
+  font-size: 0.85rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.spoke-card-mobile .card-subtitle {
+  font-size: 0.6rem;
+  margin-top: 0.15rem;
+}
+
+@media (max-width: 768px) {
+  .app-wrapper .detail-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100% !important;
+    padding: 4rem 1.5rem 2rem;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    border-left: none;
+    border-radius: 0;
+  }
+
+  .app-wrapper .flipbook-panel {
+    border-left: none;
+  }
+
+  .app-wrapper .back-btn {
+    top: 0.75rem;
+    left: 0.75rem;
+    padding: 0.5rem 0.85rem;
+    font-size: 0.7rem;
+    border-radius: 0.6rem;
+    z-index: 700;
+  }
+
+  .app-wrapper .card-icon-large {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 0.75rem;
+  }
+
+  .app-wrapper .detail-header h2 {
+    font-size: 1.4rem;
+  }
+
+  .app-wrapper .description {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .app-wrapper .stats-grid {
+    display: flex;
+    gap: 0.75rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 0.5rem;
+  }
+
+  .app-wrapper .stat-card {
+    min-width: 110px;
+    flex-shrink: 0;
+    padding: 0.85rem;
+    border-radius: 0.85rem;
+  }
+
+  .app-wrapper .stat-value {
+    font-size: 1.4rem;
+  }
+
+  .app-wrapper .stat-label {
+    font-size: 0.6rem;
+  }
+
+  .app-wrapper .launch-btn,
+  .app-wrapper .stream-btn {
+    padding: 0.85rem;
+    border-radius: 0.85rem;
+    font-size: 0.8rem;
+  }
+
+  .scene-mobile .scene-vignette {
+    background: radial-gradient(circle at center, transparent 10%, rgba(0,0,0,0.9) 100%);
+  }
+}
+
+@media (max-width: 380px) {
+  .mobile-scroll-content {
+    padding: 1.5rem 0.75rem 2rem;
+    gap: 1rem;
+  }
+
+  .hub-node-mobile {
+    width: 100px;
+    height: 100px;
+    padding: 10px;
+  }
+
+  .hub-node-mobile .hub-qr {
+    width: 48px;
+    height: 48px;
+  }
+
+  .spoke-grid-mobile {
+    gap: 0.5rem;
+  }
+
+  .spoke-card-mobile {
+    padding: 0.75rem;
+  }
+
+  .spoke-card-mobile .card-title {
+    font-size: 0.75rem;
+  }
+}
+
+/* AI Showcase Overrides for SafetyNexusEngine */
+.hub-spoke-visual-ai {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+}
+
+.hub-node-ai {
+  background: white;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 20px 50px rgba(0, 48, 135, 0.5);
+  border: 4px solid #003087;
+  text-align: center;
+  padding: 1.5rem;
+  cursor: pointer;
+  text-decoration: none;
+  animation: hub-pulse-ai 4s infinite ease-in-out;
+  width: 220px;
+  height: 220px;
+}
+
+.hub-node-ai:hover {
+  box-shadow: 0 30px 60px rgba(0, 48, 135, 0.8);
+}
+
+.hub-qr-ai {
+  width: 90px;
+  height: 90px;
+  margin-bottom: 0.5rem;
+}
+
+.hub-title-ai {
+  color: #7e22ce;
+  font-size: 1.1rem;
+  font-weight: 800;
+  margin-bottom: 0.2rem;
+}
+
+.hub-subtitle-ai {
+  color: #003087;
+  font-size: 0.8rem;
+}
+
+.spoke-wrapper-ai {
+  width: 200px;
+  height: auto;
+  transform-origin: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spoke-node-ai {
+  width: 100%;
+  background: white;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(0, 48, 135, 0.1);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+}
+
+.spoke-wrapper-ai:hover .spoke-node-ai,
+.spoke-card-mobile-ai:hover {
+  border-color: #0891b2;
+  box-shadow: 0 15px 35px rgba(8, 145, 178, 0.4);
+}
+
+.card-icon-ai {
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+.card-title-ai {
+  font-size: 0.95rem;
+  color: #003087;
+  font-weight: 800;
+  margin: 0;
+}
+
+.card-subtitle-ai {
+  font-size: 0.8rem;
+  color: #475569;
+  line-height: 1.3;
+  margin: 0;
+}
+
+.spoke-lines-svg-ai {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  overflow: visible;
+}
+
+.connection-line-ai {
+  stroke: rgba(255, 255, 255, 0.4);
+  stroke-width: 2;
+  stroke-dasharray: 6 8;
+  stroke-linecap: round;
+  transition: stroke 0.25s ease, stroke-width 0.25s ease, opacity 0.25s ease;
+  animation: connection-flow-ai 18s linear infinite;
+}
+
+@keyframes connection-flow-ai {
+  to { stroke-dashoffset: -140; }
+}
+
+@keyframes hub-pulse-ai {
+  0%, 100% { box-shadow: 0 20px 50px rgba(255, 255, 255, 0.15); }
+  50% { box-shadow: 0 20px 80px rgba(255, 255, 255, 0.3); }
+}
+
+/* Mobile AI styling overrides */
+.hub-node-mobile-ai {
+  margin: 0 auto 2rem auto;
+  position: relative;
+  z-index: 50;
+}
+
+.spoke-card-mobile-ai {
+  background: white;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  border: 1px solid rgba(0, 48, 135, 0.1);
+  box-shadow: 0 10px 25px rgba(255, 255, 255, 0.1);
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  cursor: pointer;
+}
