@@ -91,7 +91,7 @@ function HomeScene({ onSelect, flipbookMode, isMobile }) {
       <div className="scene-content hub-spoke-visual-ai">
         {/* SVG Neural Connections */}
         {!flipbookMode && (
-          <svg className="spoke-lines-svg-ai" aria-hidden="true">
+          <svg className="spoke-lines-svg-ai" aria-hidden="true" style={{ width: '800px', height: '800px', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', overflow: 'visible' }}>
             {PROJECTS.filter(p => !p.isHub).map(p => {
               const rad = (p.angle * Math.PI) / 180;
               const xPos = radius * Math.cos(rad);
@@ -99,9 +99,9 @@ function HomeScene({ onSelect, flipbookMode, isMobile }) {
               return (
                 <Motion.line
                   key={`line-${p.id}`}
-                  x1={`50%`} y1={`50%`}
-                  x2={`calc(50% + ${xPos}px)`}
-                  y2={`calc(50% + ${yPos}px)`}
+                  x1={400} y1={400}
+                  x2={400 + xPos}
+                  y2={400 + yPos}
                   className="connection-line-ai"
                   initial={{ pathLength: 0 }}
                   animate={{ pathLength: 1 }}
@@ -139,8 +139,10 @@ function HomeScene({ onSelect, flipbookMode, isMobile }) {
                 position: 'absolute',
                 top: `50%`,
                 left: `50%`,
-                x: `calc(-50% + ${xPos}px)`,
-                y: `calc(-50% + ${yPos}px)`,
+                marginLeft: '-100px',
+                marginTop: '-70px',
+                x: xPos,
+                y: yPos,
               }}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
