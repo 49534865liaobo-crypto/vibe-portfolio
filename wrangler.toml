@@ -1,11 +1,12 @@
 # Cloudflare Pages Configuration for Safety Nexus Portfolio
-name = "safety-nexus-portfolio"
+name = "vibe-portfolio"
 compatibility_date = "2024-04-01"
-
-[pages_build_config]
-build_command = "npm run build"
-destination_dir = "dist"
+pages_build_output_dir = "dist"
 
 # Optional: Add environment variables if needed
 [vars]
 NODE_VERSION = "20"
+
+[[kv_namespaces]]
+binding = "READINESS_LEADS"
+id = "7e1702640b6c4de898e1297333d542ae"

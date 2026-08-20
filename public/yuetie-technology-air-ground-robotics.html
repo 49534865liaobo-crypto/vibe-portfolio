@@ -1,0 +1,2022 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>YueTie Air-Ground Robotics | Safety Nexus Case</title>
+    <meta
+      name="description"
+      content="Explore YueTie air-ground robotics for no-GPS inspection, robot collaboration, AI defect recognition, 3D mapping and closed-loop safety operations."
+    />
+    <meta
+      name="keywords"
+      content="YueTie Technology, air-ground robotics, safety robotics, no-GPS inspection, drone inspection, ground robot, AI defect recognition, 3D mapping, infrastructure inspection"
+    />
+    <meta name="author" content="Alvin Liao" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href="https://vibe-portfolio-dny.pages.dev/yuetie-technology-air-ground-robotics" />
+    <link rel="alternate" hreflang="en" href="https://vibe-portfolio-dny.pages.dev/yuetie-technology-air-ground-robotics" />
+    <link rel="alternate" hreflang="zh-Hans" href="https://vibe-portfolio-dny.pages.dev/zh/yuetie-technology-air-ground-robotics" />
+    <link rel="alternate" hreflang="x-default" href="https://vibe-portfolio-dny.pages.dev/yuetie-technology-air-ground-robotics" />
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Safety Nexus" />
+    <meta property="og:title" content="YueTie Technology Air-Ground Robotics Scenario Library" />
+    <meta
+      property="og:description"
+      content="A bilingual Safety Nexus proof case on no-GPS inspection, air-ground robotic collaboration, AI defect recognition, 3D mapping, and closed-loop safety operations."
+    />
+    <meta property="og:url" content="https://vibe-portfolio-dny.pages.dev/yuetie-technology-air-ground-robotics" />
+    <meta property="og:image" content="https://vibe-portfolio-dny.pages.dev/yuetie-robotics-social.jpg" />
+    <meta property="og:image:alt" content="YueTie Technology air-ground robotics platform" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="YueTie Technology Air-Ground Robotics Scenario Library" />
+    <meta
+      name="twitter:description"
+      content="No-GPS inspection, air-ground robotic collaboration, AI defect recognition, 3D mapping, and closed-loop safety operations."
+    />
+    <meta name="twitter:image" content="https://vibe-portfolio-dny.pages.dev/yuetie-robotics-social.jpg" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "@id": "https://vibe-portfolio-dny.pages.dev/yuetie-technology-air-ground-robotics#article",
+        "headline": "YueTie Technology Air-Ground Robotics Scenario Library",
+        "description": "A Safety Nexus case study on air-ground collaborative robotics for safety-critical inspection, no-GPS positioning, AI defect recognition, 3D mapping, and closed-loop operations.",
+        "image": "https://vibe-portfolio-dny.pages.dev/yuetie-robotics-social.jpg",
+        "url": "https://vibe-portfolio-dny.pages.dev/yuetie-technology-air-ground-robotics",
+        "dateModified": "2026-08-01",
+        "author": {
+          "@type": "Person",
+          "name": "Alvin Liao",
+          "url": "https://vibe-portfolio-dny.pages.dev/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Safety Nexus",
+          "url": "https://vibe-portfolio-dny.pages.dev/"
+        },
+        "about": [
+          "Air-ground robotics",
+          "Safety robotics",
+          "No-GPS inspection",
+          "AI defect recognition",
+          "Infrastructure inspection"
+        ]
+      }
+    </script>
+    <style>
+      :root {
+        --navy: #13314f;
+        --blue: #1f6fb2;
+        --cyan: #19a7b8;
+        --sky: #9dc8e6;
+        --light: #eaf3f8;
+        --ink: #1d2a33;
+        --muted: #5d6d78;
+        --gold: #c0651e;
+        --green: #1f7a52;
+        --line: #d9e8ef;
+        --white: #ffffff;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background: #f5f8fa;
+        color: var(--ink);
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+          "Microsoft YaHei", sans-serif;
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .wrap {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 60;
+        background: rgba(19, 49, 79, 0.97);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 2px 14px rgba(0, 0, 0, 0.16);
+      }
+
+      .nav-row {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 9px 16px;
+        flex-wrap: wrap;
+      }
+
+      .nlogo {
+        margin-right: auto;
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        flex-wrap: wrap;
+      }
+
+      .nav-links a {
+        color: #cfe0ec;
+        font-size: 13px;
+        padding: 5px 9px;
+        border-radius: 6px;
+        transition: 0.2s;
+        white-space: nowrap;
+      }
+
+      .nav-links a:hover {
+        color: var(--white);
+        background: rgba(255, 255, 255, 0.13);
+      }
+
+      .lang-switch {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        padding: 3px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .lang-switch button {
+        border: 0;
+        border-radius: 999px;
+        padding: 5px 10px;
+        color: #dceaf3;
+        background: transparent;
+        font-weight: 800;
+        font-size: 12px;
+        cursor: pointer;
+      }
+
+      .lang-switch button.active {
+        color: #062033;
+        background: #7de7f4;
+      }
+
+      .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 58px 0 50px;
+        color: var(--white);
+        background:
+          radial-gradient(circle at 92% 88%, rgba(25, 167, 184, 0.3), transparent 28%),
+          linear-gradient(135deg, #0e2438, #13314f 45%, #1f6fb2);
+      }
+
+      .hero .wrap {
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: 1.18fr 0.82fr;
+        gap: 34px;
+        align-items: center;
+      }
+
+      .eyebrow {
+        color: var(--sky);
+        font-size: 13px;
+        font-weight: 800;
+        letter-spacing: 2.6px;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        max-width: 700px;
+        margin-top: 10px;
+        font-size: clamp(31px, 5vw, 52px);
+        font-weight: 900;
+        line-height: 1.12;
+      }
+
+      h1 span {
+        color: #69e1ee;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+        margin-top: 18px;
+        color: #dceaf3;
+        font-size: 16px;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 20px;
+      }
+
+      .tags span {
+        padding: 7px 13px;
+        color: #effaff;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 999px;
+        font-size: 12.5px;
+        font-weight: 700;
+      }
+
+      .hero-panel {
+        overflow: hidden;
+        background: rgba(255, 255, 255, 0.09);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 18px;
+        box-shadow: 0 24px 56px rgba(0, 0, 0, 0.28);
+      }
+
+      .hero-panel img {
+        display: block;
+        width: 100%;
+        min-height: 230px;
+        object-fit: cover;
+      }
+
+      .hero-media {
+        height: clamp(230px, 30vw, 350px);
+        overflow: hidden;
+        background: #0f2e4d;
+      }
+
+      .hero-media img {
+        height: 100%;
+        min-height: 0;
+        object-position: center 12%;
+      }
+
+      .hero-visual-copy {
+        padding: 20px 22px 22px;
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .hero-visual-kicker {
+        color: var(--sky);
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 2.2px;
+        text-transform: uppercase;
+      }
+
+      .hero-visual-copy h2 {
+        margin-top: 8px;
+        color: #ffffff;
+        font-size: clamp(22px, 2.7vw, 30px);
+        line-height: 1.18;
+      }
+
+      .hero-visual-copy p {
+        margin-top: 10px;
+        color: #dceaf3;
+        font-size: 13.5px;
+        line-height: 1.55;
+      }
+
+      .hero-visual-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 14px;
+      }
+
+      .hero-visual-tags span {
+        padding: 6px 10px;
+        color: #effaff;
+        background: rgba(255, 255, 255, 0.12);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 999px;
+        font-size: 11.5px;
+        font-weight: 750;
+      }
+
+      .stats {
+        background: #ffffff;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .stats .wrap {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 10px;
+        padding-top: 22px;
+        padding-bottom: 22px;
+        text-align: center;
+      }
+
+      .stat .n {
+        color: var(--navy);
+        font-size: 30px;
+        font-weight: 900;
+        line-height: 1;
+      }
+
+      .stat .l {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 12.5px;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      section:nth-of-type(even) {
+        background: #ffffff;
+      }
+
+      .sec-head {
+        max-width: 780px;
+        margin: 0 auto 30px;
+        text-align: center;
+      }
+
+      .sec-head .k {
+        color: var(--cyan);
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 2.8px;
+        text-transform: uppercase;
+      }
+
+      .sec-head h2 {
+        margin-top: 8px;
+        color: var(--navy);
+        font-size: clamp(24px, 3vw, 34px);
+        font-weight: 900;
+        line-height: 1.2;
+      }
+
+      .sec-head p {
+        margin-top: 10px;
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .grid-4 {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 16px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .concept-card,
+      .tech-card,
+      .platform-card,
+      .scene {
+        background: #ffffff;
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        transition: 0.2s;
+      }
+
+      .concept-card:hover,
+      .tech-card:hover,
+      .platform-card:hover,
+      .scene:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 14px 28px rgba(19, 49, 79, 0.12);
+      }
+
+      .concept-card,
+      .tech-card {
+        padding: 22px 18px;
+        text-align: center;
+        border-top: 4px solid var(--cyan);
+      }
+
+      .concept-card .icon,
+      .tech-card .icon {
+        font-size: 30px;
+      }
+
+      .concept-card h3,
+      .tech-card h3 {
+        margin: 9px 0 7px;
+        color: var(--navy);
+        font-size: 15px;
+        line-height: 1.35;
+      }
+
+      .concept-card p,
+      .tech-card p,
+      .platform-card p {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .idea-line {
+        max-width: 1020px;
+        margin: 22px auto 0;
+        padding: 16px 24px;
+        color: #ffffff;
+        background: linear-gradient(120deg, var(--navy), var(--blue));
+        border-radius: 12px;
+        font-size: 15px;
+        font-weight: 800;
+        text-align: center;
+      }
+
+      .coop-box {
+        max-width: 1060px;
+        margin: 0 auto;
+        padding: 25px 26px;
+        background: linear-gradient(120deg, #eef6fb, #e2f3f5);
+        border: 1px solid #cfe6ec;
+        border-radius: 16px;
+      }
+
+      .coop-box h3 {
+        color: var(--navy);
+        font-size: 18px;
+        text-align: center;
+      }
+
+      .coop-box .lead {
+        max-width: 820px;
+        margin: 9px auto 18px;
+        color: var(--muted);
+        font-size: 13.5px;
+        text-align: center;
+      }
+
+      .platform-card {
+        overflow: hidden;
+      }
+
+      .platform-visual {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 118px;
+        color: #ffffff;
+        background:
+          radial-gradient(circle at 28% 22%, rgba(255, 255, 255, 0.35), transparent 20%),
+          linear-gradient(135deg, #12395a, #1f6fb2 52%, #19a7b8);
+        font-size: 42px;
+      }
+
+      .platform-card .copy {
+        padding: 13px 15px 15px;
+      }
+
+      .platform-card b {
+        display: block;
+        margin-bottom: 4px;
+        color: var(--navy);
+        font-size: 14px;
+      }
+
+      .scenario-intro {
+        margin-bottom: 22px;
+      }
+
+      .legend {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 18px;
+        color: var(--muted);
+        font-size: 12.5px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        min-height: 20px;
+        padding: 2px 8px;
+        border-radius: 999px;
+        font-size: 10.5px;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .verified {
+        color: var(--green);
+        background: #e2f3ea;
+      }
+
+      .replicable {
+        color: var(--blue);
+        background: #e4eff7;
+      }
+
+      .expandable {
+        color: var(--cyan);
+        background: #e2f5f7;
+      }
+
+      .category {
+        padding: 42px 0;
+      }
+
+      .cat-head {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin-bottom: 20px;
+        padding: 7px 0 7px 16px;
+        border-left: 5px solid var(--blue);
+      }
+
+      .cat-ico {
+        font-size: 30px;
+      }
+
+      .cat-head h2 {
+        color: var(--navy);
+        font-size: 22px;
+        font-weight: 900;
+        line-height: 1.25;
+      }
+
+      .cat-head p {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      .cat-count {
+        margin-left: auto;
+        padding: 5px 12px;
+        color: var(--blue);
+        background: var(--light);
+        border-radius: 12px;
+        font-size: 12.5px;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+
+      .scenes {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+
+      .scene {
+        padding: 16px 18px;
+        border-left: 5px solid var(--blue);
+      }
+
+      .scene[data-status="verified"] {
+        border-left-color: var(--green);
+        background: linear-gradient(180deg, #fbfffc, #f1faf5);
+      }
+
+      .scene[data-status="expandable"] {
+        border-left-color: var(--cyan);
+      }
+
+      .s-head {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 9px;
+        flex-wrap: wrap;
+      }
+
+      .s-ico {
+        font-size: 21px;
+      }
+
+      .s-name {
+        flex: 1;
+        color: var(--navy);
+        font-size: 14.5px;
+        font-weight: 900;
+        line-height: 1.3;
+      }
+
+      .s-row {
+        display: flex;
+        gap: 8px;
+        padding: 4px 0;
+        font-size: 12.8px;
+      }
+
+      .s-row.value {
+        margin-top: 2px;
+        padding-top: 7px;
+        border-top: 1px dashed #e8eef2;
+      }
+
+      .s-k {
+        flex: 0 0 64px;
+        color: var(--blue);
+        font-weight: 900;
+      }
+
+      .scene[data-status="verified"] .s-k {
+        color: var(--green);
+      }
+
+      .scene[data-status="expandable"] .s-k {
+        color: var(--cyan);
+      }
+
+      .s-v {
+        flex: 1;
+        color: #3a4750;
+      }
+
+      .s-row.value .s-v {
+        color: var(--navy);
+        font-weight: 800;
+      }
+
+      .loop {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      .lstep {
+        position: relative;
+        flex: 1;
+        min-width: 145px;
+        padding: 0 10px;
+        text-align: center;
+      }
+
+      .lstep:not(:last-child)::after {
+        content: ">";
+        position: absolute;
+        top: 11px;
+        right: -6px;
+        color: var(--cyan);
+        font-size: 22px;
+        font-weight: 900;
+      }
+
+      .li {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        margin: 0 auto 10px;
+        color: #ffffff;
+        background: linear-gradient(135deg, var(--navy), var(--blue));
+        border-radius: 14px;
+        font-size: 22px;
+      }
+
+      .lstep h4 {
+        color: var(--navy);
+        font-size: 15px;
+      }
+
+      .lstep p {
+        margin-top: 3px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+
+      footer {
+        padding: 28px 24px;
+        color: #cfe0ec;
+        background: var(--navy);
+        text-align: center;
+        font-size: 12.5px;
+      }
+
+      footer b {
+        color: #ffffff;
+      }
+
+      footer span {
+        display: block;
+        margin-top: 4px;
+      }
+
+      @media (max-width: 980px) {
+        .grid-4,
+        .scenes {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3,
+        .stats .wrap {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 760px) {
+        .hero .wrap {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+
+        .hero-panel {
+          order: -1;
+        }
+
+        .nav-row {
+          align-items: flex-start;
+        }
+
+        .nlogo {
+          width: 100%;
+          margin-bottom: 4px;
+        }
+
+        .nav-links {
+          width: 100%;
+          overflow-x: auto;
+          flex-wrap: nowrap;
+          padding-bottom: 4px;
+        }
+
+        .lang-switch {
+          margin-top: 4px;
+        }
+
+        .grid-4,
+        .grid-3,
+        .scenes,
+        .stats .wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .cat-head {
+          align-items: flex-start;
+        }
+
+        .cat-count {
+          margin-left: 0;
+        }
+
+        .lstep:not(:last-child)::after {
+          display: none;
+        }
+
+      }
+
+      @media print {
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        nav {
+          display: none !important;
+        }
+
+        section {
+          padding: 22px 0;
+        }
+
+        .scene,
+        .tech-card,
+        .concept-card,
+        .platform-card,
+        .lstep,
+        .cat-head {
+          break-inside: avoid;
+        }
+      }
+
+      /* Apple-inspired product page refresh */
+      :root {
+        --navy: #1d1d1f;
+        --blue: #0071e3;
+        --cyan: #00a7a7;
+        --sky: #6e6e73;
+        --light: #f5f5f7;
+        --ink: #1d1d1f;
+        --muted: #6e6e73;
+        --gold: #a45b18;
+        --green: #168043;
+        --line: #d2d2d7;
+        --white: #ffffff;
+      }
+
+      body {
+        background: #f5f5f7;
+        color: #1d1d1f;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text",
+          "Helvetica Neue", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+        line-height: 1.55;
+      }
+
+      .wrap {
+        max-width: 1180px;
+      }
+
+      nav {
+        background: rgba(251, 251, 253, 0.78);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        box-shadow: none;
+        backdrop-filter: saturate(180%) blur(22px);
+      }
+
+      .nav-row {
+        padding: 10px 20px;
+      }
+
+      .nlogo {
+        color: #1d1d1f;
+        font-weight: 700;
+      }
+
+      .nav-links a {
+        color: #424245;
+        font-size: 12px;
+        font-weight: 500;
+      }
+
+      .nav-links a:hover {
+        color: #000000;
+        background: rgba(0, 0, 0, 0.06);
+      }
+
+      .lang-switch {
+        background: #ffffff;
+        border-color: #d2d2d7;
+      }
+
+      .lang-switch button {
+        color: #424245;
+        font-weight: 700;
+      }
+
+      .lang-switch button.active {
+        color: #ffffff;
+        background: #1d1d1f;
+      }
+
+      .hero {
+        padding: 92px 0 72px;
+        color: #1d1d1f;
+        background: linear-gradient(180deg, #fbfbfd 0%, #f5f5f7 70%, #ffffff 100%);
+      }
+
+      .hero .wrap {
+        grid-template-columns: minmax(0, 0.92fr) minmax(380px, 1.08fr);
+        gap: 54px;
+      }
+
+      .eyebrow,
+      .sec-head .k {
+        color: #86868b;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+      }
+
+      h1 {
+        max-width: 760px;
+        color: #1d1d1f;
+        font-size: clamp(44px, 7vw, 76px);
+        font-weight: 750;
+        letter-spacing: 0;
+      }
+
+      h1 span {
+        color: #1d1d1f;
+      }
+
+      .hero-copy {
+        max-width: 710px;
+        color: #6e6e73;
+        font-size: clamp(18px, 2.2vw, 23px);
+        line-height: 1.42;
+      }
+
+      .tags span {
+        color: #1d1d1f;
+        background: rgba(255, 255, 255, 0.88);
+        border-color: rgba(0, 0, 0, 0.08);
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+        font-weight: 600;
+      }
+
+      .hero-panel {
+        overflow: hidden;
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 28px;
+        box-shadow: 0 28px 70px rgba(0, 0, 0, 0.13);
+      }
+
+      .hero-panel img {
+        min-height: 310px;
+        filter: saturate(0.95) contrast(0.98);
+      }
+
+      .hero-media {
+        height: clamp(260px, 32vw, 390px);
+        background: #f5f5f7;
+      }
+
+      .hero-media img {
+        height: 100%;
+        min-height: 0;
+        object-position: center 12%;
+      }
+
+      .hero-visual-copy {
+        padding: 26px 28px 28px;
+        background: #ffffff;
+      }
+
+      .hero-visual-kicker {
+        color: #86868b;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .hero-visual-copy h2 {
+        margin-top: 10px;
+        color: #1d1d1f;
+        font-size: clamp(25px, 3vw, 36px);
+        font-weight: 740;
+        line-height: 1.12;
+        letter-spacing: 0;
+      }
+
+      .hero-visual-copy p {
+        margin-top: 12px;
+        color: #6e6e73;
+        font-size: 15px;
+        line-height: 1.48;
+      }
+
+      .hero-visual-tags span {
+        color: #1d1d1f;
+        background: #f5f5f7;
+        border-color: rgba(0, 0, 0, 0.06);
+        box-shadow: none;
+      }
+
+      .sec-head p,
+      .concept-card p,
+      .tech-card p,
+      .platform-card p,
+      .cat-head p,
+      .s-v,
+      .lstep p {
+        color: #6e6e73;
+      }
+
+      .stats {
+        background: #ffffff;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .stats .wrap {
+        gap: 14px;
+        padding-top: 28px;
+        padding-bottom: 28px;
+      }
+
+      .stat {
+        padding: 20px 14px;
+        background: #f5f5f7;
+        border-radius: 18px;
+      }
+
+      .stat .n {
+        color: #1d1d1f;
+        font-size: 34px;
+        font-weight: 760;
+      }
+
+      section {
+        padding: 78px 0;
+      }
+
+      section:nth-of-type(even) {
+        background: #fbfbfd;
+      }
+
+      .sec-head {
+        max-width: 860px;
+        margin-bottom: 38px;
+      }
+
+      .sec-head h2 {
+        color: #1d1d1f;
+        font-size: clamp(32px, 5vw, 54px);
+        font-weight: 740;
+        letter-spacing: 0;
+      }
+
+      .concept-card,
+      .tech-card,
+      .platform-card,
+      .scene {
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 24px;
+        box-shadow: 0 16px 42px rgba(0, 0, 0, 0.06);
+      }
+
+      .concept-card:hover,
+      .tech-card:hover,
+      .platform-card:hover,
+      .scene:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 24px 55px rgba(0, 0, 0, 0.1);
+      }
+
+      .concept-card,
+      .tech-card {
+        padding: 24px;
+        text-align: left;
+        border-top: 0;
+      }
+
+      .icon,
+      .platform-visual,
+      .cat-ico,
+      .s-ico,
+      .li {
+        color: #0071e3;
+      }
+
+      .icon,
+      .s-ico,
+      .cat-ico,
+      .li {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .icon {
+        width: 46px;
+        height: 46px;
+        margin-bottom: 10px;
+        color: #0071e3;
+        background: #f5f5f7;
+        border-radius: 14px;
+      }
+
+      .icon svg,
+      .platform-visual svg,
+      .cat-ico svg,
+      .s-ico svg,
+      .li svg {
+        width: 22px;
+        height: 22px;
+        stroke-width: 1.8;
+      }
+
+      .concept-card h3,
+      .tech-card h3,
+      .platform-card b,
+      .cat-head h2,
+      .s-name,
+      .lstep h4 {
+        color: #1d1d1f;
+      }
+
+      .idea-line {
+        color: #f5f5f7;
+        background: #1d1d1f;
+        border-radius: 20px;
+        box-shadow: 0 20px 48px rgba(0, 0, 0, 0.18);
+      }
+
+      .coop-box {
+        background: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 28px;
+        box-shadow: 0 24px 58px rgba(0, 0, 0, 0.08);
+      }
+
+      .coop-box h3 {
+        color: #1d1d1f;
+        font-size: 22px;
+      }
+
+      .platform-visual {
+        height: 150px;
+        background: #f5f5f7;
+      }
+
+      .platform-visual svg {
+        width: 42px;
+        height: 42px;
+      }
+
+      .badge {
+        min-height: 24px;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      .verified {
+        color: #137333;
+        background: #eaf7ee;
+      }
+
+      .replicable {
+        color: #0b63ce;
+        background: #eaf3ff;
+      }
+
+      .expandable {
+        color: #08706b;
+        background: #e7f8f7;
+      }
+
+      .category {
+        padding: 48px 0;
+      }
+
+      .cat-head {
+        padding: 22px;
+        background: rgba(255, 255, 255, 0.84);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-left: 0;
+        border-radius: 24px;
+        box-shadow: 0 14px 34px rgba(0, 0, 0, 0.05);
+      }
+
+      .cat-ico {
+        flex: 0 0 44px;
+        width: 44px;
+        height: 44px;
+        background: #f5f5f7;
+        border-radius: 14px;
+      }
+
+      .cat-count {
+        color: #1d1d1f;
+        background: #f5f5f7;
+        border-radius: 999px;
+        font-weight: 700;
+      }
+
+      .scenes {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 18px;
+      }
+
+      .scene {
+        padding: 20px;
+        border-left: 0;
+      }
+
+      .scene[data-status="verified"],
+      .scene[data-status="expandable"] {
+        border-left: 0;
+        background: rgba(255, 255, 255, 0.92);
+      }
+
+      .s-ico {
+        flex: 0 0 32px;
+        width: 32px;
+        height: 32px;
+        background: #f5f5f7;
+        border-radius: 10px;
+      }
+
+      .s-row {
+        gap: 12px;
+        font-size: 13px;
+      }
+
+      .s-k {
+        color: #86868b;
+      }
+
+      .scene[data-status="verified"] .s-k,
+      .scene[data-status="expandable"] .s-k {
+        color: #86868b;
+      }
+
+      .s-row.value .s-v {
+        color: #1d1d1f;
+        font-weight: 650;
+      }
+
+      .li {
+        color: #0071e3;
+        background: #f5f5f7;
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 15px;
+      }
+
+      .lstep:not(:last-child)::after {
+        color: #b0b0b5;
+      }
+
+      footer {
+        background: #f5f5f7;
+      }
+
+      footer {
+        color: #6e6e73;
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      footer b {
+        color: #1d1d1f;
+      }
+
+      @media (max-width: 980px) {
+        .hero .wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .grid-4,
+        .scenes {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+      }
+
+      @media (max-width: 760px) {
+        .hero {
+          padding: 64px 0 48px;
+        }
+
+        .hero .wrap {
+          text-align: left;
+        }
+
+        h1 {
+          font-size: clamp(40px, 12vw, 58px);
+        }
+
+        .hero-copy {
+          font-size: 18px;
+        }
+
+        .nav-links {
+          scrollbar-width: none;
+        }
+
+        .nav-links::-webkit-scrollbar {
+          display: none;
+        }
+
+        .grid-4,
+        .grid-3,
+        .scenes,
+        .stats .wrap {
+          grid-template-columns: 1fr;
+        }
+
+        .cat-head {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-row">
+        <a class="nlogo" href="#top" id="navLogo"></a>
+        <div class="nav-links" id="navLinks"></div>
+        <div class="lang-switch" aria-label="Language switch">
+          <button type="button" data-lang="en">EN</button>
+          <button type="button" data-lang="zh">中文</button>
+        </div>
+      </div>
+    </nav>
+
+    <header class="hero" id="top">
+      <div class="wrap">
+        <div>
+          <div class="eyebrow" id="heroEyebrow"></div>
+          <h1 id="heroTitle"></h1>
+          <p class="hero-copy" id="heroCopy"></p>
+          <div class="tags" id="heroTags"></div>
+        </div>
+        <div class="hero-panel">
+          <div class="hero-media">
+            <img id="heroImage" src="/yuetie_robotics_cover.avif" alt="YueTie Technology air-ground robotics" fetchpriority="high" decoding="async" />
+          </div>
+          <div class="hero-visual-copy">
+            <div class="hero-visual-kicker" id="heroVisualKicker"></div>
+            <h2 id="heroVisualTitle"></h2>
+            <p id="heroVisualText"></p>
+            <div class="hero-visual-tags" id="heroVisualTags"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="stats">
+      <div class="wrap" id="statsGrid"></div>
+    </div>
+
+    <section id="idea">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="k" id="ideaK"></div>
+          <h2 id="ideaTitle"></h2>
+          <p id="ideaText"></p>
+        </div>
+        <div class="grid-4" id="conceptGrid"></div>
+        <div class="idea-line" id="ideaLine"></div>
+      </div>
+    </section>
+
+    <section id="tech">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="k" id="techK"></div>
+          <h2 id="techTitle"></h2>
+          <p id="techText"></p>
+        </div>
+        <div class="grid-4" id="techGrid"></div>
+      </div>
+    </section>
+
+    <section id="air-ground">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="k" id="airK"></div>
+          <h2 id="airTitle"></h2>
+        </div>
+        <div class="coop-box">
+          <h3 id="airBoxTitle"></h3>
+          <p class="lead" id="airBoxText"></p>
+          <div class="grid-3" id="platformGrid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scenarios">
+      <div class="wrap scenario-intro">
+        <div class="sec-head">
+          <div class="k" id="scenarioK"></div>
+          <h2 id="scenarioTitle"></h2>
+        </div>
+        <div class="legend" id="legend"></div>
+      </div>
+      <div id="scenarioSections"></div>
+    </section>
+
+    <section id="loop">
+      <div class="wrap">
+        <div class="sec-head">
+          <div class="k" id="loopK"></div>
+          <h2 id="loopTitle"></h2>
+          <p id="loopText"></p>
+        </div>
+        <div class="loop" id="loopSteps"></div>
+      </div>
+    </section>
+
+    <footer>
+      <b id="footerTitle"></b>
+      <span id="footerIdea"></span>
+      <span id="footerTeam"></span>
+      <span id="footerNote"></span>
+    </footer>
+
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <script>
+      const content = {
+        en: {
+          title: "YueTie Technology | Air-Ground Collaborative Robotics",
+          seoTitle: "YueTie Technology Air-Ground Robotics Scenario Library | Safety Nexus Case Study",
+          seoDesc:
+            "YueTie Technology air-ground robotics scenario library covering no-GPS inspection, drone and ground robot collaboration, AI defect recognition, 3D mapping, and closed-loop safety operations.",
+          seoKeywords:
+            "YueTie Technology, air-ground robotics, safety robotics, no-GPS inspection, drone inspection, ground robot, AI defect recognition, 3D mapping, infrastructure inspection",
+          canonicalUrl: "https://vibe-portfolio-dny.pages.dev/yuetie-technology-air-ground-robotics",
+          ogLocale: "en_US",
+          navLogo: "YueTie Technology · Scenario Library",
+          nav: [
+            ["idea", "Core Idea"],
+            ["tech", "Core Tech"],
+            ["air-ground", "Air-Ground"],
+            ["scenarios", "Scenarios"],
+            ["loop", "Closed Loop"]
+          ],
+          heroEyebrow: "YueTie Technology · Perception-linked control · Air-ground robotics",
+          heroTitle: "<span>YueTie Technology</span> · Air-Ground Collaborative Robotics Scenario Library",
+          heroCopy:
+            "Built around perception-linked control: real-time perception drives air, ground, and robotic-arm collaboration from seeing a problem to acting on it. One platform covers confined-space inspection, inventory measurement, infrastructure, energy, rail transit, industrial sites, emergency response, security, and air-ground coordinated operations.",
+          tags: [
+            "Perception-linked control",
+            "No GPS / SLAM",
+            "Multi-sensor avoidance",
+            "Vision-based defect recognition",
+            "3D modelling / inventory",
+            "Air-ground collaboration"
+          ],
+          heroImageAlt: "YueTie Technology air-ground robotics field platform",
+          heroVisualKicker: "Sense · Know · Link · Control",
+          heroVisualTitle: "Air-ground robotics, from inspection to action",
+          heroVisualText:
+            "Perception data drives mobile carriers, drones, robotic arms, work orders, verification, archiving, and report export across 30+ safety-critical scenarios.",
+          heroVisualTags: [
+            "No-GPS / SLAM",
+            "AI defect recognition",
+            "3D mapping",
+            "Closed-loop handling"
+          ],
+          stats: [
+            ["8", "Application domains"],
+            ["31", "Use cases"],
+            ["4", "Core capabilities"],
+            ["±3-5cm", "No-GPS positioning accuracy"]
+          ],
+          ideaK: "Core Philosophy",
+          ideaTitle: "Perception-Linked Control",
+          ideaText:
+            "Most inspection solutions stop at perception: enter, see, and report. YueTie's differentiator is perception-linked control: the AINO workflow engine connects sensing, judgement, coordination, control, work orders, verification, archiving, and PDF reporting into one closed loop.",
+          concepts: [
+            ["eye", "Sense", "Devices capture video, imagery, point clouds, and environment signals in real time."],
+            ["brain", "Know", "Knowledge bases and AINO workflows judge defects, hazards, and intervention needs."],
+            ["network", "Link", "Air, ground, and arm systems share coordinates, status, commands, and task context."],
+            ["sliders-horizontal", "Control", "Coordinated control turns inspection findings into field action and closed-loop handling."]
+          ],
+          ideaLine:
+            "AINO coordinates alerting, work orders, intervention, verification, archiving, and one-click PDF reporting.",
+          techK: "Core Tech",
+          techTitle: "Four Core Technology Capabilities",
+          techText: "One shared perception and control foundation supports all scenarios.",
+          techs: [
+            ["satellite", "No-GPS positioning and real-time mapping", "Laser SLAM enables precise positioning and live 3D mapping in dark, enclosed, and satellite-denied spaces."],
+            ["shield-check", "Multi-sensor collision avoidance", "Real-time obstacle awareness supports safer travel through pipe-dense, narrow, and structurally complex environments."],
+            ["scan-search", "Machine-vision defect recognition", "Computer vision identifies cracks, corrosion, leakage, deformation, and other safety-related defects, with visible and thermal imaging options."],
+            ["boxes", "3D models, volume measurement, and inventory", "The system builds digital archives, compares point clouds, measures stockpile volume, and supports automated inventory workflows."]
+          ],
+          airK: "Air-Ground",
+          airTitle: "Why Air-Ground Collaboration Matters",
+          airBoxTitle: "The ground platform carries in; the drone flies deeper in.",
+          airBoxText:
+            "A single indoor drone is limited by battery life and signal. YueTie uses wheeled platforms or robotic dogs as mobile nests and communication relays, bringing the drone close to pipe galleries, tunnels, furnaces, and confined entries before takeoff. Ground robots cover low areas, drones reach high or narrow areas, and the platform provides three-dimensional coverage.",
+          platforms: [
+            ["truck", "Wheeled platform + drone", "Flexible mobile nest that carries the drone closer to the work face."],
+            ["bot", "Robotic dog + drone", "Crosses steps and complex terrain that wheeled platforms cannot reach."],
+            ["hand", "Composite operation platform", "Air, ground, and arm capabilities for integrated inspection and intervention."]
+          ],
+          scenarioK: "Scenarios",
+          scenarioTitle: "Eight Domains · 31 Application Scenarios",
+          legend: [
+            ["verified", "Verified case", "Existing engineering case"],
+            ["replicable", "Fast to replicate", "Transferable to similar scenarios"],
+            ["expandable", "Horizontally expandable", "Technology can migrate across domains"]
+          ],
+          labels: {
+            pain: "Pain",
+            solution: "Solution",
+            value: "Value",
+            count: "scenarios"
+          },
+          categories: [
+            {
+              id: "confined",
+              icon: "circle-dot",
+              title: "Confined-Space Internal Inspection",
+              desc: "Dark, narrow, high-risk enclosed spaces without GPS are the core field for indoor drones.",
+              scenarios: [
+                ["flame", "Waste incinerator furnace interior", "verified", "No GPS, darkness, dense pipes, unsafe manual entry, and incomplete visibility.", "Autonomous SLAM mapping, fused obstacle avoidance, and machine-vision recognition of wall cracks and corrosion.", "People stay out of the furnace while hidden hazards are found earlier."],
+                ["cog", "Power station boilers / pressure vessels", "replicable", "Dark enclosed structures, hard-to-detect tube corrosion, and short maintenance windows.", "Enclosed-space mapping with high-definition recognition of corrosion, deformation, and weld defects.", "Shorter outage inspection windows and lower entry risk."],
+                ["life-buoy", "Large storage tanks / oil tanks / ship holds", "replicable", "High-risk enclosed spaces with inner-wall corrosion and weld inspection that often requires scaffolding.", "No-GPS autonomous flight, obstacle avoidance, and full-coverage imaging of inner walls.", "Less scaffolding, fewer entries, and lower cost and risk."],
+                ["circle-dot", "Ventilation shafts / vertical shafts", "replicable", "Vertical confined spaces create climbing risk and many blind spots.", "Autonomous vertical flight, obstacle avoidance, and full-wall imaging.", "No climbing, fewer blind spots, and faster inspection."],
+                ["pickaxe", "Mine shafts / tunnels / ore passes", "replicable", "No signal, high risk, and difficult structural and safety checks.", "SLAM mapping and obstacle-aware flight inside complex structures.", "Unmanned inspection of high-risk zones with traceable data."],
+                ["droplets", "Hydraulic tunnels / dam galleries", "replicable", "Long, wet, narrow spaces make seepage and crack detection difficult.", "Autonomous mapping and machine-vision recognition of seepage, cracks, and spalling.", "Digital monitoring support for dam and water infrastructure safety."]
+              ]
+            },
+            {
+              id: "stock",
+              icon: "package",
+              title: "Inventory and Volume Measurement",
+              desc: "SLAM-based 3D modelling converts enclosed storage, stockpiles, and warehouses into measurable digital inventory.",
+              scenarios: [
+                ["package", "High-bay warehouse shelf inventory", "expandable", "Manual work at height is slow and exposes workers to fall risk.", "Indoor SLAM travel through aisles, recognition of storage locations and quantities, and layered air-ground inventory.", "Automated inventory and digitised stock records."],
+                ["wheat", "Grain silos and storage inspection", "replicable", "Enclosed spaces, dust, and oxygen deficiency create entry risk.", "Autonomous flight and 3D volume measurement of grain or materials, with wall-condition checks.", "No entry, automated inventory, and safer measurement."],
+                ["mountain", "Coal yards / material piles / ore stockpiles", "expandable", "Irregular piles and large areas create high manual measurement error.", "Autonomous flight and 3D modelling to calculate pile volume and change.", "Fast, accurate stockpile measurement and better stock reconciliation."],
+                ["warehouse", "Enclosed material yards / raw material warehouses", "expandable", "Large enclosed warehouses have low inventory efficiency and blind spots.", "Indoor SLAM travel, 3D modelling, and system-assisted automatic counting.", "Automated inventory and better stock accuracy."]
+              ]
+            },
+            {
+              id: "infra",
+              icon: "landmark",
+              title: "Infrastructure Inspection",
+              desc: "Inspection and deformation monitoring for bridges, slopes, dams, and flood-control assets.",
+              scenarios: [
+                ["landmark", "Bridge structure inspection", "verified", "Pier tops and high girders are hard to access, and scaffolding is expensive.", "Structure-guided structural flight identifies cracks, spalling, seepage, and other defect types.", "Over 90% recognition accuracy in reference cases, faster delivery, and 3D model output."],
+                ["mountain", "Slope stability monitoring", "expandable", "Deformation and cracks need repeated monitoring, while manual surveying is slow.", "Periodic autonomous flights create 3D models and compare deformation over time.", "Earlier deformation warning and traceable monitoring data."],
+                ["landmark", "Dam / reservoir inspection", "expandable", "Large dam surfaces are difficult to inspect fully by people.", "Autonomous flight, modelling, and machine-vision recognition of cracks and leakage.", "Full-coverage digital inspection."],
+                ["waves", "Flood hazard screening", "expandable", "Levees and river channels are numerous and time-critical during flood season.", "Rapid flight imaging and vision-based identification of hazard points.", "Fast screening and emergency response support."]
+              ]
+            },
+            {
+              id: "power",
+              icon: "zap",
+              title: "Power and Energy",
+              desc: "Inspection and temperature monitoring for substations, pipe galleries, lines, and renewable-energy sites.",
+              scenarios: [
+                ["zap", "Substations / power station rooms", "replicable", "Many assets and energised zones increase manual inspection risk.", "Autonomous inspection, thermal imaging, and Vision-based defect recognition.", "Unmanned inspection and earlier detection of thermal hazards."],
+                ["cylinder", "Cable galleries / utility tunnels", "replicable", "Long corridors, branches, and dense utilities are hard to inspect consistently.", "Ground platform approach, drone SLAM traversal, and machine-vision recognition of anomalies and leakage.", "One flight covers the gallery and builds a digital ledger."],
+                ["plug", "Transmission lines / corridors", "expandable", "Long routes cross complex terrain.", "Autonomous route flight and machine-vision recognition of defects and foreign objects.", "Efficient line inspection with lower cost."],
+                ["wind", "Wind and solar inspection", "expandable", "Blades and panels are high, numerous, and distributed.", "Close-range autonomous imaging and Vision-based defect recognition.", "Efficient inspection that supports power-generation performance."]
+              ]
+            },
+            {
+              id: "rail",
+              icon: "train-front",
+              title: "Rail Transit",
+              desc: "Inspection and monitoring for metro tunnels, protection zones, platforms, and concourse spaces.",
+              scenarios: [
+                ["train-front", "Metro tunnels / running sections", "replicable", "Long straight tunnels have no signal, and lining cracks, seepage, and deformation are slow to inspect.", "No-GPS SLAM autonomous flight and machine-vision recognition of tunnel-lining defects.", "Rapid section coverage, ring-level positioning, and traceable data."],
+                ["route", "Metro protection-zone patrols", "expandable", "Large protection zones make illegal works and construction risks difficult to detect.", "Autonomous flight monitoring and machine-vision recognition of surface changes.", "Routine monitoring and earlier discovery of unauthorised works."],
+                ["building-2", "Station platform and concourse high-level inspection", "expandable", "Ceilings and high-level components are difficult to inspect manually.", "Indoor autonomous flight and high-definition imaging.", "No working at height and more routine inspection coverage."]
+              ]
+            },
+            {
+              id: "industry",
+              icon: "factory",
+              title: "Industrial Sites",
+              desc: "High-level and confined inspections for factories, chemical plants, pipe racks, and tank farms.",
+              scenarios: [
+                ["factory", "Factory / workshop high-level components", "expandable", "Steel structures, roof trusses, and crane beams are hard to inspect at height.", "Indoor no-GPS autonomous flight and imaging of corrosion, deformation, and cracks.", "No working at height and more routine inspection."],
+                ["flask-conical", "Chemical plant / pipe rack inspection", "expandable", "Dense equipment, toxic or flammable hazards, and high manual exposure.", "Autonomous inspection, thermal imaging, and machine-vision recognition of leakage and hazards.", "Lower personnel exposure risk."],
+                ["cylinder", "Tank farms / tank roof inspection", "replicable", "Tank roofs are high and tank farms are large.", "Autonomous flight imaging of tank roofs and walls.", "Safer and more efficient inspection."]
+              ]
+            },
+            {
+              id: "emergency",
+              icon: "siren",
+              title: "Emergency Response and Security",
+              desc: "Unmanned reconnaissance for dangerous, unknown, or unattended security conditions.",
+              scenarios: [
+                ["badge-alert", "Disaster / accident scene reconnaissance", "expandable", "The scene is dangerous and the situation is uncertain.", "Rapid entry, mapping reconnaissance, and real-time video return.", "Faster scene understanding and decision support."],
+                ["biohazard", "Toxic / oxygen-deficient environment reconnaissance", "expandable", "People cannot safely enter.", "Drones replace people for reconnaissance and detection.", "Zero personnel exposure."],
+                ["moon", "Night security patrol", "expandable", "Large-area night patrols require heavy manpower.", "Autonomous patrol with night vision or thermal imaging and abnormal-event alerts.", "Unmanned night patrol and lower cost."]
+              ]
+            },
+            {
+              id: "coop",
+              icon: "workflow",
+              title: "Air-Ground Coordinated Operations",
+              desc: "YueTie's differentiated capability: coordinated air, ground, and arm operations beyond single-drone inspection.",
+              scenarios: [
+                ["telescope", "Air-ground inspection for high and low areas", "replicable", "A single machine cannot cover three-dimensional spaces fully.", "Drones inspect high areas while ground robots inspect low areas using shared coordinates.", "Three-dimensional coverage and doubled efficiency."],
+                ["hand", "Drone guidance + robotic arm grasping", "replicable", "Inspection findings may require sampling or intervention.", "The drone guides the ground platform into position, and the robotic arm recognises and grasps the target.", "Inspection and field operation in one workflow."],
+                ["battery-charging", "Mobile drone nest / communication relay", "replicable", "Indoor drones have short battery life and weak signal deep inside structures.", "The ground platform serves as a mobile nest and relay, carrying the drone closer before flight.", "Better endurance, better signal, and wider operating range."],
+                ["map", "Indoor 3D mapping and digital-twin base map", "replicable", "Many indoor scenarios lack a usable 3D base map.", "SLAM builds a 3D point-cloud map and exports a digital twin base layer.", "A digital foundation for inspection, simulation, and management."]
+              ]
+            }
+          ],
+          loopK: "Sense · Know · Link · Control",
+          loopTitle: "Closed Loop from Discovery to Action",
+          loopText:
+            "AINO coordinates perception, judgement, alerting, work orders, linked intervention, verification, archiving, reporting, and continuous improvement.",
+          loop: [
+            ["eye", "Sense", "Capture video, imagery, and point clouds"],
+            ["brain", "Judge", "Knowledge base + AINO identifies defects"],
+            ["siren", "Alert / Work Order", "Abnormal events generate alerts and work orders"],
+            ["sliders-horizontal", "Intervene", "Multi-machine coordination supports field action"],
+            ["badge-check", "Verify / Archive", "Close the loop and export PDF reports"]
+          ],
+          footerTitle: "YueTie Technology · Air-Ground Collaborative Robotics Scenario Library",
+          footerIdea: "Core idea: perception-linked control, from seeing a problem to solving a problem.",
+          footerTeam: "YueTie Technology · Robotics Team",
+          footerNote: "Verified / replicable / expandable scenarios for client-specific selection and further tailoring · 2026"
+        },
+        zh: {
+          title: "粤铁科技 | 空地协同机器人应用场景大全",
+          seoTitle: "粤铁科技空地协同机器人应用场景大全 | Safety Nexus 案例",
+          seoDesc:
+            "粤铁科技空地协同机器人应用场景大全，覆盖无 GPS 巡检、无人机与地面机器人协同、AI 病害识别、三维建模和安全闭环处置。",
+          seoKeywords:
+            "粤铁科技, 空地协同机器人, 安全机器人, 无 GPS 巡检, 无人机巡检, 地面机器人, AI 病害识别, 三维建模, 基础设施巡检",
+          canonicalUrl: "https://vibe-portfolio-dny.pages.dev/zh/yuetie-technology-air-ground-robotics",
+          ogLocale: "zh_CN",
+          navLogo: "粤铁科技 · 应用场景大全",
+          nav: [
+            ["idea", "核心理念"],
+            ["tech", "核心技术"],
+            ["air-ground", "空地协同"],
+            ["scenarios", "应用场景"],
+            ["loop", "闭环流程"]
+          ],
+          heroEyebrow: "粤铁科技 · 感知联控 · 空地协同机器人",
+          heroTitle: "<span>粤铁科技</span> · 空地协同机器人应用场景大全",
+          heroCopy:
+            "以感知联控为核心理念：让感知到的信息实时驱动空、地、臂联动与处置，从看见问题到解决问题。覆盖受限空间检测、盘库测算、基础设施、电力能源、轨道交通、工业厂区、应急安防与空地协同作业。",
+          tags: [
+            "感知联控",
+            "无 GPS / SLAM",
+            "多传感器防撞",
+            "机器视觉病害识别",
+            "三维建模 / 盘库",
+            "空地协同"
+          ],
+          heroImageAlt: "粤铁科技空地协同机器人现场平台",
+          heroVisualKicker: "感 · 知 · 联 · 控",
+          heroVisualTitle: "空地协同机器人：从巡检发现到闭环处置",
+          heroVisualText:
+            "以感知数据驱动地面平台、无人机、机械臂、工单、复核、归档和报告导出，覆盖 30+ 个安全关键场景。",
+          heroVisualTags: [
+            "无 GPS / SLAM",
+            "AI 病害识别",
+            "三维建模",
+            "闭环处置"
+          ],
+          stats: [
+            ["8", "大应用领域"],
+            ["31", "个应用场景"],
+            ["4", "项核心技术能力"],
+            ["±3-5cm", "无 GPS 定位精度"]
+          ],
+          ideaK: "Core Philosophy",
+          ideaTitle: "核心理念：感知联控",
+          ideaText:
+            "别人止步于感知：飞进去、看清楚、出报告。粤铁科技的差异化是感知联控：以 AINO 工作流引擎，把感知、研判、联动、控制、报警、工单、复核、归档和 PDF 报告导出连成一个闭环。",
+          concepts: [
+            ["eye", "感 · 感知", "各设备终端实时采集视频、图像、点云和环境信息。"],
+            ["brain", "知 · 研判", "依托知识库和 AINO 工作流判断缺陷、隐患和处置需求。"],
+            ["network", "联 · 联动", "空、地、臂系统共享坐标、状态、指令和任务上下文。"],
+            ["sliders-horizontal", "控 · 协同控制", "多机协同控制，把巡检发现转化为现场行动和闭环处置。"]
+          ],
+          ideaLine:
+            "由 AINO 统筹报警、工单、处置、复核、归档和一键 PDF 报告导出。",
+          techK: "Core Tech",
+          techTitle: "四项核心技术能力",
+          techText: "同一套感知与控制底座，支撑全部应用场景。",
+          techs: [
+            ["satellite", "无 GPS 自主定位 + 实时建图", "激光 SLAM 支持在漆黑、封闭、无卫星信号空间中精准定位并实时生成三维地图。"],
+            ["shield-check", "多传感器融合防撞", "在管线密集、狭窄、结构复杂的环境中实时感知障碍并安全穿行。"],
+            ["scan-search", "机器视觉高清识别", "识别裂缝、锈蚀、渗水、变形等安全相关病害，可支持可见光与热成像。"],
+            ["boxes", "三维模型 · 体积测算 · 盘库", "生成数字档案、点云对比、堆体体积测算和自动盘库工作流。"]
+          ],
+          airK: "Air-Ground",
+          airTitle: "为什么是空地协同",
+          airBoxTitle: "地面平台送进去，无人机钻进去",
+          airBoxText:
+            "单台室内无人机受限于续航与信号。粤铁科技用轮式平台或机械狗作为移动机巢和通信中继，把无人机送到管廊口、隧道口、炉门口等位置再放飞。地面机器人查低处，无人机钻高处和狭窄处，实现立体覆盖。",
+          platforms: [
+            ["truck", "轮式平台 + 无人机", "机动灵活，可作为移动机巢，把无人机送到作业面附近。"],
+            ["bot", "机械狗 + 无人机", "跨越台阶和复杂地形，进入轮式平台到不了的地方。"],
+            ["hand", "复合作业版", "融合空、地、臂能力，实现巡检和处置一体化。"]
+          ],
+          scenarioK: "Scenarios",
+          scenarioTitle: "八大领域 · 31 个应用场景",
+          legend: [
+            ["verified", "已验证案例", "已有真实工程案例"],
+            ["replicable", "可快速复制", "同类场景可快速复制"],
+            ["expandable", "可横向拓展", "技术迁移可拓展"]
+          ],
+          labels: {
+            pain: "痛点",
+            solution: "方案",
+            value: "价值",
+            count: "个场景"
+          },
+          categories: [
+            {
+              id: "confined",
+              icon: "circle-dot",
+              title: "受限空间内部检测",
+              desc: "无 GPS、漆黑、狭窄、高危的封闭空间，是室内无人机最核心的主场。",
+              scenarios: [
+                ["flame", "垃圾焚烧炉炉膛内部检测", "verified", "无 GPS、漆黑、管道密布，人工进入危险且看不全。", "无人机 SLAM 自主定位建图，融合避障，智能识别炉壁裂缝与锈蚀。", "人不进炉、钻进最暗的缝，隐患早发现。"],
+                ["cog", "电站锅炉 / 压力容器内部", "replicable", "黑暗封闭，炉管内壁腐蚀难检，停机检修窗口短。", "封闭空间自主建图，高清成像识别腐蚀、变形、焊缝缺陷。", "缩短停机检修，降低进入风险。"],
+                ["life-buoy", "大型储罐 / 油罐 / 船舱", "replicable", "封闭高危，内壁锈蚀、焊缝检测需搭脚手架。", "无 GPS 自主飞行避障，内壁全覆盖成像。", "免搭架、免进人，成本风险双降。"],
+                ["circle-dot", "通风井 / 竖井检测", "replicable", "竖向受限空间，人工攀爬危险、盲区多。", "自主垂直飞行避障，全壁面成像。", "免攀爬、无盲区，安全高效。"],
+                ["pickaxe", "矿井 / 巷道 / 溜井", "replicable", "无信号、高危，结构与安全巡查难。", "SLAM 自主建图，复杂结构内避障飞行。", "高危区无人化巡查，数据可追溯。"],
+                ["droplets", "水工隧洞 / 大坝廊道", "replicable", "狭长潮湿，渗水裂缝检测难。", "自主建图，智能识别渗水、裂缝、剥落。", "坝体安全数字化监测。"]
+              ]
+            },
+            {
+              id: "stock",
+              icon: "package",
+              title: "盘库与体积测算",
+              desc: "用 SLAM 三维建模算体积、自动盘点，是受限 / 封闭仓储的高价值场景。",
+              scenarios: [
+                ["package", "仓储高位货架盘库", "expandable", "高位库存盘点人工登高、效率低。", "室内 SLAM 穿行货架，识别货位与数量；可空地协同分层盘点。", "自动盘库，库存数字化。"],
+                ["wheat", "粮仓 / 筒仓盘库与检测", "replicable", "封闭、粉尘大、易缺氧，进仓有安全风险。", "自主飞行建图，三维测算粮 / 物料体积，同步查仓壁。", "免进仓、自动盘库，安全精准。"],
+                ["mountain", "煤场 / 料堆 / 矿石堆方量盘点", "expandable", "堆体不规则、面积大，人工测方量误差大。", "自主航飞三维建模，自动测算堆体体积与变化量。", "快速精准盘方量，账实相符。"],
+                ["warehouse", "封闭料场 / 原料库盘库", "expandable", "大跨度封闭库房盘点效率低、有死角。", "室内 SLAM 穿行，三维建模 + 智能识别自动盘点。", "自动化盘库，账实相符。"]
+              ]
+            },
+            {
+              id: "infra",
+              icon: "landmark",
+              title: "基础设施巡检",
+              desc: "桥梁、边坡、大坝等高空 / 大范围结构的病害与形变监测。",
+              scenarios: [
+                ["landmark", "桥梁结构巡检", "verified", "桥墩顶部、主梁高空难达，搭架成本高。", "智能识别沿结构自动飞行，识别裂缝、掉块、渗水等 5 类病害。", "准确率 >90%，半日完成、效率 6 倍，生成三维模型。"],
+                ["mountain", "边坡稳定性监测", "expandable", "形变、裂缝需周期监测，人工测绘慢。", "定期自主航飞三维建模，比对形变。", "形变早预警，数据可追溯。"],
+                ["landmark", "大坝 / 水库巡查", "expandable", "坝面大，人工巡查难全覆盖。", "自主航飞建模，智能识别裂缝、渗漏。", "全覆盖数字化巡查。"],
+                ["waves", "防洪隐患排查", "expandable", "堤坝、河道点多面广，汛期时效要求高。", "快速航飞成像，智能识别隐患点。", "快速摸排、应急响应。"]
+              ]
+            },
+            {
+              id: "power",
+              icon: "zap",
+              title: "电力与能源",
+              desc: "变电站、管廊、线路、新能源场站的巡检与测温。",
+              scenarios: [
+                ["zap", "变电站 / 电力站房巡检", "replicable", "设备多、带电区域人工巡检有风险。", "自主巡检 + 热成像测温，智能识别缺陷。", "无人化巡检，测温隐患早发现。"],
+                ["cylinder", "电缆管廊 / 综合管廊", "replicable", "狭长、分支多、密布管线。", "地面平台承载抵近，无人机 SLAM 穿行，智能识别异常、渗水。", "一次飞行全廊覆盖，数字台账。"],
+                ["plug", "输电线路 / 通道巡检", "expandable", "线路长、跨越地形复杂。", "自主航飞巡线，智能识别缺陷、异物。", "高效巡线，降本增效。"],
+                ["wind", "风电 / 光伏巡检", "expandable", "叶片 / 组件高空、数量大。", "自主航飞近距成像，智能识别缺陷。", "高效巡检，保障发电效率。"]
+              ]
+            },
+            {
+              id: "rail",
+              icon: "train-front",
+              title: "轨道交通",
+              desc: "地铁隧道、保护区、站台等空间的巡检与监测。",
+              scenarios: [
+                ["train-front", "地铁隧道 / 区间巡检", "replicable", "长直、无信号，衬砌裂缝、渗水、变形巡检慢。", "无 GPS SLAM 自主飞行建图，智能识别衬砌病害。", "快速覆盖区间，定位到环、可追溯。"],
+                ["route", "地铁保护区巡查", "expandable", "保护区范围大，违建 / 施工隐患排查难。", "自主航飞监测，智能识别地表变化。", "常态化监测，违建早发现。"],
+                ["building-2", "站台 / 站厅高处巡检", "expandable", "顶棚、高处构件人工巡检难。", "室内自主飞行，高清成像。", "免登高，例行巡检常态化。"]
+              ]
+            },
+            {
+              id: "industry",
+              icon: "factory",
+              title: "工业与厂区",
+              desc: "厂房、化工装置、储罐区等工业场景的高空与受限巡检。",
+              scenarios: [
+                ["factory", "厂房 / 车间高空构件", "expandable", "钢结构、屋架、行车梁高空巡检难。", "室内无 GPS 自主飞行，成像查锈蚀、变形、裂纹。", "免登高，常态化巡检。"],
+                ["flask-conical", "化工装置 / 管廊巡检", "expandable", "装置密集、有毒易燃，人工巡检风险高。", "自主巡检 + 热成像，智能识别泄漏与隐患。", "降低人员暴露风险。"],
+                ["cylinder", "储罐区 / 罐顶巡检", "replicable", "罐顶高、罐区大，人工巡检难。", "自主航飞罐顶、罐壁成像。", "高效安全巡检。"]
+              ]
+            },
+            {
+              id: "emergency",
+              icon: "siren",
+              title: "应急与安防",
+              desc: "危险、未知或需无人化值守的场景。",
+              scenarios: [
+                ["badge-alert", "灾害 / 事故现场侦察", "expandable", "现场危险、情况不明。", "快速进入建图侦察，实时回传画面。", "快速掌握现场，辅助决策。"],
+                ["biohazard", "有毒 / 缺氧环境侦察", "expandable", "人员不能进入。", "无人机替人进入侦察与检测。", "零人员暴露。"],
+                ["moon", "夜间安防巡逻", "expandable", "大范围夜巡人力成本高。", "自主巡逻 + 夜视 / 热成像，异常告警。", "无人化夜巡，降本。"]
+              ]
+            },
+            {
+              id: "coop",
+              icon: "workflow",
+              title: "空地协同作业",
+              desc: "粤铁科技区别于单台室内无人机的核心能力：空、地、臂联动。",
+              scenarios: [
+                ["telescope", "空地协同巡检（高处 + 低处）", "replicable", "立体空间单机难全覆盖。", "无人机查高处、地面机器人查低处，统一坐标协同。", "立体覆盖，效率翻倍。"],
+                ["hand", "无人机引导 + 机械臂自主抓取", "replicable", "巡检发现后需取样 / 处置。", "无人机引导地面平台到位，机械臂识别并抓取。", "巡检 + 作业一体。"],
+                ["battery-charging", "移动机巢 / 通信中继", "replicable", "室内无人机续航短、深处信号弱。", "地面平台作移动机巢 + 中继，送无人机抵近。", "续航通信有保障，作业范围扩大。"],
+                ["map", "室内三维测绘与数字孪生底图", "replicable", "室内场景缺三维底图。", "SLAM 建三维点云地图，导出数字孪生底图。", "为巡检 / 仿真 / 管理提供数字底座。"]
+              ]
+            }
+          ],
+          loopK: "Sense · Know · Link · Control",
+          loopTitle: "感知联控闭环：从发现到处置全自动",
+          loopText:
+            "由 AINO 智能体引擎统筹感知、研判、报警、工单、联动处置、复核归档、报告导出和持续迭代。",
+          loop: [
+            ["eye", "感知", "终端采集视频 / 图像 / 点云"],
+            ["brain", "研判", "知识库 + AINO 判断缺陷隐患"],
+            ["siren", "报警 · 工单", "异常自动告警、生成工单"],
+            ["sliders-horizontal", "联动处置", "多机协同控制、现场处置"],
+            ["badge-check", "复核归档", "复核闭环、自动导出 PDF"]
+          ],
+          footerTitle: "粤铁科技 · 空地协同机器人应用场景大全",
+          footerIdea: "核心理念：感知联控，从看见问题到解决问题。",
+          footerTeam: "粤铁科技 · 智能装备与机器人事业部",
+          footerNote: "已验证 / 可复制 / 可拓展场景，便于按客户行业精准选取和定制深化 · 2026"
+        }
+      };
+
+      const statusClass = {
+        verified: "verified",
+        replicable: "replicable",
+        expandable: "expandable"
+      };
+
+      function setText(id, value) {
+        const node = document.getElementById(id);
+        if (node) node.textContent = value;
+      }
+
+      function setHtml(id, value) {
+        const node = document.getElementById(id);
+        if (node) node.innerHTML = value;
+      }
+
+      function setMeta(attribute, key, value) {
+        if (!value) return;
+        let node = document.head.querySelector(`meta[${attribute}="${key}"]`);
+        if (!node) {
+          node = document.createElement("meta");
+          node.setAttribute(attribute, key);
+          document.head.appendChild(node);
+        }
+        node.setAttribute("content", value);
+      }
+
+      function setLink(selector, attrs) {
+        let node = document.head.querySelector(selector);
+        if (!node) {
+          node = document.createElement("link");
+          document.head.appendChild(node);
+        }
+        Object.entries(attrs).forEach(([key, value]) => node.setAttribute(key, value));
+      }
+
+      function card(items, className, renderItem) {
+        return items.map((item) => `<div class="${className}">${renderItem(item)}</div>`).join("");
+      }
+
+      function icon(name) {
+        return `<i data-lucide="${name}" aria-hidden="true"></i>`;
+      }
+
+      function refreshIcons() {
+        if (window.lucide) {
+          window.lucide.createIcons({
+            attrs: {
+              "stroke-width": 1.8
+            }
+          });
+        }
+      }
+
+      function render(lang) {
+        const t = content[lang] || content.en;
+        document.documentElement.lang = lang === "zh" ? "zh-CN" : "en";
+        document.title = t.seoTitle || t.title;
+        setMeta("name", "description", t.seoDesc);
+        setMeta("name", "keywords", t.seoKeywords);
+        setMeta("property", "og:title", t.seoTitle || t.title);
+        setMeta("property", "og:description", t.seoDesc);
+        setMeta("property", "og:url", t.canonicalUrl);
+        setMeta("property", "og:locale", t.ogLocale);
+        setMeta("name", "twitter:title", t.seoTitle || t.title);
+        setMeta("name", "twitter:description", t.seoDesc);
+        setLink('link[rel="canonical"]', { rel: "canonical", href: t.canonicalUrl });
+        setLink('link[rel="alternate"][hreflang="en"]', {
+          rel: "alternate",
+          hreflang: "en",
+          href: "https://vibe-portfolio-dny.pages.dev/yuetie-technology-air-ground-robotics"
+        });
+        setLink('link[rel="alternate"][hreflang="zh-Hans"]', {
+          rel: "alternate",
+          hreflang: "zh-Hans",
+          href: "https://vibe-portfolio-dny.pages.dev/zh/yuetie-technology-air-ground-robotics"
+        });
+        setLink('link[rel="alternate"][hreflang="x-default"]', {
+          rel: "alternate",
+          hreflang: "x-default",
+          href: "https://vibe-portfolio-dny.pages.dev/yuetie-technology-air-ground-robotics"
+        });
+
+        setText("navLogo", t.navLogo);
+        document.getElementById("navLinks").innerHTML = t.nav
+          .map(([href, label]) => `<a href="#${href}">${label}</a>`)
+          .join("");
+
+        setText("heroEyebrow", t.heroEyebrow);
+        setHtml("heroTitle", t.heroTitle);
+        setText("heroCopy", t.heroCopy);
+        document.getElementById("heroTags").innerHTML = t.tags.map((tag) => `<span>${tag}</span>`).join("");
+        document.getElementById("heroImage").alt = t.heroImageAlt;
+        setText("heroVisualKicker", t.heroVisualKicker);
+        setText("heroVisualTitle", t.heroVisualTitle);
+        setText("heroVisualText", t.heroVisualText);
+        document.getElementById("heroVisualTags").innerHTML = t.heroVisualTags
+          .map((tag) => `<span>${tag}</span>`)
+          .join("");
+
+        document.getElementById("statsGrid").innerHTML = t.stats
+          .map(([number, label]) => `<div class="stat"><div class="n">${number}</div><div class="l">${label}</div></div>`)
+          .join("");
+
+        setText("ideaK", t.ideaK);
+        setText("ideaTitle", t.ideaTitle);
+        setText("ideaText", t.ideaText);
+        document.getElementById("conceptGrid").innerHTML = card(t.concepts, "concept-card", ([icon, title, text]) =>
+          `<div class="icon">${window.icon(icon)}</div><h3>${title}</h3><p>${text}</p>`
+        );
+        setText("ideaLine", t.ideaLine);
+
+        setText("techK", t.techK);
+        setText("techTitle", t.techTitle);
+        setText("techText", t.techText);
+        document.getElementById("techGrid").innerHTML = card(t.techs, "tech-card", ([icon, title, text]) =>
+          `<div class="icon">${window.icon(icon)}</div><h3>${title}</h3><p>${text}</p>`
+        );
+
+        setText("airK", t.airK);
+        setText("airTitle", t.airTitle);
+        setText("airBoxTitle", t.airBoxTitle);
+        setText("airBoxText", t.airBoxText);
+        document.getElementById("platformGrid").innerHTML = card(t.platforms, "platform-card", ([icon, title, text]) =>
+          `<div class="platform-visual">${window.icon(icon)}</div><div class="copy"><b>${title}</b><p>${text}</p></div>`
+        );
+
+        setText("scenarioK", t.scenarioK);
+        setText("scenarioTitle", t.scenarioTitle);
+        document.getElementById("legend").innerHTML = t.legend
+          .map(([status, label, text]) => `<span><span class="badge ${statusClass[status]}">${label}</span> ${text}</span>`)
+          .join("");
+
+        document.getElementById("scenarioSections").innerHTML = t.categories
+          .map((category) => {
+            const cards = category.scenarios
+              .map(
+                ([icon, name, status, pain, solution, value]) => `
+                  <div class="scene" data-status="${status}">
+                    <div class="s-head">
+                      <span class="s-ico">${window.icon(icon)}</span>
+                      <span class="s-name">${name}</span>
+                      <span class="badge ${statusClass[status]}">${t.legend.find((item) => item[0] === status)[1]}</span>
+                    </div>
+                    <div class="s-row"><span class="s-k">${t.labels.pain}</span><span class="s-v">${pain}</span></div>
+                    <div class="s-row"><span class="s-k">${t.labels.solution}</span><span class="s-v">${solution}</span></div>
+                    <div class="s-row value"><span class="s-k">${t.labels.value}</span><span class="s-v">${value}</span></div>
+                  </div>
+                `
+              )
+              .join("");
+
+            return `
+              <section class="category" id="${category.id}">
+                <div class="wrap">
+                  <div class="cat-head">
+                    <span class="cat-ico">${window.icon(category.icon)}</span>
+                    <div><h2>${category.title}</h2><p>${category.desc}</p></div>
+                    <span class="cat-count">${category.scenarios.length} ${t.labels.count}</span>
+                  </div>
+                  <div class="scenes">${cards}</div>
+                </div>
+              </section>
+            `;
+          })
+          .join("");
+
+        setText("loopK", t.loopK);
+        setText("loopTitle", t.loopTitle);
+        setText("loopText", t.loopText);
+        document.getElementById("loopSteps").innerHTML = t.loop
+          .map(([icon, title, text]) => `<div class="lstep"><div class="li">${window.icon(icon)}</div><h4>${title}</h4><p>${text}</p></div>`)
+          .join("");
+
+        setText("footerTitle", t.footerTitle);
+        setText("footerIdea", t.footerIdea);
+        setText("footerTeam", t.footerTeam);
+        setText("footerNote", t.footerNote);
+
+        document.querySelectorAll("[data-lang]").forEach((button) => {
+          button.classList.toggle("active", button.dataset.lang === lang);
+          button.setAttribute("aria-pressed", String(button.dataset.lang === lang));
+        });
+        localStorage.setItem("yuetieLang", lang);
+        refreshIcons();
+      }
+
+      window.icon = icon;
+
+      document.querySelectorAll("[data-lang]").forEach((button) => {
+        button.addEventListener("click", () => render(button.dataset.lang));
+      });
+
+      const params = new URLSearchParams(window.location.search);
+      const requested = params.get("lang");
+      const saved = localStorage.getItem("yuetieLang");
+      const browserLang = navigator.language && navigator.language.toLowerCase().startsWith("zh") ? "zh" : "en";
+      render(requested === "zh" || requested === "en" ? requested : saved || browserLang);
+    </script>
+  </body>
+</html>
