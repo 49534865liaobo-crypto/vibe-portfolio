@@ -199,7 +199,7 @@ body {
   gap: 12px;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 0.85rem;
-  color: #666;
+  color: #a7b0c0;
   margin-top: 10px;
 }
 
@@ -4684,7 +4684,7 @@ footer {
   display: flex;
   align-items: center;
   gap: 6px;
-  opacity: 0.6;
+  opacity: 0.9;
   transition: all 0.3s ease;
 }
 
@@ -5099,6 +5099,18 @@ body {
   transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.nexus-engine-host,
+.nexus-engine-placeholder {
+  width: 100%;
+  min-height: 800px;
+  border-radius: 32px;
+}
+
+.nexus-engine-placeholder {
+  background: #020b19;
+  border: 1px solid rgba(34, 211, 238, 0.18);
+}
+
 .scene,
 .scene-content {
   position: absolute;
@@ -5401,7 +5413,7 @@ body {
 .motion-credit {
   display: block;
   margin-top: 0.8rem;
-  color: rgba(148, 163, 184, 0.72);
+  color: rgba(148, 163, 184, 0.82);
   font-size: 0.72rem;
   line-height: 1.5;
 }

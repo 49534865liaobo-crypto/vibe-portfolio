@@ -1,8 +1,9 @@
-import { useState, useEffect, useRef } from 'react'
+import { lazy, Suspense, useState, useEffect, useRef } from 'react'
 import { Activity, ArrowRight, Award, Bot, Brain, BriefcaseBusiness, CalendarCheck, CheckCircle2, ChevronDown, Clapperboard, CreditCard, Download, ExternalLink, Globe2, GraduationCap, Heart, Loader2, Radar, Route, Scale, ShieldCheck, Siren, UsersRound } from 'lucide-react'
 import './App.css'
 import { locales } from './locales.js'
-import SafetyNexusEngine from './components/SafetyNexusEngine.jsx'
+
+const SafetyNexusEngine = lazy(() => import('./components/SafetyNexusEngine.jsx'));
 
 const LINKEDIN_URL = 'https://www.linkedin.com/in/ir-bo-alvin-liao-2b237b95/';
 const CORPORATE_DISCOVERY_URL = 'https://cal.com/bo-liao-etzveq';
@@ -164,18 +165,34 @@ const installGoogleSearchConsoleMeta = () => {
 
 const installGoogleAnalytics = () => {
   if (!isValidGaMeasurementId(GA_MEASUREMENT_ID)) return;
-  if (document.querySelector(`script[data-ga-measurement-id="${GA_MEASUREMENT_ID}"]`)) return;
+  if (document.querySelector(`script[data-ga-measurement-id="${GA_MEASUREMENT_ID}"]`)) return undefined;
 
   window.dataLayer = window.dataLayer || [];
   window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
   window.gtag('js', new Date());
   window.gtag('config', GA_MEASUREMENT_ID, { send_page_view: false });
 
-  const script = document.createElement('script');
-  script.async = true;
-  script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_MEASUREMENT_ID)}`;
-  script.dataset.gaMeasurementId = GA_MEASUREMENT_ID;
-  document.head.appendChild(script);
+  let loaded = false;
+  const loadScript = () => {
+    if (loaded || document.querySelector(`script[data-ga-measurement-id="${GA_MEASUREMENT_ID}"]`)) return;
+    loaded = true;
+    const script = document.createElement('script');
+    script.async = true;
+    script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_MEASUREMENT_ID)}`;
+    script.dataset.gaMeasurementId = GA_MEASUREMENT_ID;
+    document.head.appendChild(script);
+  };
+
+  const interactionEvents = ['pointerdown', 'keydown', 'touchstart'];
+  interactionEvents.forEach((eventName) => {
+    window.addEventListener(eventName, loadScript, { once: true, passive: true });
+  });
+  const timer = window.setTimeout(loadScript, 10000);
+
+  return () => {
+    window.clearTimeout(timer);
+    interactionEvents.forEach((eventName) => window.removeEventListener(eventName, loadScript));
+  };
 };
 
 const getAnalyticsLocation = () => {
@@ -383,6 +400,40 @@ const getOfferModuleFromLocation = (isStarterKitSuccess) => {
   if (hash === '#corporate-diagnostic' || hash === '#ai-advisory') return 'corporate';
   if (hash === '#consultation' || hash === '#safety-training') return 'direct';
   return 'individual';
+};
+
+const DeferredSafetyNexusEngine = () => {
+  const hostRef = useRef(null);
+  const [isReady, setIsReady] = useState(false);
+
+  useEffect(() => {
+    const host = hostRef.current;
+    if (!host || typeof IntersectionObserver === 'undefined') {
+      setIsReady(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return;
+      setIsReady(true);
+      observer.disconnect();
+    }, { rootMargin: '700px 0px' });
+
+    observer.observe(host);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={hostRef} className="nexus-engine-host" aria-busy={!isReady}>
+      {isReady ? (
+        <Suspense fallback={<div className="nexus-engine-placeholder" aria-hidden="true" />}>
+          <SafetyNexusEngine />
+        </Suspense>
+      ) : (
+        <div className="nexus-engine-placeholder" aria-hidden="true" />
+      )}
+    </div>
+  );
 };
 
 // Adapted from the Ripple Feedback and Like Burst patterns in Kinetics by Csaba Kissi.
@@ -2651,8 +2702,9 @@ function App() {
 
   useEffect(() => {
     installGoogleSearchConsoleMeta();
-    installGoogleAnalytics();
+    const cleanupAnalytics = installGoogleAnalytics();
     trackAiReferralVisit();
+    return cleanupAnalytics;
   }, []);
 
   useEffect(() => {
@@ -2704,17 +2756,29 @@ function App() {
   const nextHeroImageUrl = heroImages[(heroImgIdx + 1) % heroImages.length]?.url;
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    let interval;
+    const initialDelay = window.setTimeout(() => {
       setHeroImgIdx(prev => (prev + 1) % heroImages.length);
-    }, 4500); // Rotate every 4.5 seconds
-    return () => clearInterval(interval);
+      interval = window.setInterval(() => {
+        setHeroImgIdx(prev => (prev + 1) % heroImages.length);
+      }, 6500);
+    }, 12000);
+
+    return () => {
+      window.clearTimeout(initialDelay);
+      window.clearInterval(interval);
+    };
   }, [heroImages.length]);
 
   useEffect(() => {
     if (!nextHeroImageUrl) return;
-    const preload = new Image();
-    preload.src = nextHeroImageUrl;
-  }, [nextHeroImageUrl]);
+    const delay = heroImgIdx === 0 ? 8000 : 0;
+    const timer = window.setTimeout(() => {
+      const preload = new Image();
+      preload.src = nextHeroImageUrl;
+    }, delay);
+    return () => window.clearTimeout(timer);
+  }, [heroImgIdx, nextHeroImageUrl]);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -2809,6 +2873,7 @@ function App() {
         </div>
       </nav>
 
+      <main id="main-content">
       {/* Hero Section */}
       <section className="hero">
         <div className="hero-content">
@@ -2859,7 +2924,7 @@ function App() {
           <h2>{t.projects.sectionTitle.split(' ')[0]} <span>{t.projects.sectionTitle.split(' ').slice(1).join(' ')}</span></h2>
           <p>{t.projects.sectionSub}</p>
         </div>
-          <SafetyNexusEngine />
+          <DeferredSafetyNexusEngine />
       </section>
 
       <ForwardDeployedProofSection t={t} />
@@ -3025,6 +3090,7 @@ function App() {
                 <iframe 
                   src="//player.bilibili.com/player.html?bvid=BV1aidmBbEaH&page=1&high_quality=1&danmaku=0" 
                   style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
+                  loading="lazy"
                   allowFullScreen
                   scrolling="no"
                   frameBorder="0"
@@ -3114,6 +3180,7 @@ function App() {
 
       <OfferPathwaySection t={t} />
       <SchedulerSection t={t} />
+      </main>
 
       <footer>
         <p>

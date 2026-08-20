@@ -145,7 +145,7 @@ function HomeScene({ onSelect, flipbookMode }) {
               }}
               role={p.isFuture ? undefined : 'button'}
               tabIndex={p.isFuture ? -1 : 0}
-              aria-label={p.isFuture ? undefined : `Open ${p.title}`}
+              aria-label={p.isFuture ? undefined : `Open ${p.title} ${p.subtitle}`}
               aria-disabled={p.isFuture ? 'true' : undefined}
               onKeyDown={(event) => {
                 if (!p.isFuture && (event.key === 'Enter' || event.key === ' ')) {

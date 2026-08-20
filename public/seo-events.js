@@ -1,4 +1,31 @@
 (() => {
+  const GA_MEASUREMENT_ID = 'G-PCN1TDTK6H';
+
+  const installAnalytics = () => {
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = window.gtag || function gtag(){ window.dataLayer.push(arguments); };
+    window.gtag('js', new Date());
+    window.gtag('config', GA_MEASUREMENT_ID);
+
+    let loaded = false;
+    const loadScript = () => {
+      if (loaded || document.querySelector(`script[data-ga-measurement-id="${GA_MEASUREMENT_ID}"]`)) return;
+      loaded = true;
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(GA_MEASUREMENT_ID)}`;
+      script.dataset.gaMeasurementId = GA_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    };
+
+    ['pointerdown', 'keydown', 'touchstart'].forEach((eventName) => {
+      window.addEventListener(eventName, loadScript, { once: true, passive: true });
+    });
+    window.setTimeout(loadScript, 10000);
+  };
+
+  installAnalytics();
+
   const upsertMeta = (attribute, key, content) => {
     if (!content) return;
     let tag = document.head.querySelector(`meta[${attribute}="${key}"]`);

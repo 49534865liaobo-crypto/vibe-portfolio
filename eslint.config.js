@@ -5,7 +5,7 @@ import reactRefresh from 'eslint-plugin-react-refresh'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist', 'test-render.js', 'tools/idotmatrix-codex/.venv/**']),
+  globalIgnores(['dist', '.wrangler/**', 'test-render.js', 'tools/idotmatrix-codex/.venv/**']),
   {
     files: ['**/*.{js,jsx}'],
     extends: [
