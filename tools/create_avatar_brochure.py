@@ -14,7 +14,6 @@ from reportlab.lib.utils import ImageReader
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output" / "pdf" / "AI_Avatar_Video_Service_Brochure_EN.pdf"
 PUBLIC_OUTPUT = ROOT / "public" / "ai-avatar" / "AI_Avatar_Video_Service_Brochure_EN.pdf"
-FLYER = ROOT / "public" / "ai-avatar" / "assets" / "service-flyer-preview.png"
 KISA_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "kisa-poster.jpg"
 PAKISTAN_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "pakistan-poster.jpg"
 
@@ -98,13 +97,32 @@ def draw_cover(c):
     link_button(c, "VIEW SERVICE & DEMOS", SITE, 18 * mm, H - 119 * mm, 52 * mm, 13 * mm)
     link_button(c, "ORDER ONLINE", SITE + "#packages", 74 * mm, H - 119 * mm, 44 * mm, 13 * mm, PANEL, WHITE)
 
-    img = ImageReader(str(FLYER))
-    c.setFillColor(PANEL_2)
-    c.roundRect(18 * mm, 33 * mm, W - 36 * mm, 109 * mm, 6 * mm, fill=1, stroke=0)
-    c.drawImage(img, 20 * mm, 35 * mm, W - 40 * mm, 105 * mm, preserveAspectRatio=True, anchor="c", mask="auto")
+    round_rect(c, 18 * mm, 33 * mm, W - 36 * mm, 109 * mm, PANEL_2)
+    label(c, "ACCESSIBLE PROFESSIONAL PRODUCTION", 25 * mm, 128 * mm, LIME)
+    heading(c, "Launch pricing from HK$299", 25 * mm, 116 * mm, 20)
+    para(c, "Start with one short message or save with an ongoing content package.", 25 * mm, 109 * mm, 150 * mm, SMALL)
+    cover_plans = [
+        ("SINGLE", "HK$299", "1 video"),
+        ("MONTHLY 4", "HK$1,080", "HK$270 each"),
+        ("GROWTH 8", "HK$1,920", "HK$240 each"),
+        ("PARTNER 12", "HK$2,520", "HK$210 each"),
+    ]
+    card_w = 76 * mm
+    card_h = 27 * mm
+    for i, (name, price, unit) in enumerate(cover_plans):
+        col, row = i % 2, i // 2
+        x = 25 * mm + col * 82 * mm
+        y = 69 * mm - row * 32 * mm
+        round_rect(c, x, y, card_w, card_h, PANEL, CYAN if i == 0 else LINE, 3 * mm)
+        label(c, name, x + 5 * mm, y + 18 * mm)
+        heading(c, price, x + 5 * mm, y + 8 * mm, 15)
+        c.setFillColor(MUTED)
+        c.setFont("Helvetica", 7)
+        c.drawRightString(x + card_w - 5 * mm, y + 8.5 * mm, unit)
+        c.linkURL(SITE + "#packages", (x, y, x + card_w, y + card_h), relative=0)
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 7.2)
-    c.drawString(18 * mm, 22 * mm, "From HK$499 · Up to 30 minutes · 1080p · English subtitles · One minor revision")
+    c.drawString(18 * mm, 22 * mm, "From HK$299 / Up to 30 minutes / 1080p / English subtitles / One minor revision")
     footer(c, 1)
 
 
@@ -116,10 +134,10 @@ def draw_packages(c):
     para(c, "Straightforward Hong Kong dollar pricing for one-off messages and ongoing content programmes.", 18 * mm, H - 47 * mm, 160 * mm)
 
     plans = [
-        ("SINGLE VIDEO", "HK$499", "1 video", "Best for one-off messages"),
-        ("MONTHLY 4", "HK$1,680", "HK$420 / video", "Flexible monthly content"),
-        ("GROWTH 8", "HK$3,040", "HK$380 / video", "For active campaigns"),
-        ("PARTNER 12", "HK$4,080", "HK$340 / video", "Best long-term value"),
+        ("SINGLE VIDEO", "HK$299", "1 video", "Best for one-off messages"),
+        ("MONTHLY 4", "HK$1,080", "HK$270 / video", "Flexible monthly content"),
+        ("GROWTH 8", "HK$1,920", "HK$240 / video", "For active campaigns"),
+        ("PARTNER 12", "HK$2,520", "HK$210 / video", "Best long-term value"),
     ]
     card_w = (W - 36 * mm - 9 * mm) / 2
     card_h = 44 * mm
@@ -207,11 +225,11 @@ def draw_longform(c):
     para(c, "Longer videos use a declining per-minute rate while allowing more time for generation, subtitle review and quality control.", 18 * mm, H - 47 * mm, 164 * mm)
 
     tiers = [
-        ("UP TO 3 MIN", "HK$899", "about HK$300/min"),
-        ("UP TO 5 MIN", "HK$1,380", "about HK$276/min"),
-        ("UP TO 10 MIN", "HK$2,480", "about HK$248/min"),
-        ("UP TO 20 MIN", "HK$4,280", "about HK$214/min"),
-        ("UP TO 30 MIN", "HK$5,880", "about HK$196/min"),
+        ("UP TO 3 MIN", "HK$599", "about HK$200/min"),
+        ("UP TO 5 MIN", "HK$899", "about HK$180/min"),
+        ("UP TO 10 MIN", "HK$1,680", "about HK$168/min"),
+        ("UP TO 20 MIN", "HK$2,980", "about HK$149/min"),
+        ("UP TO 30 MIN", "HK$3,980", "about HK$133/min"),
     ]
     card_w = (W - 42 * mm) / 3
     card_h = 38 * mm
@@ -238,7 +256,7 @@ def draw_longform(c):
         ("Fiverr example", "US$15-70", "30-120 sec service", "https://www.fiverr.com/digital_765/create-an-ai-human-avatar-video-as-your-spokesperson-vsl-synthesia-ai-invideo-ai"),
         ("AKOOL Production", "US$100/min promo", "Managed production", "https://akool.com/akool-production"),
         ("MirrorMe AI", "GBP170/min + VAT", "Corporate production", "https://www.mirrormeai.com/frequently-asked-questions"),
-        ("Our service", "HK$196-333/min", "Managed, branded, subtitled", SITE),
+        ("Our service", "HK$133-200/min", "Managed, branded, subtitled", SITE),
     ]
     row_y = 92 * mm
     for i, (name, price, scope, url) in enumerate(rows):
