@@ -16,6 +16,8 @@ OUTPUT = ROOT / "output" / "pdf" / "AI_Avatar_Video_Service_Brochure_EN.pdf"
 PUBLIC_OUTPUT = ROOT / "public" / "ai-avatar" / "AI_Avatar_Video_Service_Brochure_EN.pdf"
 KISA_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "kisa-poster.jpg"
 PAKISTAN_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "pakistan-poster.jpg"
+TRADITIONAL_PRODUCTION = ROOT / "public" / "ai-avatar" / "assets" / "traditional-production.png"
+AI_AVATAR_PRODUCTION = ROOT / "public" / "ai-avatar" / "assets" / "ai-avatar-production.png"
 
 SITE = "https://vibe-portfolio-dny.pages.dev/ai-avatar/"
 PDF_LINK = SITE + "AI_Avatar_Video_Service_Brochure_EN.pdf"
@@ -69,7 +71,7 @@ def footer(c, page_num):
     c.setFont("Helvetica", 7.2)
     c.setFillColor(MUTED)
     c.drawString(18 * mm, 9.5 * mm, "AI Avatar Video Service · Safety Nexus")
-    c.drawRightString(W - 18 * mm, 9.5 * mm, f"{page_num} / 5")
+    c.drawRightString(W - 18 * mm, 9.5 * mm, f"{page_num} / 6")
 
 
 def link_button(c, text, url, x, y, w, h, fill=CYAN, text_color=NAVY):
@@ -124,6 +126,54 @@ def draw_cover(c):
     footer(c, 1)
 
 
+def draw_story(c):
+    c.setFillColor(NAVY)
+    c.rect(0, 0, W, H, fill=1, stroke=0)
+    label(c, "THE PRODUCTION STORY", 18 * mm, H - 24 * mm)
+    heading(c, "From production marathon to controlled flow.", 18 * mm, H - 39 * mm, 23)
+    para(c, "A short message can take a surprisingly long route to the screen. AI Avatar production keeps the creative judgement and human review, while removing the physical shoot and its repeated on-camera takes.", 18 * mm, H - 47 * mm, 174 * mm)
+
+    card_y = 101 * mm
+    card_h = 126 * mm
+    card_w = 84 * mm
+    image_w = 78 * mm
+    image_h = 44 * mm
+    cards = [
+        (
+            18 * mm,
+            "BEFORE · TRADITIONAL PRODUCTION",
+            TRADITIONAL_PRODUCTION,
+            "Studio booking, crew, lighting and sound, wardrobe and setup.<br/>Rehearsal, memorising or teleprompter practice.<br/>Camera pressure and multiple takes - the familiar on-camera <i>NG</i> moments.<br/>Editing, captions, factual checks, approval, publishing and costly late corrections.",
+            "Time cost: every meaningful change can mean another round of filming.",
+        ),
+        (
+            108 * mm,
+            "NOW · AI AVATAR PRODUCTION",
+            AI_AVATAR_PRODUCTION,
+            "Approve the script once and agree tone and brand once.<br/>No studio, crew, rehearsal or physical reshoot required.<br/>Keep delivery, background and captions consistent.<br/>Change a line without arranging another shoot.<br/>Finish with human QA for names, dates, subtitles and brand before publish.",
+            "Result: no physical reshoot or on-camera <i>NG</i> - one controlled production flow. Technical AI rerenders may still be used when needed.",
+        ),
+    ]
+    for x, title, image, body, note in cards:
+        round_rect(c, x, card_y, card_w, card_h, PANEL, CYAN if "NOW" in title else LINE, 4 * mm)
+        label(c, title, x + 5 * mm, card_y + card_h - 9 * mm, LIME if "NOW" in title else CYAN)
+        c.drawImage(ImageReader(str(image)), x + 3 * mm, card_y + card_h - 55 * mm, image_w, image_h, preserveAspectRatio=True, anchor="c", mask="auto")
+        para(c, body, x + 5 * mm, card_y + card_h - 61 * mm, card_w - 10 * mm, SMALL)
+        c.setStrokeColor(LINE)
+        c.line(x + 5 * mm, card_y + 17 * mm, x + card_w - 5 * mm, card_y + 17 * mm)
+        para(c, f"<font color='#B9F35D'><b>{note}</b></font>", x + 5 * mm, card_y + 14 * mm, card_w - 10 * mm, SMALL)
+
+    round_rect(c, 18 * mm, 43 * mm, W - 36 * mm, 42 * mm, PANEL_2, CYAN)
+    label(c, "THE SHIFT", 24 * mm, 73 * mm, LIME)
+    para(c, "<b>From:</b> coordination, rehearsal, retakes and post-production queues", 24 * mm, 66 * mm, 78 * mm, BODY_WHITE)
+    para(c, "<b>To:</b> one approved brief, one consistent production flow, human QA and a publish-ready MP4", 111 * mm, 66 * mm, 78 * mm, BODY_WHITE)
+    c.setStrokeColor(CYAN)
+    c.line(101 * mm, 56 * mm, 106 * mm, 56 * mm)
+    c.setFillColor(CYAN)
+    c.circle(108 * mm, 56 * mm, 1.4 * mm, fill=1, stroke=0)
+    footer(c, 2)
+
+
 def draw_packages(c):
     c.setFillColor(NAVY)
     c.rect(0, 0, W, H, fill=1, stroke=0)
@@ -165,7 +215,7 @@ def draw_packages(c):
         c.drawString(x + 4 * mm, y, item)
     link_button(c, "PAY SECURELY ONLINE", SITE + "#packages", 18 * mm, 27 * mm, 58 * mm, 13 * mm)
     para(c, "Secure checkout is provided through Stripe. Final production starts after the complete brief and required rights/consents are confirmed.", 82 * mm, 39 * mm, 110 * mm, SMALL)
-    footer(c, 2)
+    footer(c, 3)
 
 
 def draw_brief(c):
@@ -212,7 +262,7 @@ def draw_brief(c):
             c.line(x + 9 * mm, 75 * mm, x + step_w - 2 * mm, 75 * mm)
     para(c, "<b>Important:</b> Unauthorized likeness or voice cloning is not accepted. Major script or visual changes after generation are treated as a new regeneration and quoted separately.", 18 * mm, 40 * mm, 172 * mm, SMALL)
     link_button(c, "DISCUSS YOUR BRIEF", LINKEDIN, 18 * mm, 22 * mm, 52 * mm, 12 * mm)
-    footer(c, 4)
+    footer(c, 5)
 
 
 def draw_longform(c):
@@ -266,7 +316,7 @@ def draw_longform(c):
         c.drawString(x + 4 * mm, y, item)
     para(c, "Projects longer than 10 minutes may be produced in approved sections and assembled into one final video. Final timing follows the approved script, format and visual plan.", 24 * mm, 70 * mm, 160 * mm, SMALL)
     link_button(c, "CHOOSE A DURATION", SITE + "#packages", 18 * mm, 22 * mm, 58 * mm, 12 * mm)
-    footer(c, 3)
+    footer(c, 4)
 
 
 def draw_demos(c):
@@ -315,7 +365,7 @@ def draw_demos(c):
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 6.8)
     c.drawRightString(W - 18 * mm, 22 * mm, PDF_LINK)
-    footer(c, 5)
+    footer(c, 6)
 
 
 def build():
@@ -325,7 +375,7 @@ def build():
     c.setTitle("AI Avatar Video Service - Pricing, Briefing & Demos")
     c.setAuthor("Alvin Liao · Safety Nexus")
     c.setSubject("Professional AI avatar video packages, client briefing requirements and demo links")
-    for page in (draw_cover, draw_packages, draw_longform, draw_brief, draw_demos):
+    for page in (draw_cover, draw_story, draw_packages, draw_longform, draw_brief, draw_demos):
         page(c)
         c.showPage()
     c.save()
