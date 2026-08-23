@@ -172,6 +172,85 @@
   font-size: 0.78rem;
 }
 
+.value-heading {
+  max-width: 860px;
+  margin-top: 76px;
+}
+
+.value-heading h3 {
+  margin: 10px 0 12px;
+  font: 700 clamp(1.8rem, 3vw, 2.8rem) "Space Grotesk", sans-serif;
+  line-height: 1.08;
+}
+
+.value-heading > p:last-child {
+  color: var(--muted);
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.value-grid article {
+  min-height: 220px;
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: linear-gradient(150deg, rgba(18, 53, 82, 0.84), rgba(8, 23, 40, 0.92));
+}
+
+.value-grid span {
+  color: var(--lime);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+}
+
+.value-grid h4 {
+  margin: 18px 0 10px;
+  font: 700 1.15rem "Space Grotesk", sans-serif;
+  line-height: 1.2;
+}
+
+.value-grid p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
+.value-reassurance {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 26px;
+  margin-top: 18px;
+  padding: 22px 24px;
+  border: 1px solid var(--cyan);
+  border-radius: 16px;
+  background: rgba(60, 232, 255, 0.06);
+}
+
+.value-reassurance span {
+  color: var(--cyan);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.value-reassurance p {
+  margin: 6px 0 0;
+  color: #d6e2ed;
+  font-size: 0.86rem;
+}
+
+.value-reassurance .button {
+  flex: 0 0 auto;
+}
+
 .longform-heading {
   display: flex;
   align-items: end;
@@ -239,6 +318,10 @@
 }
 
 @media (max-width: 1120px) {
+  .value-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .longform-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -252,6 +335,23 @@
 
   .story-body {
     padding: 22px 20px 24px;
+  }
+
+  .value-heading {
+    margin-top: 54px;
+  }
+
+  .value-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .value-grid article {
+    min-height: 0;
+  }
+
+  .value-reassurance {
+    align-items: flex-start;
+    flex-direction: column;
   }
 
   .story-flow > div {

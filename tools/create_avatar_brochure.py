@@ -95,7 +95,7 @@ def draw_cover(c):
     label(c, "PROFESSIONAL AI VIDEO PRODUCTION", 18 * mm, H - 28 * mm)
     heading(c, "AI Avatar", 18 * mm, H - 53 * mm, 38)
     heading(c, "Video Service", 18 * mm, H - 70 * mm, 38, CYAN)
-    para(c, "Create polished executive messages, training, event greetings and campaign videos - without cameras, studios or complex production.", 18 * mm, H - 83 * mm, 110 * mm, BODY_WHITE)
+    para(c, "Save production time and overhead. Create polished executive messages, training, event greetings and campaign videos - without cameras, studios or repeated takes.", 18 * mm, H - 83 * mm, 110 * mm, BODY_WHITE)
     link_button(c, "VIEW SERVICE & DEMOS", SITE, 18 * mm, H - 119 * mm, 52 * mm, 13 * mm)
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 74 * mm, H - 119 * mm, 54 * mm, 13 * mm, PANEL, WHITE)
 
@@ -131,7 +131,7 @@ def draw_story(c):
     c.rect(0, 0, W, H, fill=1, stroke=0)
     label(c, "THE PRODUCTION STORY", 18 * mm, H - 24 * mm)
     heading(c, "From production marathon to controlled flow.", 18 * mm, H - 39 * mm, 23)
-    para(c, "A short message can take a surprisingly long route to the screen. AI Avatar production keeps the creative judgement and human review, while removing the physical shoot and its repeated on-camera takes.", 18 * mm, H - 47 * mm, 174 * mm)
+    para(c, "Spend less time filming and more time communicating. AI Avatar production keeps creative judgement and human review, while reducing production overhead, scheduling pressure and repeated on-camera takes.", 18 * mm, H - 47 * mm, 174 * mm)
 
     card_y = 101 * mm
     card_h = 126 * mm
@@ -150,7 +150,7 @@ def draw_story(c):
             108 * mm,
             "NOW · AI AVATAR PRODUCTION",
             AI_AVATAR_PRODUCTION,
-            "Approve the script once and agree tone and brand once.<br/>No studio, crew, rehearsal or physical reshoot required.<br/>Keep delivery, background and captions consistent.<br/>Change a line without arranging another shoot.<br/>Finish with human QA for names, dates, subtitles and brand before publish.",
+            "Approve the script, tone and brand once.<br/>A basic AI-assisted grammar and clarity pass flags obvious issues before generation.<br/>No studio, crew, rehearsal or physical reshoot required.<br/>Keep delivery, background and captions consistent.<br/>Finish with human QA for names, dates, subtitles and brand before publish.",
             "Result: no physical reshoot or on-camera <i>NG</i> - one controlled production flow. Technical AI rerenders may still be used when needed.",
         ),
     ]
@@ -163,14 +163,20 @@ def draw_story(c):
         c.line(x + 5 * mm, card_y + 17 * mm, x + card_w - 5 * mm, card_y + 17 * mm)
         para(c, f"<font color='#B9F35D'><b>{note}</b></font>", x + 5 * mm, card_y + 14 * mm, card_w - 10 * mm, SMALL)
 
-    round_rect(c, 18 * mm, 43 * mm, W - 36 * mm, 42 * mm, PANEL_2, CYAN)
-    label(c, "THE SHIFT", 24 * mm, 73 * mm, LIME)
-    para(c, "<b>From:</b> coordination, rehearsal, retakes and post-production queues", 24 * mm, 66 * mm, 78 * mm, BODY_WHITE)
-    para(c, "<b>To:</b> one approved brief, one consistent production flow, human QA and a publish-ready MP4", 111 * mm, 66 * mm, 78 * mm, BODY_WHITE)
-    c.setStrokeColor(CYAN)
-    c.line(101 * mm, 56 * mm, 106 * mm, 56 * mm)
-    c.setFillColor(CYAN)
-    c.circle(108 * mm, 56 * mm, 1.4 * mm, fill=1, stroke=0)
+    round_rect(c, 18 * mm, 31 * mm, W - 36 * mm, 54 * mm, PANEL_2, CYAN)
+    label(c, "WHY CLIENTS CHOOSE AI AVATAR VIDEO", 24 * mm, 76 * mm, LIME)
+    benefits = [
+        ("SAVE MONEY", "Reduce studio, crew, travel and repeat-shoot overhead."),
+        ("SAVE TIME", "Skip rehearsal days, camera scheduling and retake loops."),
+        ("SHARPEN THE SCRIPT", "AI checks basic grammar and clarity; you approve every word."),
+        ("STAY CONSISTENT", "Keep voice, delivery, captions and brand aligned at scale."),
+    ]
+    for i, (title, copy) in enumerate(benefits):
+        col, row = i % 2, i // 2
+        x = 24 * mm + col * 86 * mm
+        y = 62 * mm - row * 18 * mm
+        label(c, title, x, y, CYAN)
+        para(c, copy, x, y - 4 * mm, 78 * mm, SMALL)
     footer(c, 2)
 
 
@@ -203,7 +209,7 @@ def draw_packages(c):
     box_y = 53 * mm
     round_rect(c, 18 * mm, box_y, W - 36 * mm, 57 * mm, PANEL_2)
     heading(c, "Every short-form video includes", 24 * mm, box_y + 46 * mm, 15)
-    items = ["Up to 90 seconds", "Client-supplied approved script", "Professional AI avatar and voice", "Branded background", "English subtitles", "1080p MP4 delivery", "One minor revision"]
+    items = ["Up to 90 seconds", "Client-supplied approved script", "Basic AI grammar and clarity check", "Professional AI avatar and voice", "Branded background", "English subtitles", "1080p MP4 delivery", "One minor revision"]
     for i, item in enumerate(items):
         col, row = i % 2, i // 2
         x = 25 * mm + col * 84 * mm
@@ -247,7 +253,7 @@ def draw_brief(c):
 
     round_rect(c, 18 * mm, 52 * mm, W - 36 * mm, 52 * mm, PANEL)
     heading(c, "Production flow", 24 * mm, 92 * mm, 15)
-    steps = ["Select package", "Submit brief", "Script & brand check", "AI production & QA", "Minor revision", "1080p delivery"]
+    steps = ["Select package", "Submit brief", "AI language & brand check", "AI production & QA", "Minor revision", "1080p delivery"]
     step_w = (W - 48 * mm) / 6
     for i, step in enumerate(steps):
         x = 24 * mm + i * step_w
@@ -300,10 +306,10 @@ def draw_longform(c):
     included = [
         "Approved script and content structure",
         "Professional avatar, voice and branded background",
-        "English subtitles and 1080p MP4 delivery",
-        "Scene assembly for a clear, paced presentation",
+        "Basic AI grammar and clarity check",
+        "Scene assembly plus human QA for names and dates",
         "One minor revision after the first delivery",
-        "Final review for names, dates and on-screen text",
+        "English subtitles and 1080p MP4 delivery",
     ]
     for i, item in enumerate(included):
         col, row = i % 2, i // 2
