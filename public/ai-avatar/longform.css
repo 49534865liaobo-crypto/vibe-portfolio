@@ -25,6 +25,39 @@
   gap: 12px;
 }
 
+.credit-basis {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.credit-basis > div {
+  display: flex;
+  flex-direction: column;
+  padding: 17px 18px;
+  background: rgba(60, 232, 255, 0.055);
+  border: 1px solid rgba(60, 232, 255, 0.22);
+  border-radius: 12px;
+}
+
+.credit-basis strong {
+  color: var(--cyan);
+  font: 700 1.05rem "Space Grotesk", sans-serif;
+}
+
+.credit-basis span {
+  margin-top: 3px;
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.credit-note {
+  margin: 0 0 24px;
+  color: #8298ae;
+  font-size: 0.75rem;
+}
+
 .longform-grid article {
   display: flex;
   flex-direction: column;
@@ -150,6 +183,10 @@
 
   .longform-grid {
     grid-template-columns: 1fr;
+  }
+
+  .credit-basis {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .market-panel {

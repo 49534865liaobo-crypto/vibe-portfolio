@@ -56,32 +56,32 @@ const AVATAR_VIDEO_PLANS = {
   upTo3: {
     name: 'AI Avatar Video - Up to 3 Minutes',
     quantity: '1 video up to 3 minutes',
-    price: 'HKD 599',
-    amountHkdCents: 59900,
+    price: 'HKD 899',
+    amountHkdCents: 89900,
   },
   upTo5: {
     name: 'AI Avatar Video - Up to 5 Minutes',
     quantity: '1 video up to 5 minutes',
-    price: 'HKD 899',
-    amountHkdCents: 89900,
+    price: 'HKD 1,380',
+    amountHkdCents: 138000,
   },
   upTo10: {
     name: 'AI Avatar Video - Up to 10 Minutes',
     quantity: '1 video up to 10 minutes',
-    price: 'HKD 1,680',
-    amountHkdCents: 168000,
+    price: 'HKD 2,480',
+    amountHkdCents: 248000,
   },
   upTo20: {
     name: 'AI Avatar Video - Up to 20 Minutes',
     quantity: '1 video up to 20 minutes',
-    price: 'HKD 2,980',
-    amountHkdCents: 298000,
+    price: 'HKD 4,280',
+    amountHkdCents: 428000,
   },
   upTo30: {
     name: 'AI Avatar Video - Up to 30 Minutes',
     quantity: '1 video up to 30 minutes',
-    price: 'HKD 3,980',
-    amountHkdCents: 398000,
+    price: 'HKD 5,880',
+    amountHkdCents: 588000,
   },
 };
 
