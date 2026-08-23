@@ -70,7 +70,7 @@ def footer(c, page_num):
     c.setFont("Helvetica", 7.2)
     c.setFillColor(MUTED)
     c.drawString(18 * mm, 9.5 * mm, "AI Avatar Video Service · Safety Nexus")
-    c.drawRightString(W - 18 * mm, 9.5 * mm, f"{page_num} / 4")
+    c.drawRightString(W - 18 * mm, 9.5 * mm, f"{page_num} / 5")
 
 
 def link_button(c, text, url, x, y, w, h, fill=CYAN, text_color=NAVY):
@@ -94,7 +94,7 @@ def draw_cover(c):
     label(c, "PROFESSIONAL AI VIDEO PRODUCTION", 18 * mm, H - 28 * mm)
     heading(c, "AI Avatar", 18 * mm, H - 53 * mm, 38)
     heading(c, "Video Service", 18 * mm, H - 70 * mm, 38, CYAN)
-    para(c, "Create polished executive messages, training, event greetings and campaign videos—without cameras, studios or complex production.", 18 * mm, H - 83 * mm, 110 * mm, BODY_WHITE)
+    para(c, "Create polished executive messages, training, event greetings and campaign videos - without cameras, studios or complex production.", 18 * mm, H - 83 * mm, 110 * mm, BODY_WHITE)
     link_button(c, "VIEW SERVICE & DEMOS", SITE, 18 * mm, H - 119 * mm, 52 * mm, 13 * mm)
     link_button(c, "ORDER ONLINE", SITE + "#packages", 74 * mm, H - 119 * mm, 44 * mm, 13 * mm, PANEL, WHITE)
 
@@ -104,7 +104,7 @@ def draw_cover(c):
     c.drawImage(img, 20 * mm, 35 * mm, W - 40 * mm, 105 * mm, preserveAspectRatio=True, anchor="c", mask="auto")
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 7.2)
-    c.drawString(18 * mm, 22 * mm, "From HK$499 · 1080p delivery · English subtitles · One minor revision")
+    c.drawString(18 * mm, 22 * mm, "From HK$499 · Up to 30 minutes · 1080p · English subtitles · One minor revision")
     footer(c, 1)
 
 
@@ -136,7 +136,7 @@ def draw_packages(c):
 
     box_y = 53 * mm
     round_rect(c, 18 * mm, box_y, W - 36 * mm, 57 * mm, PANEL_2)
-    heading(c, "Every video includes", 24 * mm, box_y + 46 * mm, 15)
+    heading(c, "Every short-form video includes", 24 * mm, box_y + 46 * mm, 15)
     items = ["Up to 90 seconds", "Client-supplied approved script", "Professional AI avatar and voice", "Branded background", "English subtitles", "1080p MP4 delivery", "One minor revision"]
     for i, item in enumerate(items):
         col, row = i % 2, i // 2
@@ -196,6 +196,67 @@ def draw_brief(c):
             c.line(x + 9 * mm, 75 * mm, x + step_w - 2 * mm, 75 * mm)
     para(c, "<b>Important:</b> Unauthorized likeness or voice cloning is not accepted. Major script or visual changes after generation are treated as a new regeneration and quoted separately.", 18 * mm, 40 * mm, 172 * mm, SMALL)
     link_button(c, "DISCUSS YOUR BRIEF", LINKEDIN, 18 * mm, 22 * mm, 52 * mm, 12 * mm)
+    footer(c, 4)
+
+
+def draw_longform(c):
+    c.setFillColor(NAVY)
+    c.rect(0, 0, W, H, fill=1, stroke=0)
+    label(c, "LONG-FORM PRODUCTION", 18 * mm, H - 24 * mm)
+    heading(c, "One message, up to 30 minutes", 18 * mm, H - 39 * mm, 24)
+    para(c, "Longer videos use a declining per-minute rate while allowing more time for generation, subtitle review and quality control.", 18 * mm, H - 47 * mm, 164 * mm)
+
+    tiers = [
+        ("UP TO 3 MIN", "HK$899", "about HK$300/min"),
+        ("UP TO 5 MIN", "HK$1,380", "about HK$276/min"),
+        ("UP TO 10 MIN", "HK$2,480", "about HK$248/min"),
+        ("UP TO 20 MIN", "HK$4,280", "about HK$214/min"),
+        ("UP TO 30 MIN", "HK$5,880", "about HK$196/min"),
+    ]
+    card_w = (W - 42 * mm) / 3
+    card_h = 38 * mm
+    for i, (duration, price, unit) in enumerate(tiers):
+        if i < 3:
+            x = 18 * mm + i * (card_w + 3 * mm)
+            y = H - 105 * mm
+        else:
+            x = 47 * mm + (i - 3) * (card_w + 5 * mm)
+            y = H - 150 * mm
+        featured = i == 4
+        round_rect(c, x, y, card_w, card_h, colors.HexColor("#143B4D") if featured else PANEL, LIME if featured else LINE, 4 * mm)
+        label(c, duration, x + 5 * mm, y + 28 * mm, LIME if featured else CYAN)
+        heading(c, price, x + 5 * mm, y + 15 * mm, 17)
+        para(c, unit, x + 5 * mm, y + 10 * mm, card_w - 10 * mm, SMALL)
+        c.linkURL(SITE + "#packages", (x, y, x + card_w, y + card_h), relative=0)
+
+    round_rect(c, 18 * mm, 44 * mm, W - 36 * mm, 83 * mm, PANEL_2)
+    heading(c, "How the price compares", 24 * mm, 116 * mm, 15)
+    para(c, "DIY subscriptions cover software access. Managed production adds briefing, branding, subtitle review, quality assurance and final delivery.", 24 * mm, 109 * mm, 160 * mm, SMALL)
+    rows = [
+        ("HeyGen Creator", "US$29/month", "DIY; up to 30 min/video", "https://www.heygen.com/pricing"),
+        ("Synthesia Starter", "US$29/month", "DIY; 10 min/month", "https://www.synthesia.io/pricing"),
+        ("Fiverr example", "US$15-70", "30-120 sec service", "https://www.fiverr.com/digital_765/create-an-ai-human-avatar-video-as-your-spokesperson-vsl-synthesia-ai-invideo-ai"),
+        ("AKOOL Production", "US$100/min promo", "Managed production", "https://akool.com/akool-production"),
+        ("MirrorMe AI", "GBP170/min + VAT", "Corporate production", "https://www.mirrormeai.com/frequently-asked-questions"),
+        ("Our service", "HK$196-333/min", "Managed, branded, subtitled", SITE),
+    ]
+    row_y = 92 * mm
+    for i, (name, price, scope, url) in enumerate(rows):
+        y = row_y - i * 8.2 * mm
+        if i == 5:
+            c.setFillColor(colors.Color(0.73, 0.95, 0.36, alpha=0.08))
+            c.rect(23 * mm, y - 2.5 * mm, W - 46 * mm, 7 * mm, fill=1, stroke=0)
+        c.setFillColor(LIME if i == 5 else CYAN)
+        c.setFont("Helvetica-Bold", 7.8)
+        c.drawString(26 * mm, y, name)
+        c.setFillColor(WHITE)
+        c.drawString(79 * mm, y, price)
+        c.setFillColor(MUTED)
+        c.setFont("Helvetica", 7.5)
+        c.drawString(125 * mm, y, scope)
+        c.linkURL(url, (25 * mm, y - 2 * mm, W - 25 * mm, y + 4 * mm), relative=0)
+    para(c, "Public prices checked 23 August 2026. Promotions, taxes, currencies and plan allowances can change; linked sources control. Projects longer than 10 minutes may be produced in approved sections and assembled into one final video.", 24 * mm, 42 * mm, 162 * mm, SMALL)
+    link_button(c, "CHOOSE A DURATION", SITE + "#packages", 18 * mm, 22 * mm, 58 * mm, 12 * mm)
     footer(c, 3)
 
 
@@ -222,7 +283,7 @@ def draw_demos(c):
 
     heading(c, "Optional add-ons", 18 * mm, 152 * mm, 15)
     addons = [
-        ("91–180 sec", "+HK$180"), ("Extra minor revision", "HK$100"), ("Script polish", "HK$150"),
+        ("Long-form runtime", "Up to 30 min"), ("Extra minor revision", "HK$100"), ("Script polish", "HK$150"),
         ("Full scriptwriting", "HK$300+"), ("Custom avatar look", "HK$400+"), ("Custom background", "HK$200+"),
         ("Extra language", "HK$200"), ("24-hour rush", "+30%"), ("Major regeneration", "HK$200+"),
     ]
@@ -245,17 +306,17 @@ def draw_demos(c):
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 6.8)
     c.drawRightString(W - 18 * mm, 22 * mm, PDF_LINK)
-    footer(c, 4)
+    footer(c, 5)
 
 
 def build():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     PUBLIC_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     c = canvas.Canvas(str(OUTPUT), pagesize=A4, pageCompression=1)
-    c.setTitle("AI Avatar Video Service — Pricing, Briefing & Demos")
+    c.setTitle("AI Avatar Video Service - Pricing, Briefing & Demos")
     c.setAuthor("Alvin Liao · Safety Nexus")
     c.setSubject("Professional AI avatar video packages, client briefing requirements and demo links")
-    for page in (draw_cover, draw_packages, draw_brief, draw_demos):
+    for page in (draw_cover, draw_packages, draw_longform, draw_brief, draw_demos):
         page(c)
         c.showPage()
     c.save()

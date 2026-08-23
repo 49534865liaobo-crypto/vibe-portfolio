@@ -53,6 +53,36 @@ const AVATAR_VIDEO_PLANS = {
     price: 'HKD 4,080',
     amountHkdCents: 408000,
   },
+  upTo3: {
+    name: 'AI Avatar Video - Up to 3 Minutes',
+    quantity: '1 video up to 3 minutes',
+    price: 'HKD 899',
+    amountHkdCents: 89900,
+  },
+  upTo5: {
+    name: 'AI Avatar Video - Up to 5 Minutes',
+    quantity: '1 video up to 5 minutes',
+    price: 'HKD 1,380',
+    amountHkdCents: 138000,
+  },
+  upTo10: {
+    name: 'AI Avatar Video - Up to 10 Minutes',
+    quantity: '1 video up to 10 minutes',
+    price: 'HKD 2,480',
+    amountHkdCents: 248000,
+  },
+  upTo20: {
+    name: 'AI Avatar Video - Up to 20 Minutes',
+    quantity: '1 video up to 20 minutes',
+    price: 'HKD 4,280',
+    amountHkdCents: 428000,
+  },
+  upTo30: {
+    name: 'AI Avatar Video - Up to 30 Minutes',
+    quantity: '1 video up to 30 minutes',
+    price: 'HKD 5,880',
+    amountHkdCents: 588000,
+  },
 };
 
 const PLAN_SCHEDULER_ENV_KEYS = {
@@ -197,7 +227,7 @@ const createAvatarCheckoutSession = async (request, env) => {
   params.append('line_items[0][price_data][currency]', 'hkd');
   params.append('line_items[0][price_data][unit_amount]', String(plan.amountHkdCents));
   params.append('line_items[0][price_data][product_data][name]', plan.name);
-  params.append('line_items[0][price_data][product_data][description]', `${plan.quantity}. Each video includes up to 90 seconds, client-supplied script, AI avatar and voice, branded background, English subtitles, 1080p MP4, and one minor revision.`);
+  params.append('line_items[0][price_data][product_data][description]', `${plan.quantity}. Includes client-supplied approved script, AI avatar and voice, branded background, English subtitles, 1080p MP4, and one minor revision.`);
   params.append('metadata[plan_id]', payload.planId);
   params.append('metadata[service]', 'ai_avatar_video');
   params.append('allow_promotion_codes', 'true');

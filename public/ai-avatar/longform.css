@@ -1,0 +1,167 @@
+.longform-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin: 74px 0 25px;
+}
+
+.longform-heading h3,
+.market-panel h3 {
+  margin: 0;
+  font: 700 clamp(1.8rem, 3vw, 2.8rem) "Space Grotesk", sans-serif;
+  line-height: 1.08;
+}
+
+.longform-heading > p {
+  max-width: 520px;
+  margin: 0;
+  color: var(--muted);
+}
+
+.longform-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.longform-grid article {
+  display: flex;
+  flex-direction: column;
+  padding: 23px 18px;
+  background: rgba(8, 23, 40, 0.82);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+
+.longform-grid article > span {
+  color: var(--cyan);
+  font-size: 0.66rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+}
+
+.longform-grid article > strong {
+  margin-top: 12px;
+  font: 700 1.55rem "Space Grotesk", sans-serif;
+}
+
+.longform-grid article > small {
+  margin: 2px 0 20px;
+  color: var(--muted);
+}
+
+.longform-grid .pay-button {
+  margin-top: auto;
+  padding: 0 10px;
+}
+
+.longform-grid .longform-featured {
+  border-color: var(--lime);
+  box-shadow: 0 16px 50px rgba(185, 243, 93, 0.08);
+}
+
+.longform-grid .longform-featured > span {
+  color: var(--lime);
+}
+
+.market-panel {
+  margin-top: 72px;
+  padding: 36px;
+  background: linear-gradient(135deg, rgba(18, 53, 82, 0.78), rgba(8, 23, 40, 0.9));
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+.market-intro {
+  max-width: 820px;
+  margin-bottom: 28px;
+}
+
+.market-intro > p:last-child {
+  color: var(--muted);
+}
+
+.market-table {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.market-row {
+  display: grid;
+  grid-template-columns: 1.05fr 0.7fr 1.5fr;
+  gap: 20px;
+  padding: 14px 18px;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.market-row:last-child {
+  border-bottom: 0;
+}
+
+.market-row a {
+  color: var(--cyan);
+  font-weight: 700;
+}
+
+.market-row span:nth-child(2) {
+  color: #fff;
+  font-weight: 700;
+}
+
+.market-head {
+  background: rgba(255, 255, 255, 0.04);
+  color: #fff;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.market-row.ours {
+  background: rgba(185, 243, 93, 0.07);
+  color: #e9ffd0;
+}
+
+.market-row.ours strong,
+.market-row.ours span:nth-child(2) {
+  color: var(--lime);
+}
+
+.source-note {
+  margin: 13px 0 0;
+  color: #7990a7;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 1120px) {
+  .longform-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .longform-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+
+  .longform-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .market-panel {
+    padding: 24px 18px;
+  }
+
+  .market-head {
+    display: none;
+  }
+
+  .market-row {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+}
