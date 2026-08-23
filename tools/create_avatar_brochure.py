@@ -98,31 +98,29 @@ def draw_cover(c):
     link_button(c, "ORDER ONLINE", SITE + "#packages", 74 * mm, H - 119 * mm, 44 * mm, 13 * mm, PANEL, WHITE)
 
     round_rect(c, 18 * mm, 33 * mm, W - 36 * mm, 109 * mm, PANEL_2)
-    label(c, "ACCESSIBLE PROFESSIONAL PRODUCTION", 25 * mm, 128 * mm, LIME)
-    heading(c, "Launch pricing from HK$299", 25 * mm, 116 * mm, 20)
-    para(c, "Start with one short message or save with an ongoing content package.", 25 * mm, 109 * mm, 150 * mm, SMALL)
-    cover_plans = [
-        ("SINGLE", "HK$299", "1 video"),
-        ("MONTHLY 4", "HK$1,080", "HK$270 each"),
-        ("GROWTH 8", "HK$1,920", "HK$240 each"),
-        ("PARTNER 12", "HK$2,520", "HK$210 each"),
+    label(c, "WHY CLIENTS CHOOSE THIS", 25 * mm, 128 * mm, LIME)
+    heading(c, "A polished message, ready to share.", 25 * mm, 116 * mm, 19)
+    para(c, "Turn an approved script into a clear, on-brand avatar video for executives, training, events and campaigns - with a streamlined production workflow.", 25 * mm, 109 * mm, 150 * mm, SMALL)
+    signals = [
+        ("1080p", "Clean MP4 delivery"),
+        ("BRANDED", "Background and logo"),
+        ("SUBTITLED", "English captions"),
+        ("1 REVISION", "Minor changes included"),
     ]
     card_w = 76 * mm
-    card_h = 27 * mm
-    for i, (name, price, unit) in enumerate(cover_plans):
+    card_h = 25 * mm
+    for i, (name, detail) in enumerate(signals):
         col, row = i % 2, i // 2
         x = 25 * mm + col * 82 * mm
-        y = 69 * mm - row * 32 * mm
+        y = 68 * mm - row * 31 * mm
         round_rect(c, x, y, card_w, card_h, PANEL, CYAN if i == 0 else LINE, 3 * mm)
-        label(c, name, x + 5 * mm, y + 18 * mm)
-        heading(c, price, x + 5 * mm, y + 8 * mm, 15)
+        label(c, name, x + 5 * mm, y + 15 * mm, LIME if i == 0 else CYAN)
         c.setFillColor(MUTED)
-        c.setFont("Helvetica", 7)
-        c.drawRightString(x + card_w - 5 * mm, y + 8.5 * mm, unit)
-        c.linkURL(SITE + "#packages", (x, y, x + card_w, y + card_h), relative=0)
+        c.setFont("Helvetica", 7.4)
+        c.drawString(x + 5 * mm, y + 7 * mm, detail)
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 7.2)
-    c.drawString(18 * mm, 22 * mm, "HK$299 starter = one video up to 90 seconds / Long-form video is separately priced")
+    c.drawString(25 * mm, 39 * mm, "Starter from HK$299 · one video up to 90 seconds")
     footer(c, 1)
 
 
@@ -225,11 +223,11 @@ def draw_longform(c):
     para(c, "The HK$299 starter offer covers one video up to 90 seconds only. For longer programmes, choose a maximum runtime below and we will shape the production around your approved brief.", 18 * mm, H - 47 * mm, 164 * mm)
 
     tiers = [
-        ("UP TO 3 MIN", "HK$899", "about HK$300/min"),
-        ("UP TO 5 MIN", "HK$1,380", "about HK$276/min"),
-        ("UP TO 10 MIN", "HK$2,480", "about HK$248/min"),
-        ("UP TO 20 MIN", "HK$4,280", "about HK$214/min"),
-        ("UP TO 30 MIN", "HK$5,880", "about HK$196/min"),
+        ("UP TO 3 MIN", "HK$399", "about HK$133/min"),
+        ("UP TO 5 MIN", "HK$499", "about HK$100/min"),
+        ("UP TO 10 MIN", "HK$699", "about HK$70/min"),
+        ("UP TO 20 MIN", "HK$899", "about HK$45/min"),
+        ("UP TO 30 MIN", "HK$1,099", "about HK$37/min"),
     ]
     card_w = (W - 42 * mm) / 3
     card_h = 38 * mm
