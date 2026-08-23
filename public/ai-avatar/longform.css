@@ -1,3 +1,7 @@
+.demo-card video {
+  object-fit: contain;
+}
+
 .production-story {
   position: relative;
   overflow: hidden;

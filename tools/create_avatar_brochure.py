@@ -14,8 +14,8 @@ from reportlab.lib.utils import ImageReader
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / "output" / "pdf" / "AI_Avatar_Video_Service_Brochure_EN.pdf"
 PUBLIC_OUTPUT = ROOT / "public" / "ai-avatar" / "AI_Avatar_Video_Service_Brochure_EN.pdf"
-KISA_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "kisa-poster.jpg"
-PAKISTAN_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "pakistan-poster.jpg"
+DR_XI_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "dr-xi-finance-poster.jpg"
+CHENXI_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "chenxi-finance-poster.jpg"
 TRADITIONAL_PRODUCTION = ROOT / "public" / "ai-avatar" / "assets" / "traditional-production.png"
 AI_AVATAR_PRODUCTION = ROOT / "public" / "ai-avatar" / "assets" / "ai-avatar-production.png"
 
@@ -324,21 +324,40 @@ def draw_demos(c):
     c.rect(0, 0, W, H, fill=1, stroke=0)
     label(c, "DEMOS & ADD-ONS", 18 * mm, H - 24 * mm)
     heading(c, "See the service in action", 18 * mm, H - 39 * mm, 24)
-    para(c, "Click either preview to watch Prof. Vincent Ho's AI avatar demo on the service page.", 18 * mm, H - 47 * mm, 160 * mm)
+    para(c, "These client-supplied examples show how an approved brief can become a polished finance update with a professional virtual presenter.", 18 * mm, H - 47 * mm, 160 * mm)
 
     posters = [
-        (KISA_POSTER, "KISA Safety Professionals' Day", SITE + "#demo-kisa"),
-        (PAKISTAN_POSTER, "Pakistan Safety Council Message", SITE + "#demo-pakistan"),
+        (
+            DR_XI_POSTER,
+            "Dr. Xi - One-Minute Finance Briefing",
+            "Mandarin financial-news delivery with a calm executive presence.",
+            SITE + "#demo-dr-xi",
+        ),
+        (
+            CHENXI_POSTER,
+            "Chenxi - Finance Presenter Sample",
+            "Broadcast-style Mandarin market update with a professional virtual presenter and finance graphics.",
+            SITE + "#demo-chenxi",
+        ),
     ]
     card_w = (W - 43 * mm) / 2
     card_h = 69 * mm
-    for i, (poster, title, url) in enumerate(posters):
+    for i, (poster, title, description, url) in enumerate(posters):
         x = 18 * mm + i * (card_w + 7 * mm)
         y = H - 127 * mm
         round_rect(c, x, y, card_w, card_h, PANEL)
         c.drawImage(ImageReader(str(poster)), x + 3 * mm, y + 26 * mm, card_w - 6 * mm, 38 * mm, preserveAspectRatio=True, anchor="c", mask="auto")
-        para(c, f"<b>{title}</b><br/><font color='#3CE8FF'>WATCH DEMO →</font>", x + 5 * mm, y + 22 * mm, card_w - 10 * mm, BODY_WHITE)
+        para(
+            c,
+            f"<b>{title}</b><br/><font color='#A7B8CC'>{description}</font><br/><font color='#3CE8FF'>WATCH DEMO →</font>",
+            x + 5 * mm,
+            y + 22 * mm,
+            card_w - 10 * mm,
+            BODY_WHITE,
+        )
         c.linkURL(url, (x, y, x + card_w, y + card_h), relative=0)
+
+    para(c, "<b>Demo rights note:</b> Demo media is client-supplied. Customers must hold the necessary rights and written consent for any custom likeness, voice or supplied media.", 18 * mm, 78 * mm, 174 * mm, SMALL)
 
     heading(c, "Optional add-ons", 18 * mm, 152 * mm, 15)
     addons = [
