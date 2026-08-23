@@ -97,7 +97,7 @@ def draw_cover(c):
     heading(c, "Video Service", 18 * mm, H - 70 * mm, 38, CYAN)
     para(c, "Create polished executive messages, training, event greetings and campaign videos - without cameras, studios or complex production.", 18 * mm, H - 83 * mm, 110 * mm, BODY_WHITE)
     link_button(c, "VIEW SERVICE & DEMOS", SITE, 18 * mm, H - 119 * mm, 52 * mm, 13 * mm)
-    link_button(c, "ORDER ONLINE", SITE + "#packages", 74 * mm, H - 119 * mm, 44 * mm, 13 * mm, PANEL, WHITE)
+    link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 74 * mm, H - 119 * mm, 54 * mm, 13 * mm, PANEL, WHITE)
 
     round_rect(c, 18 * mm, 33 * mm, W - 36 * mm, 109 * mm, PANEL_2)
     label(c, "WHY CLIENTS CHOOSE THIS", 25 * mm, 128 * mm, LIME)
@@ -198,7 +198,7 @@ def draw_packages(c):
         label(c, name, x + 6 * mm, y + card_h - 9 * mm, LIME if i == 1 else CYAN)
         heading(c, price, x + 6 * mm, y + 19 * mm, 22)
         para(c, f"<b>{unit}</b><br/>{note}", x + 6 * mm, y + 14 * mm, card_w - 12 * mm, SMALL)
-        c.linkURL(SITE + "#packages", (x, y, x + card_w, y + card_h), relative=0)
+        c.linkURL(LINKEDIN, (x, y, x + card_w, y + card_h), relative=0)
 
     box_y = 53 * mm
     round_rect(c, 18 * mm, box_y, W - 36 * mm, 57 * mm, PANEL_2)
@@ -213,8 +213,8 @@ def draw_packages(c):
         c.setFillColor(WHITE)
         c.setFont("Helvetica", 8.4)
         c.drawString(x + 4 * mm, y, item)
-    link_button(c, "PAY SECURELY ONLINE", SITE + "#packages", 18 * mm, 27 * mm, 58 * mm, 13 * mm)
-    para(c, "Secure checkout is provided through Stripe. Final production starts after the complete brief and required rights/consents are confirmed.", 82 * mm, 39 * mm, 110 * mm, SMALL)
+    link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 18 * mm, 27 * mm, 58 * mm, 13 * mm)
+    para(c, "Contact Alvin on LinkedIn to confirm the package, brief, timing and project arrangements. Production starts after the complete brief and required rights/consents are confirmed.", 82 * mm, 39 * mm, 110 * mm, SMALL)
     footer(c, 3)
 
 
@@ -293,7 +293,7 @@ def draw_longform(c):
         label(c, duration, x + 5 * mm, y + 28 * mm, LIME if featured else CYAN)
         heading(c, price, x + 5 * mm, y + 15 * mm, 17)
         para(c, unit, x + 5 * mm, y + 10 * mm, card_w - 10 * mm, SMALL)
-        c.linkURL(SITE + "#packages", (x, y, x + card_w, y + card_h), relative=0)
+        c.linkURL(LINKEDIN, (x, y, x + card_w, y + card_h), relative=0)
 
     round_rect(c, 18 * mm, 48 * mm, W - 36 * mm, 77 * mm, PANEL_2)
     heading(c, "What is included", 24 * mm, 113 * mm, 15)
@@ -315,7 +315,7 @@ def draw_longform(c):
         c.setFont("Helvetica", 7.8)
         c.drawString(x + 4 * mm, y, item)
     para(c, "Projects longer than 10 minutes may be produced in approved sections and assembled into one final video. Final timing follows the approved script, format and visual plan.", 24 * mm, 70 * mm, 160 * mm, SMALL)
-    link_button(c, "CHOOSE A DURATION", SITE + "#packages", 18 * mm, 22 * mm, 58 * mm, 12 * mm)
+    link_button(c, "DISCUSS A DURATION", LINKEDIN, 18 * mm, 22 * mm, 58 * mm, 12 * mm)
     footer(c, 4)
 
 
@@ -360,8 +360,8 @@ def draw_demos(c):
 
     round_rect(c, 18 * mm, 31 * mm, W - 36 * mm, 29 * mm, colors.HexColor("#123552"), CYAN)
     heading(c, "Ready to create your video?", 24 * mm, 48 * mm, 15)
-    para(c, "Choose a package online or discuss your production brief directly.", 24 * mm, 42 * mm, 88 * mm, SMALL)
-    link_button(c, "VIEW PACKAGES", SITE + "#packages", W - 78 * mm, 39 * mm, 54 * mm, 12 * mm)
+    para(c, "Contact Alvin on LinkedIn to confirm a package or discuss your production brief directly.", 24 * mm, 42 * mm, 88 * mm, SMALL)
+    link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, W - 78 * mm, 39 * mm, 54 * mm, 12 * mm)
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 6.8)
     c.drawRightString(W - 18 * mm, 22 * mm, PDF_LINK)
