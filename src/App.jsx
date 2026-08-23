@@ -2852,6 +2852,7 @@ function App() {
           <a href="#about">{t.nav.professional}</a>
           <a href="#services">{t.nav.services}</a>
           <a href="#safety-training">{t.nav.training}</a>
+          <a href="/ai-avatar/">AI Avatar</a>
           <a
             href={LINKEDIN_URL}
             target="_blank"

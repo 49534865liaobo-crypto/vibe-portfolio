@@ -28,6 +28,33 @@ const STARTER_KIT_PRODUCT = {
   downloadUrl: '/starter-kit/AI_Native_EHS_Starter_Kit_Founder_Edition.pdf',
 };
 
+const AVATAR_VIDEO_PLANS = {
+  single: {
+    name: 'AI Avatar Video — Single Video',
+    quantity: '1 video',
+    price: 'HKD 499',
+    amountHkdCents: 49900,
+  },
+  monthly4: {
+    name: 'AI Avatar Video — Monthly 4',
+    quantity: '4 videos',
+    price: 'HKD 1,680',
+    amountHkdCents: 168000,
+  },
+  growth8: {
+    name: 'AI Avatar Video — Growth 8',
+    quantity: '8 videos',
+    price: 'HKD 3,040',
+    amountHkdCents: 304000,
+  },
+  partner12: {
+    name: 'AI Avatar Video — Partner 12',
+    quantity: '12 videos',
+    price: 'HKD 4,080',
+    amountHkdCents: 408000,
+  },
+};
+
 const PLAN_SCHEDULER_ENV_KEYS = {
   rapid: 'SCHEDULER_RAPID_URL',
   strategy: 'SCHEDULER_STRATEGY_URL',
@@ -120,6 +147,59 @@ const createStarterKitCheckoutSession = async (request, env) => {
   params.append('line_items[0][price_data][product_data][description]', STARTER_KIT_PRODUCT.description);
   params.append('metadata[service]', 'starter_kit');
   params.append('metadata[product_id]', STARTER_KIT_PRODUCT.id);
+  params.append('allow_promotion_codes', 'true');
+  params.append('billing_address_collection', 'auto');
+
+  const stripeResponse = await fetch('https://api.stripe.com/v1/checkout/sessions', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.STRIPE_SECRET_KEY}`,
+      'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    body: params,
+  });
+
+  const stripeData = await stripeResponse.json();
+  if (!stripeResponse.ok) {
+    return jsonResponse({
+      message: stripeData?.error?.message || 'Unable to create checkout session.',
+    }, stripeResponse.status);
+  }
+
+  return jsonResponse({ url: stripeData.url });
+};
+
+const createAvatarCheckoutSession = async (request, env) => {
+  if (!env.STRIPE_SECRET_KEY) {
+    return jsonResponse({
+      message: 'Stripe checkout is not configured yet. Add STRIPE_SECRET_KEY in Cloudflare Pages settings.',
+    }, 503);
+  }
+
+  let payload;
+  try {
+    payload = await request.json();
+  } catch {
+    return jsonResponse({ message: 'Invalid payment request.' }, 400);
+  }
+
+  const plan = AVATAR_VIDEO_PLANS[payload?.planId];
+  if (!plan) {
+    return jsonResponse({ message: 'Unknown AI avatar video package.' }, 400);
+  }
+
+  const origin = new URL(request.url).origin;
+  const params = new URLSearchParams();
+  params.append('mode', 'payment');
+  params.append('success_url', `${origin}/ai-avatar/?checkout=success&session_id={CHECKOUT_SESSION_ID}#payment-status`);
+  params.append('cancel_url', `${origin}/ai-avatar/?checkout=cancelled#packages`);
+  params.append('line_items[0][quantity]', '1');
+  params.append('line_items[0][price_data][currency]', 'hkd');
+  params.append('line_items[0][price_data][unit_amount]', String(plan.amountHkdCents));
+  params.append('line_items[0][price_data][product_data][name]', plan.name);
+  params.append('line_items[0][price_data][product_data][description]', `${plan.quantity}. Each video includes up to 90 seconds, client-supplied script, AI avatar and voice, branded background, English subtitles, 1080p MP4, and one minor revision.`);
+  params.append('metadata[plan_id]', payload.planId);
+  params.append('metadata[service]', 'ai_avatar_video');
   params.append('allow_promotion_codes', 'true');
   params.append('billing_address_collection', 'auto');
 
@@ -437,6 +517,7 @@ export default {
       url.pathname === '/api/create-checkout-session'
       || url.pathname === '/api/checkout-session'
       || url.pathname === '/api/create-starter-kit-checkout'
+      || url.pathname === '/api/create-avatar-checkout'
       || url.pathname === '/api/starter-kit-session'
       || url.pathname === '/api/readiness-lead'
       || url.pathname === '/api/visitor-country'
@@ -464,6 +545,13 @@ export default {
           return jsonResponse({ message: 'Method not allowed.' }, 405);
         }
         return createStarterKitCheckoutSession(request, env);
+      }
+
+      if (url.pathname === '/api/create-avatar-checkout') {
+        if (request.method !== 'POST') {
+          return jsonResponse({ message: 'Method not allowed.' }, 405);
+        }
+        return createAvatarCheckoutSession(request, env);
       }
 
       if (url.pathname === '/api/starter-kit-session') {
