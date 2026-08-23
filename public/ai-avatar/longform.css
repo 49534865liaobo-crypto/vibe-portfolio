@@ -319,6 +319,37 @@
   color: var(--lime);
 }
 
+.language-note {
+  display: grid;
+  grid-template-columns: 190px 1fr;
+  gap: 26px;
+  margin-top: 18px;
+  padding: 22px 24px;
+  border: 1px solid var(--cyan);
+  border-radius: 16px;
+  background: rgba(60, 232, 255, 0.06);
+}
+
+.language-note > span {
+  color: var(--lime);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.language-note strong {
+  display: block;
+  color: #fff;
+  font: 700 1.05rem "Space Grotesk", sans-serif;
+}
+
+.language-note p {
+  margin: 7px 0 0;
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.6;
+}
+
 .longform-heading {
   display: flex;
   align-items: end;
@@ -432,6 +463,10 @@
   }
 
   .approval-policy-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .language-note {
     grid-template-columns: 1fr;
   }
 

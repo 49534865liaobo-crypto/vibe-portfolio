@@ -95,7 +95,7 @@ def draw_cover(c):
     label(c, "PROFESSIONAL AI VIDEO PRODUCTION", 18 * mm, H - 28 * mm)
     heading(c, "AI Avatar", 18 * mm, H - 53 * mm, 38)
     heading(c, "Video Service", 18 * mm, H - 70 * mm, 38, CYAN)
-    para(c, "Save production time and overhead. Create polished executive messages, training, event greetings and campaign videos - without cameras, studios or repeated takes.", 18 * mm, H - 83 * mm, 110 * mm, BODY_WHITE)
+    para(c, "Save production time and overhead. Create polished multilingual messages with narration and subtitles in your selected language - without cameras, studios or repeated takes.", 18 * mm, H - 83 * mm, 110 * mm, BODY_WHITE)
     link_button(c, "VIEW SERVICE & DEMOS", SITE, 18 * mm, H - 119 * mm, 52 * mm, 13 * mm)
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 74 * mm, H - 119 * mm, 54 * mm, 13 * mm, PANEL, WHITE)
 
@@ -106,7 +106,7 @@ def draw_cover(c):
     signals = [
         ("1080p", "Clean MP4 delivery"),
         ("BRANDED", "Background and logo"),
-        ("SUBTITLED", "English captions"),
+        ("MULTILINGUAL", "Selected voice + subtitles"),
         ("APPROVAL GATE", "Brief locked before generation"),
     ]
     card_w = 76 * mm
@@ -168,7 +168,7 @@ def draw_story(c):
     benefits = [
         ("SAVE MONEY", "Reduce studio, crew, travel and repeat-shoot overhead."),
         ("SAVE TIME", "Skip rehearsal days, camera scheduling and retake loops."),
-        ("SHARPEN THE SCRIPT", "AI checks basic grammar and clarity; you approve every word."),
+        ("SHARPEN THE SCRIPT", "AI checks basic grammar and clarity in the selected language; you approve every word."),
         ("STAY CONSISTENT", "Keep voice, delivery, captions and brand aligned at scale."),
     ]
     for i, (title, copy) in enumerate(benefits):
@@ -185,7 +185,7 @@ def draw_packages(c):
     c.rect(0, 0, W, H, fill=1, stroke=0)
     label(c, "PACKAGES & INCLUSIONS", 18 * mm, H - 24 * mm)
     heading(c, "Start with one. Save as you scale.", 18 * mm, H - 39 * mm, 24)
-    para(c, "Straightforward US dollar pricing for one-off messages and ongoing content programmes.", 18 * mm, H - 47 * mm, 160 * mm)
+    para(c, "Choose any client-selected narration and subtitle language; one language is included per video. Suitable avatar and voice availability is confirmed before approval.", 18 * mm, H - 47 * mm, 166 * mm)
 
     plans = [
         ("SINGLE VIDEO", "US$39", "1 video", "Best for one-off messages"),
@@ -209,7 +209,7 @@ def draw_packages(c):
     box_y = 53 * mm
     round_rect(c, 18 * mm, box_y, W - 36 * mm, 57 * mm, PANEL_2)
     heading(c, "Every short-form video includes", 24 * mm, box_y + 46 * mm, 15)
-    items = ["Up to 90 seconds", "Client-supplied approved script", "Basic AI grammar and clarity check", "Professional AI avatar and voice", "Branded background", "English subtitles", "1080p MP4 delivery", "One consolidated pre-generation review"]
+    items = ["Up to 90 seconds", "Client-supplied approved script", "Basic AI grammar and clarity check", "Professional AI avatar and voice", "Branded background", "Narration + subtitles in one language", "1080p MP4 delivery", "One consolidated pre-generation review"]
     for i, item in enumerate(items):
         col, row = i % 2, i // 2
         x = 25 * mm + col * 84 * mm
@@ -234,7 +234,7 @@ def draw_brief(c):
         ("01", "Final approved script", "Correct names, titles, dates and pronunciation notes."),
         ("02", "Audience and tone", "Who will watch, and whether delivery should be formal, warm or energetic."),
         ("03", "Brand assets", "Logo, brand colours, preferred background and mandatory visual elements."),
-        ("04", "Avatar, voice and format", "Language, voice, tone, timing, captions, music and output ratio."),
+        ("04", "Language, avatar and voice", "Narration/subtitle language, voice, tone, timing, music and output ratio. Availability is confirmed before approval."),
         ("05", "Rights and consent", "You must own supplied assets and provide written consent for custom likeness or voice."),
         ("06", "Final approval to generate", "Review the summary, then reply 'Approved to generate' to lock the brief."),
     ]
@@ -253,7 +253,7 @@ def draw_brief(c):
 
     round_rect(c, 18 * mm, 52 * mm, W - 36 * mm, 52 * mm, PANEL)
     heading(c, "Approval-gated production flow", 24 * mm, 92 * mm, 15)
-    steps = ["Select package", "Submit brief", "Language & brand check", "Client approval", "Generate & QA", "1080p delivery"]
+    steps = ["Select package", "Submit brief", "Language, voice & brand check", "Client approval", "Generate & QA", "1080p delivery"]
     step_w = (W - 48 * mm) / 6
     for i, step in enumerate(steps):
         x = 24 * mm + i * step_w
@@ -266,7 +266,7 @@ def draw_brief(c):
         if i < 5:
             c.setStrokeColor(LINE)
             c.line(x + 9 * mm, 75 * mm, x + step_w - 2 * mm, 75 * mm)
-    para(c, "<b>Approval policy:</b> One pre-generation review is included. Validate the script, voice, timing, format, captions, music and visuals, then confirm 'Approved to generate'. This locks the brief. Client-requested changes after generation are charged; mismatches against the approved brief are corrected free.", 18 * mm, 46 * mm, 174 * mm, SMALL)
+    para(c, "<b>Approval policy:</b> One pre-generation review is included. Validate the script, narration/subtitle language, voice, timing, format, music and visuals, then confirm 'Approved to generate'. This locks the brief. Client-requested changes after generation are charged; mismatches against the approved brief are corrected free.", 18 * mm, 46 * mm, 174 * mm, SMALL)
     link_button(c, "DISCUSS YOUR BRIEF", LINKEDIN, 18 * mm, 22 * mm, 52 * mm, 12 * mm)
     footer(c, 5)
 
@@ -309,7 +309,7 @@ def draw_longform(c):
         "Basic AI grammar and clarity check",
         "Scene assembly plus human QA for names and dates",
         "One consolidated pre-generation review",
-        "English subtitles and 1080p MP4 delivery",
+        "Narration + subtitles in one selected language",
     ]
     for i, item in enumerate(included):
         col, row = i % 2, i // 2
@@ -369,7 +369,7 @@ def draw_demos(c):
     addons = [
         ("Long-form runtime", "Up to 30 min"), ("Post-generation minor change", "From US$13"), ("Script polish", "US$19"),
         ("Full scriptwriting", "US$39+"), ("Custom avatar look", "US$52+"), ("Custom background", "US$26+"),
-        ("Extra language", "US$26"), ("24-hour rush", "+30%"), ("Major regeneration after approval", "From US$26"),
+        ("Additional language version", "US$26"), ("24-hour rush", "+30%"), ("Major regeneration after approval", "From US$26"),
     ]
     for i, (name, price) in enumerate(addons):
         col, row = i % 3, i // 3
