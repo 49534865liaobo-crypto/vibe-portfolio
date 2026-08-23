@@ -122,7 +122,7 @@ def draw_cover(c):
         c.drawString(x + 5 * mm, y + 7 * mm, detail)
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 7.2)
-    c.drawString(25 * mm, 39 * mm, "Starter from HK$299 · one video up to 90 seconds")
+    c.drawString(25 * mm, 39 * mm, "Starter from US$39 · one video up to 90 seconds")
     footer(c, 1)
 
 
@@ -179,13 +179,13 @@ def draw_packages(c):
     c.rect(0, 0, W, H, fill=1, stroke=0)
     label(c, "PACKAGES & INCLUSIONS", 18 * mm, H - 24 * mm)
     heading(c, "Start with one. Save as you scale.", 18 * mm, H - 39 * mm, 24)
-    para(c, "Straightforward Hong Kong dollar pricing for one-off messages and ongoing content programmes.", 18 * mm, H - 47 * mm, 160 * mm)
+    para(c, "Straightforward US dollar pricing for one-off messages and ongoing content programmes.", 18 * mm, H - 47 * mm, 160 * mm)
 
     plans = [
-        ("SINGLE VIDEO", "HK$299", "1 video", "Best for one-off messages"),
-        ("MONTHLY 4", "HK$1,080", "HK$270 / video", "Flexible monthly content"),
-        ("GROWTH 8", "HK$1,920", "HK$240 / video", "For active campaigns"),
-        ("PARTNER 12", "HK$2,520", "HK$210 / video", "Best long-term value"),
+        ("SINGLE VIDEO", "US$39", "1 video", "Best for one-off messages"),
+        ("MONTHLY 4", "US$140", "US$35 / video", "Flexible monthly content"),
+        ("GROWTH 8", "US$248", "US$31 / video", "For active campaigns"),
+        ("PARTNER 12", "US$324", "US$27 / video", "Best long-term value"),
     ]
     card_w = (W - 36 * mm - 9 * mm) / 2
     card_h = 44 * mm
@@ -270,14 +270,14 @@ def draw_longform(c):
     c.rect(0, 0, W, H, fill=1, stroke=0)
     label(c, "LONG-FORM PRODUCTION", 18 * mm, H - 24 * mm)
     heading(c, "Longer messages. Same polished finish.", 18 * mm, H - 39 * mm, 24)
-    para(c, "The HK$299 starter offer covers one video up to 90 seconds only. For longer programmes, choose a maximum runtime below and we will shape the production around your approved brief.", 18 * mm, H - 47 * mm, 164 * mm)
+    para(c, "The US$39 starter offer covers one video up to 90 seconds only. For longer programmes, choose a maximum runtime below and we will shape the production around your approved brief.", 18 * mm, H - 47 * mm, 164 * mm)
 
     tiers = [
-        ("UP TO 3 MIN", "HK$399", "about HK$133/min"),
-        ("UP TO 5 MIN", "HK$499", "about HK$100/min"),
-        ("UP TO 10 MIN", "HK$699", "about HK$70/min"),
-        ("UP TO 20 MIN", "HK$899", "about HK$45/min"),
-        ("UP TO 30 MIN", "HK$1,099", "about HK$37/min"),
+        ("UP TO 3 MIN", "US$51", "about US$17/min"),
+        ("UP TO 5 MIN", "US$64", "about US$13/min"),
+        ("UP TO 10 MIN", "US$90", "about US$9/min"),
+        ("UP TO 20 MIN", "US$115", "about US$6/min"),
+        ("UP TO 30 MIN", "US$141", "about US$5/min"),
     ]
     card_w = (W - 42 * mm) / 3
     card_h = 38 * mm
@@ -361,9 +361,9 @@ def draw_demos(c):
 
     heading(c, "Optional add-ons", 18 * mm, 152 * mm, 15)
     addons = [
-        ("Long-form runtime", "Up to 30 min"), ("Extra minor revision", "HK$100"), ("Script polish", "HK$150"),
-        ("Full scriptwriting", "HK$300+"), ("Custom avatar look", "HK$400+"), ("Custom background", "HK$200+"),
-        ("Extra language", "HK$200"), ("24-hour rush", "+30%"), ("Major regeneration", "HK$200+"),
+        ("Long-form runtime", "Up to 30 min"), ("Extra minor revision", "US$13"), ("Script polish", "US$19"),
+        ("Full scriptwriting", "US$39+"), ("Custom avatar look", "US$52+"), ("Custom background", "US$26+"),
+        ("Extra language", "US$26"), ("24-hour rush", "+30%"), ("Major regeneration", "US$26+"),
     ]
     for i, (name, price) in enumerate(addons):
         col, row = i % 3, i // 3
