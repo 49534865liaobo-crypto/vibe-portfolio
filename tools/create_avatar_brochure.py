@@ -107,7 +107,7 @@ def draw_cover(c):
         ("1080p", "Clean MP4 delivery"),
         ("BRANDED", "Background and logo"),
         ("SUBTITLED", "English captions"),
-        ("1 REVISION", "Minor changes included"),
+        ("APPROVAL GATE", "Brief locked before generation"),
     ]
     card_w = 76 * mm
     card_h = 25 * mm
@@ -150,8 +150,8 @@ def draw_story(c):
             108 * mm,
             "NOW · AI AVATAR PRODUCTION",
             AI_AVATAR_PRODUCTION,
-            "Approve the script, tone and brand once.<br/>A basic AI-assisted grammar and clarity pass flags obvious issues before generation.<br/>No studio, crew, rehearsal or physical reshoot required.<br/>Keep delivery, background and captions consistent.<br/>Finish with human QA for names, dates, subtitles and brand before publish.",
-            "Result: no physical reshoot or on-camera <i>NG</i> - one controlled production flow. Technical AI rerenders may still be used when needed.",
+            "Validate the script, delivery and visuals, then confirm 'Approved to generate' in writing.<br/>A basic AI-assisted grammar and clarity pass flags obvious issues before generation.<br/>No studio, crew, rehearsal or physical reshoot required.<br/>Keep delivery, background and captions consistent.<br/>Finish with human QA before publish.",
+            "Technical rerenders needed to match the approved brief are included. Client-requested changes after generation are chargeable.",
         ),
     ]
     for x, title, image, body, note in cards:
@@ -209,7 +209,7 @@ def draw_packages(c):
     box_y = 53 * mm
     round_rect(c, 18 * mm, box_y, W - 36 * mm, 57 * mm, PANEL_2)
     heading(c, "Every short-form video includes", 24 * mm, box_y + 46 * mm, 15)
-    items = ["Up to 90 seconds", "Client-supplied approved script", "Basic AI grammar and clarity check", "Professional AI avatar and voice", "Branded background", "English subtitles", "1080p MP4 delivery", "One minor revision"]
+    items = ["Up to 90 seconds", "Client-supplied approved script", "Basic AI grammar and clarity check", "Professional AI avatar and voice", "Branded background", "English subtitles", "1080p MP4 delivery", "One consolidated pre-generation review"]
     for i, item in enumerate(items):
         col, row = i % 2, i // 2
         x = 25 * mm + col * 84 * mm
@@ -220,7 +220,7 @@ def draw_packages(c):
         c.setFont("Helvetica", 8.4)
         c.drawString(x + 4 * mm, y, item)
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 18 * mm, 27 * mm, 58 * mm, 13 * mm)
-    para(c, "Contact Alvin on LinkedIn to confirm the package, brief, timing and project arrangements. Production starts after the complete brief and required rights/consents are confirmed.", 82 * mm, 39 * mm, 110 * mm, SMALL)
+    para(c, "Production begins only after the complete brief, rights/consents and written 'Approved to generate' confirmation are received. Client-requested changes after generation are charged separately.", 82 * mm, 39 * mm, 110 * mm, SMALL)
     footer(c, 3)
 
 
@@ -229,14 +229,14 @@ def draw_brief(c):
     c.rect(0, 0, W, H, fill=1, stroke=0)
     label(c, "CLIENT BRIEFING & WORKFLOW", 18 * mm, H - 24 * mm)
     heading(c, "What we need from you", 18 * mm, H - 39 * mm, 24)
-    para(c, "A complete, approved brief keeps production fast and prevents avoidable regeneration costs.", 18 * mm, H - 47 * mm, 160 * mm)
+    para(c, "Every material choice is validated before generation. Your written 'Approved to generate' confirmation locks the brief and prevents avoidable regeneration costs.", 18 * mm, H - 47 * mm, 166 * mm)
     brief_items = [
         ("01", "Final approved script", "Correct names, titles, dates and pronunciation notes."),
         ("02", "Audience and tone", "Who will watch, and whether delivery should be formal, warm or energetic."),
         ("03", "Brand assets", "Logo, brand colours, preferred background and mandatory visual elements."),
-        ("04", "Avatar, voice and format", "Language, voice, framing and 16:9, 9:16 or 1:1 output."),
+        ("04", "Avatar, voice and format", "Language, voice, tone, timing, captions, music and output ratio."),
         ("05", "Rights and consent", "You must own supplied assets and provide written consent for custom likeness or voice."),
-        ("06", "Deadline and feedback", "Confirm delivery timing and consolidate revision notes in one clear list."),
+        ("06", "Final approval to generate", "Review the summary, then reply 'Approved to generate' to lock the brief."),
     ]
     top = H - 68 * mm
     for i, (num, title, text) in enumerate(brief_items):
@@ -252,8 +252,8 @@ def draw_brief(c):
         para(c, text, x + 10 * mm, y - 4 * mm, 72 * mm, SMALL)
 
     round_rect(c, 18 * mm, 52 * mm, W - 36 * mm, 52 * mm, PANEL)
-    heading(c, "Production flow", 24 * mm, 92 * mm, 15)
-    steps = ["Select package", "Submit brief", "AI language & brand check", "AI production & QA", "Minor revision", "1080p delivery"]
+    heading(c, "Approval-gated production flow", 24 * mm, 92 * mm, 15)
+    steps = ["Select package", "Submit brief", "Language & brand check", "Client approval", "Generate & QA", "1080p delivery"]
     step_w = (W - 48 * mm) / 6
     for i, step in enumerate(steps):
         x = 24 * mm + i * step_w
@@ -266,7 +266,7 @@ def draw_brief(c):
         if i < 5:
             c.setStrokeColor(LINE)
             c.line(x + 9 * mm, 75 * mm, x + step_w - 2 * mm, 75 * mm)
-    para(c, "<b>Important:</b> Unauthorized likeness or voice cloning is not accepted. Major script or visual changes after generation are treated as a new regeneration and quoted separately.", 18 * mm, 40 * mm, 172 * mm, SMALL)
+    para(c, "<b>Approval policy:</b> One pre-generation review is included. Validate the script, voice, timing, format, captions, music and visuals, then confirm 'Approved to generate'. This locks the brief. Client-requested changes after generation are charged; mismatches against the approved brief are corrected free.", 18 * mm, 46 * mm, 174 * mm, SMALL)
     link_button(c, "DISCUSS YOUR BRIEF", LINKEDIN, 18 * mm, 22 * mm, 52 * mm, 12 * mm)
     footer(c, 5)
 
@@ -308,7 +308,7 @@ def draw_longform(c):
         "Professional avatar, voice and branded background",
         "Basic AI grammar and clarity check",
         "Scene assembly plus human QA for names and dates",
-        "One minor revision after the first delivery",
+        "One consolidated pre-generation review",
         "English subtitles and 1080p MP4 delivery",
     ]
     for i, item in enumerate(included):
@@ -320,7 +320,7 @@ def draw_longform(c):
         c.setFillColor(WHITE)
         c.setFont("Helvetica", 7.8)
         c.drawString(x + 4 * mm, y, item)
-    para(c, "Projects longer than 10 minutes may be produced in approved sections and assembled into one final video. Final timing follows the approved script, format and visual plan.", 24 * mm, 70 * mm, 160 * mm, SMALL)
+    para(c, "Projects longer than 10 minutes may be produced in sections. Each section is validated before generation and assembled into one final video. Additional client changes before approval may be quoted; all client-requested changes after generation are chargeable.", 24 * mm, 70 * mm, 160 * mm, SMALL)
     link_button(c, "DISCUSS A DURATION", LINKEDIN, 18 * mm, 22 * mm, 58 * mm, 12 * mm)
     footer(c, 4)
 
@@ -367,9 +367,9 @@ def draw_demos(c):
 
     heading(c, "Optional add-ons", 18 * mm, 152 * mm, 15)
     addons = [
-        ("Long-form runtime", "Up to 30 min"), ("Extra minor revision", "US$13"), ("Script polish", "US$19"),
+        ("Long-form runtime", "Up to 30 min"), ("Post-generation minor change", "From US$13"), ("Script polish", "US$19"),
         ("Full scriptwriting", "US$39+"), ("Custom avatar look", "US$52+"), ("Custom background", "US$26+"),
-        ("Extra language", "US$26"), ("24-hour rush", "+30%"), ("Major regeneration", "US$26+"),
+        ("Extra language", "US$26"), ("24-hour rush", "+30%"), ("Major regeneration after approval", "From US$26"),
     ]
     for i, (name, price) in enumerate(addons):
         col, row = i % 3, i // 3
