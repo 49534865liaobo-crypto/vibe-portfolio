@@ -574,7 +574,10 @@ export default {
       return getCheckoutSession(request, env);
     }
 
-    if (url.pathname === '/safety_ai_training_video.mp4') {
+    if (
+      url.pathname === '/safety_ai_training_video.mp4'
+      || (url.pathname.startsWith('/ai-avatar/demos/') && url.pathname.endsWith('.mp4'))
+    ) {
       return serveAssetWithRangeSupport(request, env);
     }
 
