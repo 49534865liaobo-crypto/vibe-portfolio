@@ -398,7 +398,7 @@ def draw_testimonial(c):
 
     round_rect(c, 18 * mm, 36 * mm, W - 36 * mm, 192 * mm, PANEL_2, CYAN)
     c.saveState()
-    profile_x, profile_y, profile_size = 62 * mm, 151 * mm, 68 * mm
+    profile_x, profile_y, profile_size = 71 * mm, 151 * mm, 68 * mm
     profile_path = c.beginPath()
     profile_path.circle(profile_x + profile_size / 2, profile_y + profile_size / 2, profile_size / 2)
     c.clipPath(profile_path, stroke=0, fill=0)
