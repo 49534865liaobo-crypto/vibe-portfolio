@@ -71,7 +71,7 @@ def footer(c, page_num):
     c.line(18 * mm, 15 * mm, W - 18 * mm, 15 * mm)
     c.setFont("Helvetica", 7.2)
     c.setFillColor(MUTED)
-    c.drawString(18 * mm, 9.5 * mm, "AI Avatar Video Service · Safety Nexus")
+    c.drawString(18 * mm, 9.5 * mm, "AI Video Presenter Service · Safety Nexus")
     c.drawRightString(W - 18 * mm, 9.5 * mm, f"{page_num} / 7")
 
 
@@ -96,14 +96,14 @@ def draw_cover(c):
     label(c, "PERSONAL AI VIDEO PRODUCTION", 18 * mm, H - 28 * mm)
     heading(c, "Your face. Your voice.", 18 * mm, H - 53 * mm, 31)
     heading(c, "No camera each time.", 18 * mm, H - 69 * mm, 31, CYAN)
-    para(c, "Create a realistic personal AI presenter. Once approved, send a script and receive a polished multilingual video without filming, memorising lines or repeating takes.", 18 * mm, H - 82 * mm, 118 * mm, BODY_WHITE)
+    para(c, "Create a realistic Personal AI Video Presenter. Once approved, send a script and receive a polished multilingual video without filming, memorising lines or repeating takes.", 18 * mm, H - 82 * mm, 118 * mm, BODY_WHITE)
     link_button(c, "VIEW SERVICE & DEMOS", SITE, 18 * mm, H - 119 * mm, 52 * mm, 13 * mm)
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 74 * mm, H - 119 * mm, 54 * mm, 13 * mm, PANEL, WHITE)
 
     round_rect(c, 18 * mm, 33 * mm, W - 36 * mm, 109 * mm, PANEL_2)
     label(c, "WHAT THIS SERVICE ACTUALLY DOES", 25 * mm, 128 * mm, LIME)
     heading(c, "Your on-demand video presenter.", 25 * mm, 116 * mm, 19)
-    para(c, "Not a cartoon avatar or Zoom character. It is a realistic presenter created from your authorised face and voice, then reused for future approved scripts.", 25 * mm, 109 * mm, 150 * mm, SMALL)
+    para(c, "Not a cartoon avatar or Zoom character. A Personal AI Video Presenter is a realistic video version of you, created from your authorised face and voice and reused for future approved scripts.", 25 * mm, 109 * mm, 150 * mm, SMALL)
     signals = [
         ("YOUR FACE", "Authorised likeness"),
         ("YOUR VOICE", "Consented recreation"),
@@ -123,7 +123,7 @@ def draw_cover(c):
         c.drawString(x + 5 * mm, y + 7 * mm, detail)
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 7.2)
-    c.drawString(25 * mm, 39 * mm, "Video production from US$39 · personal AI presenter setup quoted separately")
+    c.drawString(25 * mm, 39 * mm, "Video production from US$39 · Personal AI Video Presenter setup quoted separately")
     footer(c, 1)
 
 
@@ -132,7 +132,7 @@ def draw_story(c):
     c.rect(0, 0, W, H, fill=1, stroke=0)
     label(c, "THE PRODUCTION STORY", 18 * mm, H - 24 * mm)
     heading(c, "From production marathon to controlled flow.", 18 * mm, H - 39 * mm, 23)
-    para(c, "Spend less time filming and more time communicating. AI Avatar production keeps creative judgement and human review, while reducing production overhead, scheduling pressure and repeated on-camera takes.", 18 * mm, H - 47 * mm, 174 * mm)
+    para(c, "Spend less time filming and more time communicating. AI Video Presenter production keeps creative judgement and human review, while reducing production overhead, scheduling pressure and repeated on-camera takes.", 18 * mm, H - 47 * mm, 174 * mm)
 
     card_y = 101 * mm
     card_h = 126 * mm
@@ -149,7 +149,7 @@ def draw_story(c):
         ),
         (
             108 * mm,
-            "NOW · AI AVATAR PRODUCTION",
+            "NOW · AI VIDEO PRESENTER PRODUCTION",
             AI_AVATAR_PRODUCTION,
             "Validate the script, delivery and visuals, then confirm 'Approved to generate' in writing.<br/>A basic AI-assisted grammar and clarity pass flags obvious issues before generation.<br/>No studio, crew, rehearsal or physical reshoot required.<br/>Keep delivery, background and captions consistent.<br/>Finish with human QA before publish.",
             "Technical rerenders needed to match the approved brief are included. Client-requested changes after generation are chargeable.",
@@ -186,7 +186,7 @@ def draw_use_cases(c):
     c.rect(0, 0, W, H, fill=1, stroke=0)
     label(c, "WHERE YOUR AI PRESENTER CAN WORK", 18 * mm, H - 24 * mm)
     heading(c, "One presenter. Every message that matters.", 18 * mm, H - 39 * mm, 23)
-    para(c, "Once your personal AI presenter is approved, it can help you publish consistently across social channels, learning, events and corporate safety communication - without arranging a new camera shoot for every message.", 18 * mm, H - 47 * mm, 174 * mm)
+    para(c, "Once your Personal AI Video Presenter is approved, it can help you publish consistently across social channels, learning, events and corporate safety communication - without arranging a new camera shoot for every message.", 18 * mm, H - 47 * mm, 174 * mm)
 
     round_rect(c, 18 * mm, 139 * mm, W - 36 * mm, 90 * mm, PANEL_2, LINE, 4 * mm)
     c.drawImage(
@@ -229,7 +229,7 @@ def draw_packages(c):
     c.rect(0, 0, W, H, fill=1, stroke=0)
     label(c, "PACKAGES & INCLUSIONS", 18 * mm, H - 24 * mm)
     heading(c, "Start with one. Save as you scale.", 18 * mm, H - 39 * mm, 24)
-    para(c, "Choose any client-selected narration and subtitle language; one language is included per video. Suitable avatar and voice availability is confirmed before approval.", 18 * mm, H - 47 * mm, 166 * mm)
+    para(c, "Choose any client-selected narration and subtitle language; one language is included per video. Suitable presenter and voice availability is confirmed before approval.", 18 * mm, H - 47 * mm, 166 * mm)
 
     plans = [
         ("SINGLE VIDEO", "US$39", "1 finished video", "Up to 90 seconds<br/>One-off"),
@@ -264,7 +264,7 @@ def draw_packages(c):
         c.setFont("Helvetica", 8.4)
         c.drawString(x + 4 * mm, y, item)
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 18 * mm, 27 * mm, 58 * mm, 13 * mm)
-    para(c, "Listed video prices include a standard AI presenter. Personal AI Presenter setup using your authorised face and voice is a separate one-time service and is quoted before work begins.", 82 * mm, 39 * mm, 110 * mm, SMALL)
+    para(c, "Listed video prices include a Standard AI Presenter. Personal AI Video Presenter setup using your authorised face and voice is a separate one-time service and is quoted before work begins.", 82 * mm, 39 * mm, 110 * mm, SMALL)
     footer(c, 4)
 
 
@@ -278,7 +278,7 @@ def draw_brief(c):
         ("01", "Final approved script", "Correct names, titles, dates and pronunciation notes."),
         ("02", "Audience and tone", "Who will watch, and whether delivery should be formal, warm or energetic."),
         ("03", "Brand assets", "Logo, brand colours, preferred background and mandatory visual elements."),
-        ("04", "Language, avatar and voice", "Narration/subtitle language, voice, tone, timing, music and output ratio. Availability is confirmed before approval."),
+        ("04", "Language, presenter and voice", "Narration/subtitle language, presenter, voice, tone, timing, music and output ratio. Availability is confirmed before approval."),
         ("05", "Rights and consent", "You must own supplied assets and provide written consent for custom likeness or voice."),
         ("06", "Final approval to generate", "Review the summary, then reply 'Approved to generate' to lock the brief."),
     ]
@@ -349,7 +349,7 @@ def draw_longform(c):
     heading(c, "What is included", 24 * mm, 113 * mm, 15)
     included = [
         "Approved script and content structure",
-        "Professional avatar, voice and branded background",
+        "Professional AI presenter, voice and branded background",
         "Basic AI grammar and clarity check",
         "Scene assembly plus human QA for names and dates",
         "One consolidated pre-generation review",
@@ -412,7 +412,7 @@ def draw_demos(c):
     heading(c, "Optional add-ons", 18 * mm, 152 * mm, 15)
     addons = [
         ("Long-form runtime", "Up to 30 min"), ("Post-generation minor change", "From US$13"), ("Script polish", "US$19"),
-        ("Full scriptwriting", "US$39+"), ("Personal AI Presenter setup", "Quoted separately"), ("Custom background", "US$26+"),
+        ("Full scriptwriting", "US$39+"), ("Personal AI Video Presenter setup", "Quoted separately"), ("Custom background", "US$26+"),
         ("Additional language version", "US$26"), ("24-hour rush", "+30%"), ("Major regeneration after approval", "From US$26"),
     ]
     for i, (name, price) in enumerate(addons):
@@ -433,7 +433,7 @@ def draw_demos(c):
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, W - 78 * mm, 39 * mm, 54 * mm, 12 * mm)
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 6.8)
-    c.drawRightString(W - 18 * mm, 22 * mm, PDF_LINK)
+    c.drawRightString(W - 18 * mm, 22 * mm, SITE)
     footer(c, 7)
 
 
@@ -441,9 +441,9 @@ def build():
     OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     PUBLIC_OUTPUT.parent.mkdir(parents=True, exist_ok=True)
     c = canvas.Canvas(str(OUTPUT), pagesize=A4, pageCompression=1)
-    c.setTitle("AI Avatar Video Service - Pricing, Briefing & Demos")
+    c.setTitle("AI Video Presenter Service - Pricing, Briefing & Demos")
     c.setAuthor("Alvin Liao · Safety Nexus")
-    c.setSubject("Professional AI avatar video packages, client briefing requirements and demo links")
+    c.setSubject("Professional AI Video Presenter packages, client briefing requirements and demo links")
     for page in (draw_cover, draw_story, draw_use_cases, draw_packages, draw_longform, draw_brief, draw_demos):
         page(c)
         c.showPage()
