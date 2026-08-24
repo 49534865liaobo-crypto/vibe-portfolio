@@ -18,6 +18,7 @@ DR_XI_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "dr-xi-finance-poster.
 CHENXI_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "chenxi-finance-poster.jpg"
 TRADITIONAL_PRODUCTION = ROOT / "public" / "ai-avatar" / "assets" / "traditional-production.png"
 AI_AVATAR_PRODUCTION = ROOT / "public" / "ai-avatar" / "assets" / "ai-avatar-production.png"
+APPLICATION_SCENARIOS = ROOT / "public" / "ai-avatar" / "assets" / "application-scenarios.png"
 
 SITE = "https://vibe-portfolio-dny.pages.dev/ai-avatar/"
 PDF_LINK = SITE + "AI_Avatar_Video_Service_Brochure_EN.pdf"
@@ -71,7 +72,7 @@ def footer(c, page_num):
     c.setFont("Helvetica", 7.2)
     c.setFillColor(MUTED)
     c.drawString(18 * mm, 9.5 * mm, "AI Avatar Video Service · Safety Nexus")
-    c.drawRightString(W - 18 * mm, 9.5 * mm, f"{page_num} / 6")
+    c.drawRightString(W - 18 * mm, 9.5 * mm, f"{page_num} / 7")
 
 
 def link_button(c, text, url, x, y, w, h, fill=CYAN, text_color=NAVY):
@@ -180,6 +181,49 @@ def draw_story(c):
     footer(c, 2)
 
 
+def draw_use_cases(c):
+    c.setFillColor(NAVY)
+    c.rect(0, 0, W, H, fill=1, stroke=0)
+    label(c, "WHERE YOUR AI PRESENTER CAN WORK", 18 * mm, H - 24 * mm)
+    heading(c, "One presenter. Every message that matters.", 18 * mm, H - 39 * mm, 23)
+    para(c, "Once your personal AI presenter is approved, it can help you publish consistently across social channels, learning, events and corporate safety communication - without arranging a new camera shoot for every message.", 18 * mm, H - 47 * mm, 174 * mm)
+
+    round_rect(c, 18 * mm, 139 * mm, W - 36 * mm, 90 * mm, PANEL_2, LINE, 4 * mm)
+    c.drawImage(
+        ImageReader(str(APPLICATION_SCENARIOS)),
+        20 * mm,
+        141 * mm,
+        W - 40 * mm,
+        86 * mm,
+        preserveAspectRatio=True,
+        anchor="c",
+        mask="auto",
+    )
+
+    scenarios = [
+        ("PERSONAL CHANNELS", "X, TikTok, YouTube and Facebook<br/>Regular expert updates without camera days"),
+        ("LESSONS & TRAINING", "Online lessons, safety induction and refresher training<br/>Repeatable delivery in selected languages"),
+        ("INVITATIONS & SPEECHES", "Event invitations, welcome messages and speeches<br/>Professional delivery, even across time zones"),
+        ("MEETINGS & CAMPAIGNS", "Event openings, employee town halls and safety promotions<br/>A consistent host for every important moment"),
+        ("CORPORATE INFLUENCE", "Safety product promotion and corporate safety culture<br/>A recognisable spokesperson for your organisation"),
+    ]
+    card_w = 54 * mm
+    card_h = 36 * mm
+    for i, (title, copy) in enumerate(scenarios):
+        if i < 3:
+            x = 18 * mm + i * 59.5 * mm
+            y = 92 * mm
+        else:
+            x = 47.75 * mm + (i - 3) * 59.5 * mm
+            y = 49 * mm
+        round_rect(c, x, y, card_w, card_h, PANEL, CYAN if i == 0 else LINE, 3 * mm)
+        label(c, title, x + 4 * mm, y + card_h - 8 * mm, LIME if i == 0 else CYAN)
+        para(c, copy, x + 4 * mm, y + card_h - 13 * mm, card_w - 8 * mm, SMALL)
+
+    para(c, "<font color='#B9F35D'><b>Think of it as your always-ready presenter:</b></font> your approved face and voice, ready for the next script - not a cartoon character and not a replacement for your judgement.", 18 * mm, 39 * mm, 174 * mm, SMALL)
+    footer(c, 3)
+
+
 def draw_packages(c):
     c.setFillColor(NAVY)
     c.rect(0, 0, W, H, fill=1, stroke=0)
@@ -221,7 +265,7 @@ def draw_packages(c):
         c.drawString(x + 4 * mm, y, item)
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 18 * mm, 27 * mm, 58 * mm, 13 * mm)
     para(c, "Listed video prices include a standard AI presenter. Personal AI Presenter setup using your authorised face and voice is a separate one-time service and is quoted before work begins.", 82 * mm, 39 * mm, 110 * mm, SMALL)
-    footer(c, 3)
+    footer(c, 4)
 
 
 def draw_brief(c):
@@ -268,7 +312,7 @@ def draw_brief(c):
             c.line(x + 9 * mm, 75 * mm, x + step_w - 2 * mm, 75 * mm)
     para(c, "<b>Approval policy:</b> One pre-generation review is included. Validate the script, narration/subtitle language, voice, timing, format, music and visuals, then confirm 'Approved to generate'. This locks the brief. Client-requested changes after generation are charged; mismatches against the approved brief are corrected free.", 18 * mm, 46 * mm, 174 * mm, SMALL)
     link_button(c, "DISCUSS YOUR BRIEF", LINKEDIN, 18 * mm, 22 * mm, 52 * mm, 12 * mm)
-    footer(c, 5)
+    footer(c, 6)
 
 
 def draw_longform(c):
@@ -322,7 +366,7 @@ def draw_longform(c):
         c.drawString(x + 4 * mm, y, item)
     para(c, "For videos longer than 10 minutes, one consolidated approval covers the complete script and visual plan. Production may then be completed in sections and assembled into one final video. Client-requested changes after generation are chargeable.", 24 * mm, 70 * mm, 160 * mm, SMALL)
     link_button(c, "DISCUSS A DURATION", LINKEDIN, 18 * mm, 22 * mm, 58 * mm, 12 * mm)
-    footer(c, 4)
+    footer(c, 5)
 
 
 def draw_demos(c):
@@ -390,7 +434,7 @@ def draw_demos(c):
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 6.8)
     c.drawRightString(W - 18 * mm, 22 * mm, PDF_LINK)
-    footer(c, 6)
+    footer(c, 7)
 
 
 def build():
@@ -400,7 +444,7 @@ def build():
     c.setTitle("AI Avatar Video Service - Pricing, Briefing & Demos")
     c.setAuthor("Alvin Liao · Safety Nexus")
     c.setSubject("Professional AI avatar video packages, client briefing requirements and demo links")
-    for page in (draw_cover, draw_story, draw_packages, draw_longform, draw_brief, draw_demos):
+    for page in (draw_cover, draw_story, draw_use_cases, draw_packages, draw_longform, draw_brief, draw_demos):
         page(c)
         c.showPage()
     c.save()
