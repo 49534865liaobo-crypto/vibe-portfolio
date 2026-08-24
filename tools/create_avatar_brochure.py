@@ -35,9 +35,9 @@ MUTED = colors.HexColor("#A7B8CC")
 LINE = colors.Color(0.36, 0.67, 0.84, alpha=0.24)
 
 styles = getSampleStyleSheet()
-BODY = ParagraphStyle("Body", parent=styles["BodyText"], fontName="Helvetica", fontSize=9.1, leading=13.2, textColor=MUTED)
+BODY = ParagraphStyle("Body", parent=styles["BodyText"], fontName="Helvetica", fontSize=10.2, leading=14.6, textColor=MUTED)
 BODY_WHITE = ParagraphStyle("BodyWhite", parent=BODY, textColor=WHITE)
-SMALL = ParagraphStyle("Small", parent=BODY, fontSize=7.7, leading=10.4)
+SMALL = ParagraphStyle("Small", parent=BODY, fontSize=8.6, leading=11.8)
 CENTER = ParagraphStyle("Center", parent=BODY, alignment=TA_CENTER)
 
 
@@ -56,7 +56,7 @@ def round_rect(c, x, y, w, h, fill=PANEL, stroke=LINE, radius=5 * mm):
 
 def label(c, text, x, y, color=CYAN):
     c.setFillColor(color)
-    c.setFont("Helvetica-Bold", 7.4)
+    c.setFont("Helvetica-Bold", 8.2)
     c.drawString(x, y, text.upper())
 
 
@@ -69,7 +69,7 @@ def heading(c, text, x, y, size=26, color=WHITE):
 def footer(c, page_num):
     c.setStrokeColor(LINE)
     c.line(18 * mm, 15 * mm, W - 18 * mm, 15 * mm)
-    c.setFont("Helvetica", 7.2)
+    c.setFont("Helvetica", 7.8)
     c.setFillColor(MUTED)
     c.drawString(18 * mm, 9.5 * mm, "AI Video Presenter Service · Safety Nexus")
     c.drawRightString(W - 18 * mm, 9.5 * mm, f"{page_num} / 7")
@@ -80,8 +80,8 @@ def link_button(c, text, url, x, y, w, h, fill=CYAN, text_color=NAVY):
     c.setStrokeColor(fill)
     c.roundRect(x, y, w, h, 4 * mm, fill=1, stroke=1)
     c.setFillColor(text_color)
-    c.setFont("Helvetica-Bold", 8.4)
-    tw = stringWidth(text, "Helvetica-Bold", 8.4)
+    c.setFont("Helvetica-Bold", 9.2)
+    tw = stringWidth(text, "Helvetica-Bold", 9.2)
     c.drawString(x + (w - tw) / 2, y + h / 2 - 2.8, text)
     c.linkURL(url, (x, y, x + w, y + h), relative=0)
 
@@ -119,11 +119,9 @@ def draw_cover(c):
         round_rect(c, x, y, card_w, card_h, PANEL, CYAN if i == 0 else LINE, 3 * mm)
         label(c, name, x + 5 * mm, y + 15 * mm, LIME if i == 0 else CYAN)
         c.setFillColor(MUTED)
-        c.setFont("Helvetica", 7.4)
+        c.setFont("Helvetica", 8.4)
         c.drawString(x + 5 * mm, y + 7 * mm, detail)
-    c.setFillColor(MUTED)
-    c.setFont("Helvetica", 7.2)
-    c.drawString(25 * mm, 39 * mm, "Video production from US$39 · Personal AI Video Presenter setup quoted separately")
+    para(c, "Video production from US$39 · Personal AI Video Presenter setup quoted separately", 25 * mm, 42 * mm, 150 * mm, SMALL)
     footer(c, 1)
 
 
@@ -152,7 +150,7 @@ def draw_story(c):
             "NOW · AI VIDEO PRESENTER PRODUCTION",
             AI_AVATAR_PRODUCTION,
             "Validate the script, delivery and visuals, then confirm 'Approved to generate' in writing.<br/>A basic AI-assisted grammar and clarity pass flags obvious issues before generation.<br/>No studio, crew, rehearsal or physical reshoot required.<br/>Keep delivery, background and captions consistent.<br/>Finish with human QA before publish.",
-            "Technical rerenders needed to match the approved brief are included. Client-requested changes after generation are chargeable.",
+            "Technical rerenders that match the approved brief are included. Client-requested changes after generation are charged.",
         ),
     ]
     for x, title, image, body, note in cards:
@@ -261,7 +259,7 @@ def draw_packages(c):
         c.setFillColor(LIME)
         c.circle(x, y + 1.5, 1.2 * mm, fill=1, stroke=0)
         c.setFillColor(WHITE)
-        c.setFont("Helvetica", 8.4)
+        c.setFont("Helvetica", 9.2)
         c.drawString(x + 4 * mm, y, item)
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 18 * mm, 27 * mm, 58 * mm, 13 * mm)
     para(c, "Listed video prices include a Standard AI Presenter. Personal AI Video Presenter setup using your authorised face and voice is a separate one-time service and is quoted before work begins.", 82 * mm, 39 * mm, 110 * mm, SMALL)
@@ -291,7 +289,7 @@ def draw_brief(c):
         c.setFont("Helvetica-Bold", 13)
         c.drawString(x, y, num)
         c.setFillColor(WHITE)
-        c.setFont("Helvetica-Bold", 9.4)
+        c.setFont("Helvetica-Bold", 10.2)
         c.drawString(x + 10 * mm, y, title)
         para(c, text, x + 10 * mm, y - 4 * mm, 72 * mm, SMALL)
 
@@ -304,7 +302,7 @@ def draw_brief(c):
         c.setFillColor(CYAN)
         c.circle(x + 4 * mm, 75 * mm, 4 * mm, fill=1, stroke=0)
         c.setFillColor(NAVY)
-        c.setFont("Helvetica-Bold", 7.6)
+        c.setFont("Helvetica-Bold", 8.2)
         c.drawCentredString(x + 4 * mm, 73.5 * mm, str(i + 1))
         para(c, step, x - 2 * mm, 68 * mm, step_w - 3 * mm, CENTER)
         if i < 5:
@@ -362,7 +360,7 @@ def draw_longform(c):
         c.setFillColor(LIME)
         c.circle(x, y + 1.5, 1.2 * mm, fill=1, stroke=0)
         c.setFillColor(WHITE)
-        c.setFont("Helvetica", 7.8)
+        c.setFont("Helvetica", 8.8)
         c.drawString(x + 4 * mm, y, item)
     para(c, "For videos longer than 10 minutes, one consolidated approval covers the complete script and visual plan. Production may then be completed in sections and assembled into one final video. Client-requested changes after generation are chargeable.", 24 * mm, 70 * mm, 160 * mm, SMALL)
     link_button(c, "DISCUSS A DURATION", LINKEDIN, 18 * mm, 22 * mm, 58 * mm, 12 * mm)
@@ -380,13 +378,13 @@ def draw_demos(c):
         (
             DR_XI_POSTER,
             "Dr. Xi - One-Minute Finance Briefing",
-            "Mandarin financial-news delivery with a calm executive presence.",
+            "Calm Mandarin finance briefing with an executive presence.",
             SITE + "#demo-dr-xi",
         ),
         (
             CHENXI_POSTER,
             "Chenxi - Finance Presenter Sample",
-            "Broadcast-style Mandarin market update with a professional virtual presenter and finance graphics.",
+            "Mandarin market update with broadcast-style finance graphics.",
             SITE + "#demo-chenxi",
         ),
     ]
@@ -412,7 +410,7 @@ def draw_demos(c):
     heading(c, "Optional add-ons", 18 * mm, 152 * mm, 15)
     addons = [
         ("Long-form runtime", "Up to 30 min"), ("Post-generation minor change", "From US$13"), ("Script polish", "US$19"),
-        ("Full scriptwriting", "US$39+"), ("Personal AI Video Presenter setup", "Quoted separately"), ("Custom background", "US$26+"),
+        ("Full scriptwriting", "US$39+"), ("Personal presenter setup", "Quoted separately"), ("Custom background", "US$26+"),
         ("Additional language version", "US$26"), ("24-hour rush", "+30%"), ("Major regeneration after approval", "From US$26"),
     ]
     for i, (name, price) in enumerate(addons):
@@ -421,10 +419,10 @@ def draw_demos(c):
         y = 126 * mm - row * 20 * mm
         round_rect(c, x, y, 54 * mm, 15 * mm, PANEL_2, LINE, 2 * mm)
         c.setFillColor(WHITE)
-        c.setFont("Helvetica-Bold", 7.5)
+        c.setFont("Helvetica-Bold", 8.2)
         c.drawString(x + 4 * mm, y + 8.5 * mm, name)
         c.setFillColor(LIME)
-        c.setFont("Helvetica-Bold", 7.4)
+        c.setFont("Helvetica-Bold", 8.2)
         c.drawString(x + 4 * mm, y + 3.5 * mm, price)
 
     round_rect(c, 18 * mm, 31 * mm, W - 36 * mm, 29 * mm, colors.HexColor("#123552"), CYAN)
@@ -432,7 +430,7 @@ def draw_demos(c):
     para(c, "Contact Alvin on LinkedIn to confirm a package or discuss your production brief directly.", 24 * mm, 42 * mm, 88 * mm, SMALL)
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, W - 78 * mm, 39 * mm, 54 * mm, 12 * mm)
     c.setFillColor(MUTED)
-    c.setFont("Helvetica", 6.8)
+    c.setFont("Helvetica", 7.8)
     c.drawRightString(W - 18 * mm, 22 * mm, SITE)
     footer(c, 7)
 
