@@ -19,6 +19,7 @@ CHENXI_POSTER = ROOT / "public" / "ai-avatar" / "assets" / "chenxi-finance-poste
 TRADITIONAL_PRODUCTION = ROOT / "public" / "ai-avatar" / "assets" / "traditional-production.png"
 AI_AVATAR_PRODUCTION = ROOT / "public" / "ai-avatar" / "assets" / "ai-avatar-production.png"
 APPLICATION_SCENARIOS = ROOT / "public" / "ai-avatar" / "assets" / "application-scenarios.png"
+VINCENT_PROFILE = ROOT / "public" / "ai-avatar" / "assets" / "prof-vincent-ho-profile.jpg"
 
 SITE = "https://vibe-portfolio-dny.pages.dev/ai-avatar/"
 PDF_LINK = SITE + "AI_Avatar_Video_Service_Brochure_EN.pdf"
@@ -72,7 +73,7 @@ def footer(c, page_num):
     c.setFont("Helvetica", 7.8)
     c.setFillColor(MUTED)
     c.drawString(18 * mm, 9.5 * mm, "AI Video Presenter Service · Safety Nexus")
-    c.drawRightString(W - 18 * mm, 9.5 * mm, f"{page_num} / 7")
+    c.drawRightString(W - 18 * mm, 9.5 * mm, f"{page_num} / 8")
 
 
 def link_button(c, text, url, x, y, w, h, fill=CYAN, text_color=NAVY):
@@ -367,6 +368,43 @@ def draw_longform(c):
     footer(c, 5)
 
 
+def draw_testimonial(c):
+    c.setFillColor(NAVY)
+    c.rect(0, 0, W, H, fill=1, stroke=0)
+    label(c, "CLIENT TESTIMONIAL", 18 * mm, H - 24 * mm, LIME)
+    heading(c, "Zero takes, and it is done!!", 18 * mm, H - 43 * mm, 26, CYAN)
+
+    round_rect(c, 18 * mm, 44 * mm, W - 36 * mm, 194 * mm, PANEL_2, CYAN)
+    c.saveState()
+    profile_x, profile_y, profile_size = 28 * mm, 129 * mm, 58 * mm
+    profile_path = c.beginPath()
+    profile_path.circle(profile_x + profile_size / 2, profile_y + profile_size / 2, profile_size / 2)
+    c.clipPath(profile_path, stroke=0, fill=0)
+    c.drawImage(ImageReader(str(VINCENT_PROFILE)), profile_x, profile_y, profile_size, profile_size, mask="auto")
+    c.restoreState()
+    c.setStrokeColor(CYAN)
+    c.setLineWidth(1.5)
+    c.circle(profile_x + profile_size / 2, profile_y + profile_size / 2, profile_size / 2, fill=0, stroke=1)
+
+    label(c, "PROFESSOR VINCENT HO", 30 * mm, 115 * mm)
+    para(c, "Secretary General, APOSHO", 30 * mm, 108 * mm, 60 * mm, BODY_WHITE)
+    label(c, "IN HIS OWN WORDS", 101 * mm, 214 * mm, LIME)
+    quote_style = ParagraphStyle("TestimonialQuote", parent=BODY_WHITE, fontSize=16.5, leading=23)
+    para(
+        c,
+        "<b>\"No studio, no memorising scripts, and no repeated takes. This service turned my script into a realistic, professional video message - saving me hours while preserving my appearance, voice, and personal delivery. Zero takes, and it is done!!\"</b>",
+        101 * mm,
+        199 * mm,
+        80 * mm,
+        quote_style,
+    )
+    para(c, "A reusable Personal AI Video Presenter made it possible to deliver polished international messages without arranging another studio session.", 101 * mm, 104 * mm, 80 * mm, SMALL)
+
+    round_rect(c, 28 * mm, 58 * mm, 153 * mm, 29 * mm, PANEL, LIME)
+    para(c, "<b>REALISTIC PRESENCE</b>  Face, voice and personal delivery preserved.<br/><b>TIME SAVED</b>  No studio, rehearsal or repeat filming.", 35 * mm, 78 * mm, 139 * mm, SMALL)
+    footer(c, 7)
+
+
 def draw_demos(c):
     c.setFillColor(NAVY)
     c.rect(0, 0, W, H, fill=1, stroke=0)
@@ -432,7 +470,7 @@ def draw_demos(c):
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 7.8)
     c.drawRightString(W - 18 * mm, 22 * mm, SITE)
-    footer(c, 7)
+    footer(c, 8)
 
 
 def build():
@@ -442,7 +480,7 @@ def build():
     c.setTitle("AI Video Presenter Service - Pricing, Briefing & Demos")
     c.setAuthor("Alvin Liao · Safety Nexus")
     c.setSubject("Professional AI Video Presenter packages, client briefing requirements and demo links")
-    for page in (draw_cover, draw_story, draw_use_cases, draw_packages, draw_longform, draw_brief, draw_demos):
+    for page in (draw_cover, draw_story, draw_use_cases, draw_packages, draw_longform, draw_brief, draw_testimonial, draw_demos):
         page(c)
         c.showPage()
     c.save()

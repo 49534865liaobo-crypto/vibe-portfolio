@@ -20,6 +20,7 @@ AI_PRODUCTION = ROOT / "public" / "ai-avatar" / "assets" / "ai-avatar-production
 SCENARIOS = ROOT / "public" / "ai-avatar" / "assets" / "application-scenarios.png"
 DR_XI = ROOT / "public" / "ai-avatar" / "assets" / "dr-xi-finance-poster.jpg"
 CHENXI = ROOT / "public" / "ai-avatar" / "assets" / "chenxi-finance-poster.jpg"
+VINCENT_PROFILE = ROOT / "public" / "ai-avatar" / "assets" / "prof-vincent-ho-profile.jpg"
 
 SITE = "https://vibe-portfolio-dny.pages.dev/ai-avatar/"
 LINKEDIN = "https://www.linkedin.com/in/ir-bo-alvin-liao-2b237b95/"
@@ -89,7 +90,7 @@ def footer(c, page_number):
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 9)
     c.drawString(18 * mm, 9 * mm, "AI Video Presenter Service - Large Text Edition")
-    c.drawRightString(W - 18 * mm, 9 * mm, f"{page_number} / 11")
+    c.drawRightString(W - 18 * mm, 9 * mm, f"{page_number} / 12")
 
 
 def button(c, text, url, x, y, width, height, fill=CYAN, text_color=NAVY):
@@ -390,6 +391,41 @@ def draw_approval(c):
     footer(c, 9)
 
 
+def draw_testimonial(c):
+    page_bg(c)
+    label(c, "CLIENT TESTIMONIAL", 18 * mm, H - 25 * mm, LIME)
+    heading(c, "Zero takes, and it is done!!", 18 * mm, H - 44 * mm, 27, CYAN)
+
+    round_rect(c, 18 * mm, 36 * mm, W - 36 * mm, 192 * mm, PANEL_2, CYAN)
+    c.saveState()
+    profile_x, profile_y, profile_size = 62 * mm, 151 * mm, 68 * mm
+    profile_path = c.beginPath()
+    profile_path.circle(profile_x + profile_size / 2, profile_y + profile_size / 2, profile_size / 2)
+    c.clipPath(profile_path, stroke=0, fill=0)
+    c.drawImage(ImageReader(str(VINCENT_PROFILE)), profile_x, profile_y, profile_size, profile_size, mask="auto")
+    c.restoreState()
+    c.setStrokeColor(CYAN)
+    c.setLineWidth(1.8)
+    c.circle(profile_x + profile_size / 2, profile_y + profile_size / 2, profile_size / 2, fill=0, stroke=1)
+
+    label(c, "IN HIS OWN WORDS", 25 * mm, 139 * mm, LIME)
+    quote_style = ParagraphStyle("LargeTestimonialQuote", parent=BODY_WHITE, fontSize=16, leading=22)
+    para(
+        c,
+        "<b>\"No studio, no memorising scripts, and no repeated takes. This service turned my script into a realistic, professional video message - saving me hours while preserving my appearance, voice, and personal delivery. Zero takes, and it is done!!\"</b>",
+        25 * mm,
+        126 * mm,
+        160 * mm,
+        quote_style,
+    )
+    c.setStrokeColor(LIME)
+    c.setLineWidth(2)
+    c.line(25 * mm, 45 * mm, 25 * mm, 70 * mm)
+    heading(c, "Professor Vincent Ho", 33 * mm, 61 * mm, 18)
+    para(c, "Secretary General, APOSHO", 33 * mm, 52 * mm, 120 * mm, BODY_WHITE)
+    footer(c, 10)
+
+
 def draw_demos(c):
     page_bg(c)
     label(c, "CLIENT-SUPPLIED DEMOS", 18 * mm, H - 25 * mm)
@@ -408,7 +444,7 @@ def draw_demos(c):
         button(c, "WATCH DEMO", url, x + 6 * mm, 101 * mm, 50 * mm, 13 * mm, PANEL_2, CYAN)
     para(c, "Demo media is client-supplied. Customers must hold the necessary rights and written consent for custom likeness, voice and supplied media.", 18 * mm, 74 * mm, 174 * mm, SMALL)
     button(c, "VIEW ALL DEMOS", SITE, 18 * mm, 31 * mm, 58 * mm, 14 * mm)
-    footer(c, 10)
+    footer(c, 11)
 
 
 def draw_addons(c):
@@ -438,7 +474,7 @@ def draw_addons(c):
     heading(c, "Ready to create your video?", 25 * mm, 63 * mm, 20)
     para(c, "Contact Alvin on LinkedIn to confirm a package or discuss your brief.", 25 * mm, 53 * mm, 98 * mm, SMALL)
     button(c, "CONTACT ON LINKEDIN", LINKEDIN, W - 79 * mm, 43 * mm, 55 * mm, 14 * mm)
-    footer(c, 11)
+    footer(c, 12)
 
 
 def build():
@@ -458,6 +494,7 @@ def build():
         draw_longform,
         draw_brief,
         draw_approval,
+        draw_testimonial,
         draw_demos,
         draw_addons,
     )
