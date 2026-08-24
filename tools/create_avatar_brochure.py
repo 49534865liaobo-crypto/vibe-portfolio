@@ -92,22 +92,22 @@ def draw_cover(c):
     c.circle(W - 40 * mm, H - 35 * mm, 72 * mm, fill=1, stroke=0)
     c.setFillColor(colors.HexColor("#0E3850"))
     c.circle(W - 22 * mm, H - 8 * mm, 32 * mm, fill=1, stroke=0)
-    label(c, "PROFESSIONAL AI VIDEO PRODUCTION", 18 * mm, H - 28 * mm)
-    heading(c, "AI Avatar", 18 * mm, H - 53 * mm, 38)
-    heading(c, "Video Service", 18 * mm, H - 70 * mm, 38, CYAN)
-    para(c, "Save production time and overhead. Create polished multilingual messages with narration and subtitles in your selected language - without cameras, studios or repeated takes.", 18 * mm, H - 83 * mm, 110 * mm, BODY_WHITE)
+    label(c, "PERSONAL AI VIDEO PRODUCTION", 18 * mm, H - 28 * mm)
+    heading(c, "Your face. Your voice.", 18 * mm, H - 53 * mm, 31)
+    heading(c, "No camera each time.", 18 * mm, H - 69 * mm, 31, CYAN)
+    para(c, "Create a realistic personal AI presenter. Once approved, send a script and receive a polished multilingual video without filming, memorising lines or repeating takes.", 18 * mm, H - 82 * mm, 118 * mm, BODY_WHITE)
     link_button(c, "VIEW SERVICE & DEMOS", SITE, 18 * mm, H - 119 * mm, 52 * mm, 13 * mm)
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 74 * mm, H - 119 * mm, 54 * mm, 13 * mm, PANEL, WHITE)
 
     round_rect(c, 18 * mm, 33 * mm, W - 36 * mm, 109 * mm, PANEL_2)
-    label(c, "WHY CLIENTS CHOOSE THIS", 25 * mm, 128 * mm, LIME)
-    heading(c, "A polished message, ready to share.", 25 * mm, 116 * mm, 19)
-    para(c, "Turn an approved script into a clear, on-brand avatar video for executives, training, events and campaigns - with a streamlined production workflow.", 25 * mm, 109 * mm, 150 * mm, SMALL)
+    label(c, "WHAT THIS SERVICE ACTUALLY DOES", 25 * mm, 128 * mm, LIME)
+    heading(c, "Your on-demand video presenter.", 25 * mm, 116 * mm, 19)
+    para(c, "Not a cartoon avatar or Zoom character. It is a realistic presenter created from your authorised face and voice, then reused for future approved scripts.", 25 * mm, 109 * mm, 150 * mm, SMALL)
     signals = [
-        ("1080p", "Clean MP4 delivery"),
-        ("BRANDED", "Background and logo"),
+        ("YOUR FACE", "Authorised likeness"),
+        ("YOUR VOICE", "Consented recreation"),
         ("MULTILINGUAL", "Selected voice + subtitles"),
-        ("APPROVAL GATE", "Brief locked before generation"),
+        ("REUSABLE", "Future scripts, no new shoot"),
     ]
     card_w = 76 * mm
     card_h = 25 * mm
@@ -122,7 +122,7 @@ def draw_cover(c):
         c.drawString(x + 5 * mm, y + 7 * mm, detail)
     c.setFillColor(MUTED)
     c.setFont("Helvetica", 7.2)
-    c.drawString(25 * mm, 39 * mm, "Starter from US$39 · one video up to 90 seconds")
+    c.drawString(25 * mm, 39 * mm, "Video production from US$39 · personal AI presenter setup quoted separately")
     footer(c, 1)
 
 
@@ -164,12 +164,12 @@ def draw_story(c):
         para(c, f"<font color='#B9F35D'><b>{note}</b></font>", x + 5 * mm, card_y + 14 * mm, card_w - 10 * mm, SMALL)
 
     round_rect(c, 18 * mm, 31 * mm, W - 36 * mm, 54 * mm, PANEL_2, CYAN)
-    label(c, "WHY CLIENTS CHOOSE AI AVATAR VIDEO", 24 * mm, 76 * mm, LIME)
+    label(c, "WHY CLIENTS USE IT", 24 * mm, 76 * mm, LIME)
     benefits = [
         ("SAVE MONEY", "Reduce studio, crew, travel and repeat-shoot overhead."),
         ("SAVE TIME", "Skip rehearsal days, camera scheduling and retake loops."),
-        ("SHARPEN THE SCRIPT", "AI checks basic grammar and clarity in the selected language; you approve every word."),
-        ("STAY CONSISTENT", "Keep voice, delivery, captions and brand aligned at scale."),
+        ("SHORT UPDATES", "LinkedIn posts, announcements and weekly news."),
+        ("TRAINING & EVENTS", "Lessons, invitations and welcome messages."),
     ]
     for i, (title, copy) in enumerate(benefits):
         col, row = i % 2, i // 2
@@ -188,10 +188,10 @@ def draw_packages(c):
     para(c, "Choose any client-selected narration and subtitle language; one language is included per video. Suitable avatar and voice availability is confirmed before approval.", 18 * mm, H - 47 * mm, 166 * mm)
 
     plans = [
-        ("SINGLE VIDEO", "US$39", "1 video", "Best for one-off messages"),
-        ("MONTHLY 4", "US$140", "US$35 / video", "Flexible monthly content"),
-        ("GROWTH 8", "US$248", "US$31 / video", "For active campaigns"),
-        ("PARTNER 12", "US$324", "US$27 / video", "Best long-term value"),
+        ("SINGLE VIDEO", "US$39", "1 finished video", "Up to 90 seconds<br/>One-off"),
+        ("MONTHLY 4", "US$140", "4 videos / month · US$35 each", "Each up to 90 seconds<br/>Use within the month"),
+        ("GROWTH 8", "US$248", "8 videos · US$31 each", "Each up to 90 seconds<br/>Valid for 3 months"),
+        ("PARTNER 12", "US$324", "12 videos · US$27 each", "Each up to 90 seconds<br/>Valid for 6 months"),
     ]
     card_w = (W - 36 * mm - 9 * mm) / 2
     card_h = 44 * mm
@@ -209,7 +209,7 @@ def draw_packages(c):
     box_y = 53 * mm
     round_rect(c, 18 * mm, box_y, W - 36 * mm, 57 * mm, PANEL_2)
     heading(c, "Every short-form video includes", 24 * mm, box_y + 46 * mm, 15)
-    items = ["Up to 90 seconds", "Client-supplied approved script", "Basic AI grammar and clarity check", "Professional AI avatar and voice", "Branded background", "Narration + subtitles in one language", "1080p MP4 delivery", "One consolidated pre-generation review"]
+    items = ["Up to 90 seconds each", "Client-supplied approved script", "Basic AI grammar and clarity check", "Standard AI presenter and voice", "Branded background", "Narration + subtitles in one language", "1080p MP4 delivery", "One consolidated pre-generation review"]
     for i, item in enumerate(items):
         col, row = i % 2, i // 2
         x = 25 * mm + col * 84 * mm
@@ -220,7 +220,7 @@ def draw_packages(c):
         c.setFont("Helvetica", 8.4)
         c.drawString(x + 4 * mm, y, item)
     link_button(c, "CONTACT ON LINKEDIN", LINKEDIN, 18 * mm, 27 * mm, 58 * mm, 13 * mm)
-    para(c, "Production begins only after the complete brief, rights/consents and written 'Approved to generate' confirmation are received. Client-requested changes after generation are charged separately.", 82 * mm, 39 * mm, 110 * mm, SMALL)
+    para(c, "Listed video prices include a standard AI presenter. Personal AI Presenter setup using your authorised face and voice is a separate one-time service and is quoted before work begins.", 82 * mm, 39 * mm, 110 * mm, SMALL)
     footer(c, 3)
 
 
@@ -279,11 +279,11 @@ def draw_longform(c):
     para(c, "The US$39 starter offer covers one video up to 90 seconds only. For longer programmes, choose a maximum runtime below and we will shape the production around your approved brief.", 18 * mm, H - 47 * mm, 164 * mm)
 
     tiers = [
-        ("UP TO 3 MIN", "US$51", "about US$17/min"),
-        ("UP TO 5 MIN", "US$64", "about US$13/min"),
-        ("UP TO 10 MIN", "US$90", "about US$9/min"),
-        ("UP TO 20 MIN", "US$115", "about US$6/min"),
-        ("UP TO 30 MIN", "US$141", "about US$5/min"),
+        ("1 VIDEO · UP TO 3 MIN", "US$51", "about US$17/min"),
+        ("1 VIDEO · UP TO 5 MIN", "US$64", "about US$13/min"),
+        ("1 VIDEO · UP TO 10 MIN", "US$90", "about US$9/min"),
+        ("1 VIDEO · UP TO 20 MIN", "US$115", "about US$6/min"),
+        ("1 VIDEO · UP TO 30 MIN", "US$141", "about US$5/min"),
     ]
     card_w = (W - 42 * mm) / 3
     card_h = 38 * mm
@@ -320,7 +320,7 @@ def draw_longform(c):
         c.setFillColor(WHITE)
         c.setFont("Helvetica", 7.8)
         c.drawString(x + 4 * mm, y, item)
-    para(c, "Projects longer than 10 minutes may be produced in sections. Each section is validated before generation and assembled into one final video. Additional client changes before approval may be quoted; all client-requested changes after generation are chargeable.", 24 * mm, 70 * mm, 160 * mm, SMALL)
+    para(c, "For videos longer than 10 minutes, one consolidated approval covers the complete script and visual plan. Production may then be completed in sections and assembled into one final video. Client-requested changes after generation are chargeable.", 24 * mm, 70 * mm, 160 * mm, SMALL)
     link_button(c, "DISCUSS A DURATION", LINKEDIN, 18 * mm, 22 * mm, 58 * mm, 12 * mm)
     footer(c, 4)
 
@@ -368,7 +368,7 @@ def draw_demos(c):
     heading(c, "Optional add-ons", 18 * mm, 152 * mm, 15)
     addons = [
         ("Long-form runtime", "Up to 30 min"), ("Post-generation minor change", "From US$13"), ("Script polish", "US$19"),
-        ("Full scriptwriting", "US$39+"), ("Custom avatar look", "US$52+"), ("Custom background", "US$26+"),
+        ("Full scriptwriting", "US$39+"), ("Personal AI Presenter setup", "Quoted separately"), ("Custom background", "US$26+"),
         ("Additional language version", "US$26"), ("24-hour rush", "+30%"), ("Major regeneration after approval", "From US$26"),
     ]
     for i, (name, price) in enumerate(addons):
